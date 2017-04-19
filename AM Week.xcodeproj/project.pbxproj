@@ -11,9 +11,9 @@
 		8EEA4980214E59CD1EDE4146 /* libPods-AM WeekTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CC770DFE72F2A0D6A50490 /* libPods-AM WeekTests.a */; };
 		AA998C402002DEFC909EF150 /* libPods-AM Week.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB42A2910E9F06D32AEB07B /* libPods-AM Week.a */; };
 		D979888248E7BB0D3B1BF862 /* libPods-AM WeekUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C375E6BA30A5E790D1ACBAD /* libPods-AM WeekUITests.a */; };
+		E44C45341EA76F4700BC6CEB /* ScheduleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E44C45331EA76F4700BC6CEB /* ScheduleTableViewController.m */; };
 		E48089091EA6062A00A543C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E48089081EA6062A00A543C3 /* main.m */; };
 		E480890C1EA6062A00A543C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E480890B1EA6062A00A543C3 /* AppDelegate.m */; };
-		E480890F1EA6062A00A543C3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E480890E1EA6062A00A543C3 /* ViewController.m */; };
 		E48089121EA6062A00A543C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48089101EA6062A00A543C3 /* Main.storyboard */; };
 		E48089141EA6062A00A543C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48089131EA6062A00A543C3 /* Assets.xcassets */; };
 		E48089171EA6062A00A543C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48089151EA6062A00A543C3 /* LaunchScreen.storyboard */; };
@@ -51,12 +51,12 @@
 		CFBA7DC793214FE1BF43C0AF /* Pods-AM Week.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM Week.release.xcconfig"; path = "Pods/Target Support Files/Pods-AM Week/Pods-AM Week.release.xcconfig"; sourceTree = "<group>"; };
 		DCB42A2910E9F06D32AEB07B /* libPods-AM Week.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AM Week.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9A456E5A7A86D48B6EE858 /* Pods-AM WeekTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM WeekTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AM WeekTests/Pods-AM WeekTests.release.xcconfig"; sourceTree = "<group>"; };
+		E44C45321EA76F4700BC6CEB /* ScheduleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewController.h; sourceTree = "<group>"; };
+		E44C45331EA76F4700BC6CEB /* ScheduleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewController.m; sourceTree = "<group>"; };
 		E48089041EA6062A00A543C3 /* AM Week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AM Week.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48089081EA6062A00A543C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E480890A1EA6062A00A543C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E480890B1EA6062A00A543C3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E480890D1EA6062A00A543C3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E480890E1EA6062A00A543C3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E48089111EA6062A00A543C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E48089131EA6062A00A543C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E48089161EA6062A00A543C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -143,6 +143,7 @@
 		E48089061EA6062A00A543C3 /* AM Week */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				E48089101EA6062A00A543C3 /* Main.storyboard */,
 				FFF3FE4E1EA770200033AAFE /* AppDelegate */,
 				FFF3FE4F1EA7750A0033AAFE /* Training */,
@@ -150,6 +151,13 @@
 				FFF3FE531EA777680033AAFE /* Quiz */,
 				E480890D1EA6062A00A543C3 /* ViewController.h */,
 				E480890E1EA6062A00A543C3 /* ViewController.m */,
+=======
+				E480890A1EA6062A00A543C3 /* AppDelegate.h */,
+				E480890B1EA6062A00A543C3 /* AppDelegate.m */,
+				E44C45321EA76F4700BC6CEB /* ScheduleTableViewController.h */,
+				E44C45331EA76F4700BC6CEB /* ScheduleTableViewController.m */,
+				E48089101EA6062A00A543C3 /* Main.storyboard */,
+>>>>>>> Setup Schedule UI in Tab Bar Application
 				E48089131EA6062A00A543C3 /* Assets.xcassets */,
 				E48089151EA6062A00A543C3 /* LaunchScreen.storyboard */,
 				E48089181EA6062A00A543C3 /* Info.plist */,
@@ -511,8 +519,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				FFF3FE521EA7752F0033AAFE /* Training.m in Sources */,
 				E480890F1EA6062A00A543C3 /* ViewController.m in Sources */,
+=======
+				E44C45341EA76F4700BC6CEB /* ScheduleTableViewController.m in Sources */,
+>>>>>>> Setup Schedule UI in Tab Bar Application
 				E480890C1EA6062A00A543C3 /* AppDelegate.m in Sources */,
 				E48089091EA6062A00A543C3 /* main.m in Sources */,
 				FFF3FE571EA7778A0033AAFE /* Quiz.m in Sources */,
