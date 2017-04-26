@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8EC9076B1EA640C900A9417E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EC9076A1EA640C900A9417E /* GoogleService-Info.plist */; };
+		8EC907721EA74B3600A9417E /* FireBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC907711EA74B3600A9417E /* FireBaseService.m */; };
 		8EEA4980214E59CD1EDE4146 /* libPods-AM WeekTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CC770DFE72F2A0D6A50490 /* libPods-AM WeekTests.a */; };
 		AA998C402002DEFC909EF150 /* libPods-AM Week.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB42A2910E9F06D32AEB07B /* libPods-AM Week.a */; };
 		D979888248E7BB0D3B1BF862 /* libPods-AM WeekUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C375E6BA30A5E790D1ACBAD /* libPods-AM WeekUITests.a */; };
@@ -46,6 +47,8 @@
 		36136C781BB0CC39464438D1 /* Pods-AM WeekTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM WeekTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AM WeekTests/Pods-AM WeekTests.debug.xcconfig"; sourceTree = "<group>"; };
 		789B73898A6CCD6F75E81B3F /* Pods-AM WeekUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM WeekUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AM WeekUITests/Pods-AM WeekUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8EC9076A1EA640C900A9417E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8EC907701EA74B3600A9417E /* FireBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FireBaseService.h; sourceTree = "<group>"; };
+		8EC907711EA74B3600A9417E /* FireBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FireBaseService.m; sourceTree = "<group>"; };
 		9FC676E9943090D4A2E23C44 /* Pods-AM WeekUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM WeekUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AM WeekUITests/Pods-AM WeekUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7A9488C9ABDE0854785595D /* Pods-AM Week.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM Week.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AM Week/Pods-AM Week.debug.xcconfig"; sourceTree = "<group>"; };
 		CFBA7DC793214FE1BF43C0AF /* Pods-AM Week.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM Week.release.xcconfig"; path = "Pods/Target Support Files/Pods-AM Week/Pods-AM Week.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +118,15 @@
 				789B73898A6CCD6F75E81B3F /* Pods-AM WeekUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		8EC9076C1EA73B9400A9417E /* Parse Firebase Data */ = {
+			isa = PBXGroup;
+			children = (
+				8EC907701EA74B3600A9417E /* FireBaseService.h */,
+				8EC907711EA74B3600A9417E /* FireBaseService.m */,
+			);
+			name = "Parse Firebase Data";
 			sourceTree = "<group>";
 		};
 		E48088FB1EA6062A00A543C3 = {
