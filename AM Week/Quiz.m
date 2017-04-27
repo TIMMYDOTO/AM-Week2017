@@ -10,4 +10,18 @@
 
 @implementation Quiz
 
+- (id) init {
+    self = [super init];
+    
+    return self;
+}
+
+- (id) initQuizWithDict: (NSDictionary*) dict {
+    
+    self = [self init];
+    
+    
+    return self;
+}
+
 @end

@@ -16,7 +16,7 @@
     return self;
 }
 
-- (id) initStreamWithDict: (NSDictionary*) dict {
+- (id) initTrainingWithDict: (NSDictionary*) dict {
     
     self = [self init];
     
