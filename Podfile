@@ -8,6 +8,7 @@ target 'AM Week' do
   # Pods for AM Week
 
   pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
   target 'AM WeekTests' do
     inherit! :search_paths

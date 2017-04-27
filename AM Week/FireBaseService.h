@@ -14,9 +14,7 @@ typedef void (^FireBaseCompletionBlock)(NSArray* result, NSError* error);
 
 @interface FireBaseService : NSObject
 
-+ (NSDictionary*) getAllData;
-+ (NSMutableArray*) getAllTrainings;
++ (void) getAllTrainings: (NSMutableDictionary*) dict withCompletionBlock:(FireBaseCompletionBlock) completionBlock;
 + (id)sharedManager;
-- (void) getScheduleForDate: (NSDate*) date completionBlock: (FireBaseCompletionBlock) completionBlock;
 
 @end

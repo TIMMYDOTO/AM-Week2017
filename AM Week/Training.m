@@ -10,4 +10,18 @@
 
 @implementation Training
 
+- (id) init {
+    self = [super init];
+    
+    return self;
+}
+
+- (id) initStreamWithDict: (NSDictionary*) dict {
+    
+    self = [self init];
+    
+    
+    return self;
+}
+
 @end

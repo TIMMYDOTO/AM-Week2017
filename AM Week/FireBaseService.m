@@ -7,6 +7,8 @@
 //
 
 #import "FireBaseService.h"
+#import "Training.h"
+
 @import FirebaseDatabase;
 
 typedef enum {
@@ -15,16 +17,13 @@ typedef enum {
 } AMWScope;
 
 
-@interface FireBaseService() {
+@interface FireBaseService(){
     FIRDatabaseHandle refHandle;
     FIRDatabaseReference *ref;
 }
-
-  
 @end
 
 @implementation FireBaseService
-
 
 + (id)sharedManager {
     static FireBaseService *sharedMyManager = nil;
@@ -46,78 +45,44 @@ typedef enum {
     [self getValuesForScope:AMWTrainings andCompletionBlock:completionBlock];
 }
 
-//+ (NSDictionary*) getAllData{
-//    return <#expression#>
-//}
-
-+ (NSMutableArray*) getAllTrainings: (NSMutableDictionary*) dict{
++ (void) getAllTrainings: (NSMutableDictionary*) dict withCompletionBlock:(FireBaseCompletionBlock) completionBlock{
     
-    NSMutableArray* trainings = [dict objectForKey:@"trainings"];
-//    NSMutableArray* allInfo = [[NSMutableArray alloc] init];
-//    
-//    for (NSDictionary* training in trainings) {
-//        NSMutableDictionary* newTraining = [[NSMutableDictionary alloc] init];
-//        
-//        newTraining[@"title"] = training[@"Name"];
-//        newTraining[@"date"] = training[@"date"];
-//        newTraining[@"day"] = training[@"day"];
-//        newTraining[@"location"] = training[@"location"];
-//        newTraining[@"loginfo"] = training[@"loginfo"];
-//        newTraining[@"numberofparticipants"] = training[@"numberofparticipants"];
-//        newTraining[@"remotecall"] = training[@"remotecall"];
-//        newTraining[@"shortinfo"] = training[@"shortinfo"];
-//        newTraining[@"time"] = training[@"time"];
-//        
-//        [allInfo addObject:newTraining];
-//    }
-    NSLog(@"%@", trainings);
-    return  trainings;
+    NSMutableDictionary* trainings = [dict objectForKey:@"trainings"];
+    NSMutableArray* allInfo = [[NSMutableArray alloc] init];
+    
+    [trainings enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        
+        NSMutableDictionary* newTraining = [[NSMutableDictionary alloc] init];
+        
+        newTraining[@"title"] = obj[@"title"];
+        newTraining[@"date"] = obj[@"date"];
+        newTraining[@"day"] = obj[@"day"];
+        newTraining[@"location"] = obj[@"location"];
+        newTraining[@"longInfo"] = obj[@"longInfo"];
+        newTraining[@"remoteCall"] = obj[@"remoteCall"];
+        newTraining[@"shortInfo"] = obj[@"shortInfo"];
+        newTraining[@"time"] = obj[@"time"];
+        newTraining[@"speakerId"] = obj[@"speakerId"];
+        newTraining[@"trainingId"] = obj[@"id"];
+        
+        [allInfo addObject:[[Training alloc] initTrainingWithDict:newTraining]];
+    }];
+   
+    NSLog(@"%@", allInfo);
+    if (completionBlock) {
+        completionBlock(allInfo,nil);
+    }
 }
 
 - (void) getValuesForScope: (AMWScope) scope andCompletionBlock: (FireBaseCompletionBlock) completionBlock{
     ref = [[FIRDatabase database] reference];
     
-//    NSArray* scopeTitles = @[@"people",@"trainings"];
-    
     refHandle = [ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot){
         NSMutableDictionary *localResult = snapshot.value;
-//        NSLog(@"ceva%@", localResult);
         
-        [FireBaseService getAllTrainings:localResult];
-        
-        /*
-        if (errr) {
-        if (completionBlock) {
-        completionBlock(nil,error);
-        }
-        }
-        else  */
-//        if ([localResult isKindOfClass:[NSArray class]]) {
-//            
-//            
-//            if (completionBlock) {
-//                completionBlock([NSMutableArray arrayWithArray:[self arrayForScope:scope fromObject:localResult]],nil);
-//            }
-//        } else {
-//            // dictionary
-//        }
-        
+        [FireBaseService getAllTrainings:localResult withCompletionBlock:completionBlock];
+
     }];
 }
-
-//- (NSArray*) arrayForScope: (AMWScope) scope fromObject: (id) primaryValue  {
-//    
-//    NSMutableArray* returnResult = [[NSMutableArray alloc] init];
-//    switch (scope) {
-//        case AMWTrainings: {
-//            NSMutableArray* result = [[NSMutableArray alloc] init];
-//
-//            returnResult = result;
-//        }
-//        default: returnResult = nil;
-//            break;
-//    }
-//    return returnResult;
-//}
 
 @end
