@@ -7,6 +7,7 @@
 //
 
 #import "QuizCell.h"
+#import "Quiz.h"
 
 @interface QuizCell()
 
@@ -19,7 +20,11 @@
 @implementation QuizCell
 
 - (void) setupContentWithDictionary:(Quiz *)dict{
-
+    self.quiz = dict;
+    
+//    _title.text = _quiz.title;
+    _question.text = _quiz.question;
+    _timeDate.text = _quiz.date;
 
 }
 

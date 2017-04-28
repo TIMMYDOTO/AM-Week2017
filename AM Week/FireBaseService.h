@@ -12,9 +12,11 @@
 typedef void (^FireBaseCompletionBlock)(NSArray* result, NSError* error);
 
 
-@interface FireBaseService : NSObject
+@interface FirebaseService : NSObject
 
-+ (void) getAllTrainings: (NSMutableDictionary*) dict withCompletionBlock:(FireBaseCompletionBlock) completionBlock;
++ (void) getAllTrainings: (NSMutableDictionary*) dict;
++ (NSMutableArray*) getAllQuizzes: (NSMutableDictionary*) dict;
++ (void) getFirebase;
 + (id)sharedManager;
 
 @end
