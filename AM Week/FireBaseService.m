@@ -1,32 +1,29 @@
 //
-//  Service.m
+//  FirebaseService.m
 //  AM Week
 //
 //  Created by Ion Verdes on 4/19/17.
 //  Copyright © 2017 Artiom Schiopu. All rights reserved.
 //
 
-#import "FireBaseService.h"
+#import "FirebaseService.h"
 #import "Training.h"
+#import "Quiz.h"
 
 @import FirebaseDatabase;
 
-typedef enum {
-    AMWPeople,
-    AMWTrainings
-} AMWScope;
 
 
-@interface FireBaseService(){
+@interface FirebaseService(){
     FIRDatabaseHandle refHandle;
     FIRDatabaseReference *ref;
 }
 @end
 
-@implementation FireBaseService
+@implementation FirebaseService
 
 + (id)sharedManager {
-    static FireBaseService *sharedMyManager = nil;
+    static FirebaseService *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
@@ -41,11 +38,7 @@ typedef enum {
     return self;
 }
 
-- (void) getScheduleForDate: (NSDate*) date completionBlock: (FireBaseCompletionBlock) completionBlock{
-    [self getValuesForScope:AMWTrainings andCompletionBlock:completionBlock];
-}
-
-+ (void) getAllTrainings: (NSMutableDictionary*) dict withCompletionBlock:(FireBaseCompletionBlock) completionBlock{
+- (NSMutableArray*) getAllTrainings: (NSMutableDictionary*) dict andCompletionBlock:(FireBaseCompletionBlock) completionBlock {
     
     NSMutableDictionary* trainings = [dict objectForKey:@"trainings"];
     NSMutableArray* allInfo = [[NSMutableArray alloc] init];
@@ -68,20 +61,43 @@ typedef enum {
         [allInfo addObject:[[Training alloc] initTrainingWithDict:newTraining]];
     }];
    
-    NSLog(@"%@", allInfo);
-    if (completionBlock) {
+    if (completionBlock)
         completionBlock(allInfo,nil);
-    }
+    
+    return allInfo;
 }
 
-- (void) getValuesForScope: (AMWScope) scope andCompletionBlock: (FireBaseCompletionBlock) completionBlock{
-    ref = [[FIRDatabase database] reference];
+- (NSMutableArray*) getAllQuizzes: (NSMutableDictionary*) dict andCompletionBlock:(FireBaseCompletionBlock) completionBlock {
     
+    NSMutableDictionary* quizzes = [dict objectForKey:@"quizzes"];
+    NSMutableArray* allInfo = [[NSMutableArray alloc] init];
+    
+    [quizzes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+        
+        NSMutableDictionary* newQuiz = [[NSMutableDictionary alloc] init];
+        
+        newQuiz[@"question"] = obj[@"question"];
+        newQuiz[@"answers"] = obj[@"answers"];
+        newQuiz[@"date"] = obj[@"date"];
+        newQuiz[@"time"] = obj[@"time"];
+        newQuiz[@"questionId"] = obj[@"questionId"];
+        
+        [allInfo addObject:[[Quiz alloc] initQuizzesWithDict:newQuiz]];
+    }];
+    
+    if (completionBlock)
+        completionBlock(allInfo,nil);
+    
+    return allInfo;
+}
+
+- (void) getFirebase:(AMWScope) scope andCompletionBlock:(FireBaseCompletionBlock) completionBlock {
+    ref = [[FIRDatabase database] reference];
     refHandle = [ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot){
         NSMutableDictionary *localResult = snapshot.value;
         
-        [FireBaseService getAllTrainings:localResult withCompletionBlock:completionBlock];
-
+        [[FirebaseService sharedManager] getAllQuizzes:localResult andCompletionBlock:completionBlock];
+//        [[FirebaseService sharedManager] getAllTrainings:localResult andCompletionBlock:completionBlock];
     }];
 }
 
