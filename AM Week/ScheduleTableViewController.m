@@ -14,16 +14,41 @@
 
 @implementation ScheduleTableViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+- (NSDate*) dateForSelectedTab {
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:22 + self.tabBarController.selectedIndex];
+    [comps setMonth:5];
+    [comps setYear:2017];
+    return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 
+-(NSString*) dateTitleFromDate:(NSDate*) date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd MMM, EEEE"];
+    NSString *weekDayText = [formatter stringFromDate:date];
+    return weekDayText;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    
+    self.date = [self dateForSelectedTab];
+    self.navigationItem.title = [self dateTitleFromDate:self.date];
+    
+    UIButton *button = [[UIButton alloc] init];
+    UIImage*image = [UIImage imageNamed:@"person"];
+    button.frame = CGRectMake(0,0,30,30);
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
+ [button addTarget:self action:@selector(pushToGoogle) forControlEvents:UIControlEventTouchUpInside];
+        
+    
+}
+-(void)pushToGoogle
+{
+    [self performSegueWithIdentifier:@"segueIdentifier" sender:self];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -32,12 +57,12 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+
     return 0;
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "Google.h"
+
 @import Firebase;
 
 @interface AppDelegate ()
@@ -14,12 +16,58 @@
 @end
 
 @implementation AppDelegate
+- (void)signIn:(GIDSignIn *)signIn
+didDisconnectWithUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    NSLog(@"didDisconnectWithUser");
+    
+}
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [FIRApp configure];
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary *)options {
+    return [[GIDSignIn sharedInstance] handleURL:url
+                               sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                      annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+}
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[GIDSignIn sharedInstance] handleURL:url
+                               sourceApplication:sourceApplication
+                                      annotation:annotation];
+}
+- (BOOL)application:(UIApplication *)application
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+   
+   NSError* configureError;
+   [[GGLContext sharedInstance] configureWithError: &configureError];
+   NSAssert(!configureError, @"Error configuring Google services: %@", configureError);
+   
+   [GIDSignIn sharedInstance].delegate = self;
+   [FIRApp configure];
     return YES;
 }
+- (void)signIn:(GIDSignIn *)signIn
+didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    NSLog(@"User signed in!");
+    
+    // Perform any operations on signed in user here.
+    NSString *userId = user.userID;                  // For client-side use only!
+    NSString *idToken = user.authentication.idToken; // Safe to send to the server
+    NSString *fullName = user.profile.name;
+    NSString *givenName = user.profile.givenName;
+    NSString *familyName = user.profile.familyName;
+    NSString *email = user.profile.email;
+    // ...
+}
+
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application {

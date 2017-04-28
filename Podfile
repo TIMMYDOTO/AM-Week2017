@@ -9,7 +9,7 @@ target 'AM Week' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Database'
-
+  pod 'Google/SignIn'
   target 'AM WeekTests' do
     inherit! :search_paths
     # Pods for testing

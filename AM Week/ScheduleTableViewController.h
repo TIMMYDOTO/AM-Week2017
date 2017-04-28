@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ScheduleTableViewController : UITableViewController
-
+@property (nonatomic,retain) NSDate* date;
 @end
