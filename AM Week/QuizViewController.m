@@ -9,6 +9,7 @@
 #import "QuizViewController.h"
 #import "FirebaseService.h"
 #import "QuizCell.h"
+#import "Quiz.h"
 
 @import FirebaseDatabase;
 
@@ -16,7 +17,7 @@
     FIRDatabaseHandle refHandle;
 }
 @property (strong, nonatomic) FIRDatabaseReference *ref;
-@property (strong, nonatomic) NSMutableArray<FIRDataSnapshot *> *quizzes;
+@property (strong, nonatomic) NSMutableArray *quizzes;
 @property(nonatomic, weak) IBOutlet UITableView *quizTable;
 @end
 
@@ -24,22 +25,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _quizzes = [[NSMutableArray alloc] init];
     
-    [self getFirebaseQuizzes];
+    [[FirebaseService sharedManager] getFirebase:(AMWTrainings) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+        NSLog(@"ceva: %@", result);
+        _quizzes = result;
+        [_quizTable insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_quizzes.count-1 inSection:0]] withRowAnimation: UITableViewRowAnimationAutomatic];
+        [_quizTable reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void) getFirebaseQuizzes{
-    _ref = [[FIRDatabase database] reference];
-    refHandle = [[_ref child:@"quizzes"] observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot){
-        NSMutableDictionary *localResult = snapshot.value;
-//        [_quizTable insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_quizzes.count inSection:0]] withRowAnimation: UITableViewRowAnimationAutomatic];
-        
-//        [FirebaseService getAllQuizzes:localResult];
-    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -49,9 +46,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     QuizCell *cell = [_quizTable dequeueReusableCellWithIdentifier:@"QuizCell" forIndexPath:indexPath];
-    
-//    [cell setupContentWithDictionary:_quizzes[indexPath.row]];
-    
+    [cell setupContentWithQuiz:_quizzes[indexPath.row]];
     
     return cell;
 }

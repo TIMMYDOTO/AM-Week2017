@@ -1,5 +1,5 @@
 //
-//  Service.h
+//  FirebaseService.h
 //  AM Week
 //
 //  Created by Ion Verdes on 4/19/17.
@@ -8,15 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    AMWPeople,
+    AMWTrainings
+} AMWScope;
 
-typedef void (^FireBaseCompletionBlock)(NSArray* result, NSError* error);
+typedef void (^FireBaseCompletionBlock)(NSMutableArray* result, NSError* error);
 
 
 @interface FirebaseService : NSObject
 
-+ (void) getAllTrainings: (NSMutableDictionary*) dict;
-+ (NSMutableArray*) getAllQuizzes: (NSMutableDictionary*) dict;
-+ (void) getFirebase;
-+ (id)sharedManager;
+- (NSMutableArray*) getAllTrainings: (NSMutableDictionary*) dict;
+- (NSMutableArray*) getAllQuizzes: (NSMutableDictionary*) dict;
+- (void) getFirebase;
++ (id) sharedManager;
+- (void) getFirebase: (AMWScope) scope andCompletionBlock: (FireBaseCompletionBlock) completionBlock;
 
 @end

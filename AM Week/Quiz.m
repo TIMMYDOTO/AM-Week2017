@@ -18,12 +18,12 @@
 
 - (id) initQuizzesWithDict: (NSDictionary*) dict {
     
-    self = [self init];
-    
-//    _title = dict[@"title"];
+    self = [super init];
+    if (self) {
+    _title = dict[@"title"];
     _question = dict[@"question"];
     _date = dict[@"date"];
-    
+    }
     return self;
 }
 

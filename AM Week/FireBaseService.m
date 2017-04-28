@@ -1,5 +1,5 @@
 //
-//  Service.m
+//  FirebaseService.m
 //  AM Week
 //
 //  Created by Ion Verdes on 4/19/17.
@@ -12,10 +12,6 @@
 
 @import FirebaseDatabase;
 
-typedef enum {
-    AMWPeople,
-    AMWTrainings
-} AMWScope;
 
 
 @interface FirebaseService(){
@@ -42,7 +38,7 @@ typedef enum {
     return self;
 }
 
-+ (void) getAllTrainings: (NSMutableDictionary*) dict{
+- (NSMutableArray*) getAllTrainings: (NSMutableDictionary*) dict andCompletionBlock:(FireBaseCompletionBlock) completionBlock {
     
     NSMutableDictionary* trainings = [dict objectForKey:@"trainings"];
     NSMutableArray* allInfo = [[NSMutableArray alloc] init];
@@ -65,13 +61,13 @@ typedef enum {
         [allInfo addObject:[[Training alloc] initTrainingWithDict:newTraining]];
     }];
    
-    NSLog(@"%@", allInfo);
-//    if (completionBlock) {
-//        completionBlock(allInfo,nil);
-//    }
+    if (completionBlock)
+        completionBlock(allInfo,nil);
+    
+    return allInfo;
 }
 
-+ (NSMutableArray*) getAllQuizzes: (NSMutableDictionary*) dict{
+- (NSMutableArray*) getAllQuizzes: (NSMutableDictionary*) dict andCompletionBlock:(FireBaseCompletionBlock) completionBlock {
     
     NSMutableDictionary* quizzes = [dict objectForKey:@"quizzes"];
     NSMutableArray* allInfo = [[NSMutableArray alloc] init];
@@ -88,17 +84,20 @@ typedef enum {
         
         [allInfo addObject:[[Quiz alloc] initQuizzesWithDict:newQuiz]];
     }];
-    NSLog(@"%@", allInfo);
+    
+    if (completionBlock)
+        completionBlock(allInfo,nil);
+    
     return allInfo;
 }
 
-- (void) getFirebase: (AMWScope) scope andCompletionBlock: (FireBaseCompletionBlock) completionBlock{
+- (void) getFirebase:(AMWScope) scope andCompletionBlock:(FireBaseCompletionBlock) completionBlock {
     ref = [[FIRDatabase database] reference];
     refHandle = [ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot){
         NSMutableDictionary *localResult = snapshot.value;
         
-        [FirebaseService getAllTrainings:localResult];
-
+        [[FirebaseService sharedManager] getAllQuizzes:localResult andCompletionBlock:completionBlock];
+//        [[FirebaseService sharedManager] getAllTrainings:localResult andCompletionBlock:completionBlock];
     }];
 }
 

@@ -19,8 +19,8 @@
 
 @implementation QuizCell
 
-- (void) setupContentWithDictionary:(Quiz *)dict{
-    self.quiz = dict;
+- (void) setupContentWithQuiz:(Quiz *)quiz{
+    _quiz = quiz;
     
 //    _title.text = _quiz.title;
     _question.text = _quiz.question;

@@ -14,6 +14,6 @@
 
 @property (retain, nonatomic) Quiz* quiz;
 
-- (void) setupContentWithDictionary: (Quiz*) dict;
+- (void) setupContentWithQuiz:(Quiz *)quiz;
 
 @end
