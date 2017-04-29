@@ -10,7 +10,8 @@
 
 typedef enum {
     AMWPeople,
-    AMWTrainings
+    AMWTrainings,
+    AMWQuizzes
 } AMWScope;
 
 typedef void (^FireBaseCompletionBlock)(NSMutableArray* result, NSError* error);

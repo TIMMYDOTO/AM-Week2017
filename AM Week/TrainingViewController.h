@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TrainingViewController : UIViewController
+@interface TrainingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic,retain) NSDate* date;
 

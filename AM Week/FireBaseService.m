@@ -12,8 +12,6 @@
 
 @import FirebaseDatabase;
 
-
-
 @interface FirebaseService(){
     FIRDatabaseHandle refHandle;
     FIRDatabaseReference *ref;
@@ -41,6 +39,7 @@
 - (NSMutableArray*) getAllTrainings: (NSMutableDictionary*) dict andCompletionBlock:(FireBaseCompletionBlock) completionBlock {
     
     NSMutableDictionary* trainings = [dict objectForKey:@"trainings"];
+    NSMutableDictionary* speakers = [dict objectForKey:@"speakers"];
     NSMutableArray* allInfo = [[NSMutableArray alloc] init];
     
     [trainings enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
@@ -48,15 +47,30 @@
         NSMutableDictionary* newTraining = [[NSMutableDictionary alloc] init];
         
         newTraining[@"title"] = obj[@"title"];
-        newTraining[@"date"] = obj[@"date"];
+        newTraining[@"timeDate"] = [NSString stringWithFormat:@"%@  %@", obj[@"timeStart"], obj[@"date"]];
         newTraining[@"day"] = obj[@"day"];
         newTraining[@"location"] = obj[@"location"];
-        newTraining[@"longInfo"] = obj[@"longInfo"];
+        newTraining[@"description"] = obj[@"description"];
         newTraining[@"remoteCall"] = obj[@"remoteCall"];
-        newTraining[@"shortInfo"] = obj[@"shortInfo"];
-        newTraining[@"time"] = obj[@"time"];
-        newTraining[@"speakerId"] = obj[@"speakerId"];
+        newTraining[@"stream"] = obj[@"stream"];
+        
+//        NSString* speakerID = obj[@"speakerId"];
+//        NSLog(@"speakers: %@", speakers);
+//        NSLog(@"speakerID: %@", speakerID);
+//        for (NSMutableDictionary* speaker in speakers) {
+//            NSLog(@"speaker[@""]: %@", speaker[@"id"]);
+//            NSLog(@"speakerID: %@", speakerID);
+//            if ([speaker[@"id"] isEqualToString:speakerID]) {
+//                newTraining[@"speaker"] = [NSString stringWithFormat:@"%@",speaker[@"name"]];
+//            }
+//        }
+        
         newTraining[@"trainingId"] = obj[@"id"];
+        newTraining[@"timeStart"] = obj[@"timeStart"];
+        newTraining[@"timeEnd"] = obj[@"timeEnd"];
+        newTraining[@"type"] = obj[@"type"];
+        
+        NSLog(@"speakerId: %@", newTraining[@"speakerId"]);
         
         [allInfo addObject:[[Training alloc] initTrainingWithDict:newTraining]];
     }];
@@ -78,8 +92,7 @@
         
         newQuiz[@"question"] = obj[@"question"];
         newQuiz[@"answers"] = obj[@"answers"];
-        newQuiz[@"date"] = obj[@"date"];
-        newQuiz[@"time"] = obj[@"time"];
+        newQuiz[@"timeDate"] = [NSString stringWithFormat:@"%@ %@",obj[@"time"], obj[@"date"]];
         newQuiz[@"questionId"] = obj[@"questionId"];
         
         [allInfo addObject:[[Quiz alloc] initQuizzesWithDict:newQuiz]];
@@ -95,9 +108,11 @@
     ref = [[FIRDatabase database] reference];
     refHandle = [ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot){
         NSMutableDictionary *localResult = snapshot.value;
-        
-        [[FirebaseService sharedManager] getAllQuizzes:localResult andCompletionBlock:completionBlock];
-//        [[FirebaseService sharedManager] getAllTrainings:localResult andCompletionBlock:completionBlock];
+        if(AMWTrainings){
+            [[FirebaseService sharedManager] getAllTrainings:localResult andCompletionBlock:completionBlock];
+        }else{
+            [[FirebaseService sharedManager] getAllQuizzes:localResult andCompletionBlock:completionBlock];
+        }
     }];
 }
 

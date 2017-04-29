@@ -18,9 +18,12 @@
 
 - (id) initTrainingWithDict: (NSDictionary*) dict {
     
-    self = [self init];
-    
-    
+    self = [super init];
+    if (self) {
+        _title = dict[@"title"];
+        _timeDate = dict[@"timeDate"];
+        _speaker = dict[@"speaker"];
+    }
     return self;
 }
 
