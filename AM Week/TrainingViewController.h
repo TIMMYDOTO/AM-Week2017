@@ -1,13 +1,15 @@
 //
-//  ScheduleTableViewController.h
+//  TrainingViewController.h
 //  AM Week
 //
-//  Created by Artiom Schiopu on 4/19/17.
+//  Created by Ion Verdes on 4/29/17.
 //  Copyright © 2017 Artiom Schiopu. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ScheduleTableViewController : UITableViewController
+@interface TrainingViewController : UIViewController
+
 @property (nonatomic,retain) NSDate* date;
+
 @end

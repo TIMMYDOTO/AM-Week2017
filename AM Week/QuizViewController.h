@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QuizViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>{
-    IBOutlet UITableView *quizTable;
-
-}
+@interface QuizViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

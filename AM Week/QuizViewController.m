@@ -13,15 +13,15 @@
 
 @import FirebaseDatabase;
 
-@interface QuizViewController (){
-    FIRDatabaseHandle refHandle;
-}
-@property (strong, nonatomic) FIRDatabaseReference *ref;
+@interface QuizViewController ()
+
 @property (strong, nonatomic) NSMutableArray *quizzes;
 @property(nonatomic, weak) IBOutlet UITableView *quizTable;
+
 @end
 
 @implementation QuizViewController
+@synthesize quizTable;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,8 +30,8 @@
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         NSLog(@"ceva: %@", result);
         _quizzes = result;
-        [_quizTable insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_quizzes.count-1 inSection:0]] withRowAnimation: UITableViewRowAnimationAutomatic];
-        [_quizTable reloadData];
+        [quizTable insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_quizzes.count-1 inSection:0]] withRowAnimation: UITableViewRowAnimationAutomatic];
+        [quizTable reloadData];
     }];
 }
 
@@ -45,7 +45,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    QuizCell *cell = [_quizTable dequeueReusableCellWithIdentifier:@"QuizCell" forIndexPath:indexPath];
+    QuizCell *cell = [quizTable dequeueReusableCellWithIdentifier:@"QuizCell" forIndexPath:indexPath];
     [cell setupContentWithQuiz:_quizzes[indexPath.row]];
     
     return cell;
