@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 
-@import Firebase;
-@import GoogleSignIn;
+
 @interface AppDelegate ()
 
 @end
@@ -20,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    
-   [FIRApp configure];
+    [FIRApp configure];
     [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
     [GIDSignIn sharedInstance].delegate = self;
     return YES;
@@ -32,8 +31,8 @@ didSignInForUser:(GIDGoogleUser *)user
     // ...
     if (error == nil) {
         GIDAuthentication *authentication = user.authentication;
-        FIRAuthCredential *credential = [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
-                                         accessToken:authentication.accessToken];
+     //   FIRAuthCredential *credential = [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
+       //                                  accessToken:authentication.accessToken];
         BOOL userId = user.profile.hasImage;
         NSString *name = user.profile.name;
         NSString *familyName = user.profile.familyName;

@@ -35,7 +35,7 @@
             <objects>
                 <navigationController id="Kca-qW-s4a" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Thursday" id="kvw-aa-23f"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oF7-to-zDN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oF7-to-zDN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -52,7 +52,7 @@
             <objects>
                 <navigationController id="81d-nt-oZl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friday" id="FAZ-M2-a2p"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VaD-5t-7x2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VaD-5t-7x2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -69,7 +69,7 @@
             <objects>
                 <navigationController id="tkr-jn-6gl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Wednesday" id="Zi6-9z-6Ie"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="P90-On-GAe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P90-On-GAe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -93,9 +93,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MP9-Fm-Ts3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="81" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MP9-Fm-Ts3">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TrainingCell" rowHeight="80" id="tms-a1-MUe" customClass="TrainingCell">
@@ -150,6 +149,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="MP9-Fm-Ts3" secondAttribute="trailing" id="LoS-W9-Ao1"/>
+                            <constraint firstAttribute="bottom" secondItem="MP9-Fm-Ts3" secondAttribute="bottom" id="ZuG-RY-41y"/>
+                            <constraint firstItem="MP9-Fm-Ts3" firstAttribute="top" secondItem="Ra8-PQ-ZqP" secondAttribute="top" constant="20" id="euH-SL-KaW"/>
+                            <constraint firstItem="MP9-Fm-Ts3" firstAttribute="leading" secondItem="Ra8-PQ-ZqP" secondAttribute="leading" id="yco-oX-ACa"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="AHe-J3-UXP"/>
                     <connections>
@@ -186,10 +191,6 @@
                                     <action selector="signOut:" destination="zjx-pe-YT4" eventType="touchUpInside" id="WkN-2e-X3I"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="Gf8-Uc-e1R">
-                                <rect key="frame" x="126" y="72" width="128" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ppp-yY-uuF">
                                 <rect key="frame" x="65" y="208" width="74" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -218,6 +219,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="Gf8-Uc-e1R">
+                                <rect key="frame" x="125" y="72" width="125" height="117"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -230,9 +235,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q5H-mN-bUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2093.5999999999999" y="246.9265367316342"/>
+            <point key="canvasLocation" x="2094" y="233"/>
         </scene>
-        <!--Quiz View Controller-->
+        <!--Quizes-->
         <scene sceneID="yNy-X1-lAh">
             <objects>
                 <viewController id="NHz-U2-fyB" customClass="QuizViewController" sceneMemberID="viewController">
@@ -245,7 +250,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YBD-3k-kl7">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -294,20 +299,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Quizes" id="6cW-yu-X71">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="c42-fn-HLW"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="quizTable" destination="YBD-3k-kl7" id="F8q-HI-L4w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJR-9x-qxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1233" y="985"/>
+            <point key="canvasLocation" x="1232.8" y="984.55772113943033"/>
         </scene>
         <!--Tuesday-->
         <scene sceneID="MLe-8N-FgQ">
             <objects>
                 <navigationController id="7N1-Tf-hqs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tuesday" id="hlF-zj-aIa"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XSJ-Wq-ACw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XSJ-Wq-ACw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -324,7 +332,7 @@
             <objects>
                 <navigationController id="4db-cP-Zrp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Monday" id="EC9-Wn-icx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oKX-Fz-VAS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oKX-Fz-VAS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -342,6 +350,6 @@
         <image name="person" width="649" height="659"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="w4M-hI-9s9"/>
+        <segue reference="LnE-9S-cTv"/>
     </inferredMetricsTieBreakers>
 </document>
