@@ -8,8 +8,6 @@
 
 #import "AppDelegate.h"
 
-@import Firebase;
-
 @interface AppDelegate ()
 
 @end
@@ -18,9 +16,46 @@
 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-   [FIRApp configure];
+   
+    [FIRApp configure];
+    [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
+    [GIDSignIn sharedInstance].delegate = self;
     return YES;
+}
+
+- (void)signIn:(GIDSignIn *)signIn
+didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    // ...
+    if (error == nil) {
+        GIDAuthentication *authentication = user.authentication;
+     //   FIRAuthCredential *credential = [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
+       //                                  accessToken:authentication.accessToken];
+        BOOL userId = user.profile.hasImage;
+        NSString *name = user.profile.name;
+        NSString *familyName = user.profile.familyName;
+        NSURL *imageURL = [user.profile imageURLWithDimension:120];
+        NSLog(@"%d, %@, %@, %@", userId, name, familyName, imageURL);
+        NSLog(@"YOU ARE SIGNED IN");
+        // ...
+    } else {
+        // ...
+    }
+}
+
+- (void)signIn:(GIDSignIn *)signIn
+didDisconnectWithUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    // Perform any operations when the user disconnects from app here.
+    // ...
+}
+
+- (BOOL)application:(nonnull UIApplication *)application
+            openURL:(nonnull NSURL *)url
+            options:(nonnull NSDictionary<NSString *, id> *)options {
+    return [[GIDSignIn sharedInstance] handleURL:url
+                               sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                      annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
