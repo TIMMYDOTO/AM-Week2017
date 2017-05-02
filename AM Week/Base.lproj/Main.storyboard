@@ -30,11 +30,11 @@
             </objects>
             <point key="canvasLocation" x="-1668" y="390"/>
         </scene>
-        <!--T-->
+        <!--Thursday-->
         <scene sceneID="Ijy-Cz-uH0">
             <objects>
                 <navigationController id="Kca-qW-s4a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="T" id="kvw-aa-23f"/>
+                    <tabBarItem key="tabBarItem" title="Thursday" id="kvw-aa-23f"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oF7-to-zDN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -47,11 +47,11 @@
             </objects>
             <point key="canvasLocation" x="-274" y="1050"/>
         </scene>
-        <!--F-->
+        <!--Friday-->
         <scene sceneID="rbe-gx-Rxt">
             <objects>
                 <navigationController id="81d-nt-oZl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="F" id="FAZ-M2-a2p"/>
+                    <tabBarItem key="tabBarItem" title="Friday" id="FAZ-M2-a2p"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VaD-5t-7x2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -64,11 +64,11 @@
             </objects>
             <point key="canvasLocation" x="-274" y="1771"/>
         </scene>
-        <!--W-->
+        <!--Wednesday-->
         <scene sceneID="pTR-Yk-0Uw">
             <objects>
                 <navigationController id="tkr-jn-6gl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="W" id="Zi6-9z-6Ie"/>
+                    <tabBarItem key="tabBarItem" title="Wednesday" id="Zi6-9z-6Ie"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="P90-On-GAe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -230,11 +230,11 @@
             </objects>
             <point key="canvasLocation" x="1233" y="985"/>
         </scene>
-        <!--T-->
+        <!--Tuesday-->
         <scene sceneID="MLe-8N-FgQ">
             <objects>
                 <navigationController id="7N1-Tf-hqs" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="T" id="hlF-zj-aIa"/>
+                    <tabBarItem key="tabBarItem" title="Tuesday" id="hlF-zj-aIa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XSJ-Wq-ACw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -247,11 +247,11 @@
             </objects>
             <point key="canvasLocation" x="-274" y="-327"/>
         </scene>
-        <!--M-->
+        <!--Monday-->
         <scene sceneID="nGP-Ch-PaH">
             <objects>
                 <navigationController id="4db-cP-Zrp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="M" id="EC9-Wn-icx"/>
+                    <tabBarItem key="tabBarItem" title="Monday" id="EC9-Wn-icx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oKX-Fz-VAS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -269,6 +269,6 @@
         <image name="Image" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jYm-xC-hA7"/>
+        <segue reference="w4M-hI-9s9"/>
     </inferredMetricsTieBreakers>
 </document>

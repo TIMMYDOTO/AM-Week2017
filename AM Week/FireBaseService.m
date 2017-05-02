@@ -108,11 +108,8 @@
     ref = [[FIRDatabase database] reference];
     refHandle = [ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot){
         NSMutableDictionary *localResult = snapshot.value;
-        if(AMWTrainings){
             [[FirebaseService sharedManager] getAllTrainings:localResult andCompletionBlock:completionBlock];
-        }else{
-            [[FirebaseService sharedManager] getAllQuizzes:localResult andCompletionBlock:completionBlock];
-        }
+//            [[FirebaseService sharedManager] getAllQuizzes:localResult andCompletionBlock:completionBlock];
     }];
 }
 
