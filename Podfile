@@ -6,9 +6,12 @@ target 'AM Week' do
   # use_frameworks!
 
   # Pods for AM Week
-
+  pod 'SDWebImage', '~>3.8'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
+  
   target 'AM WeekTests' do
     inherit! :search_paths
     # Pods for testing

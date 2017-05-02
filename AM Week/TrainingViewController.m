@@ -28,13 +28,23 @@
     
     _trainings = [[NSMutableArray alloc] init];
     
+    UIButton *button = [[UIButton alloc] init];
+    UIImage*image = [UIImage imageNamed:@"person"];
+    button.frame = CGRectMake(0,0,30,30);
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
+    [button addTarget:self action:@selector(pushToGoogle) forControlEvents:UIControlEventTouchUpInside];
+    
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _trainings = result;
         [trainingTable insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_trainings.count-1 inSection:0]] withRowAnimation: UITableViewRowAnimationAutomatic];
         [trainingTable reloadData];
     }];
 }
-
+-(void)pushToGoogle
+{
+    [self performSegueWithIdentifier:@"segueIdentifier" sender:self];
+}
 - (NSDate*) dateForSelectedTab {
     
     NSDateComponents *comps = [[NSDateComponents alloc] init];

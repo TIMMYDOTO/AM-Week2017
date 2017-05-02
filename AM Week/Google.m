@@ -2,12 +2,14 @@
 //  Google.m
 //  AM Week
 //
-//  Created by Artiom Schiopu on 4/28/17.
+//  Created by Artiom Schiopu on 5/2/17.
 //  Copyright © 2017 Artiom Schiopu. All rights reserved.
 //
 
 #import "Google.h"
-#import "AppDelegate.h"
+@import Firebase;
+@import GoogleSignIn;
+
 @interface Google ()
 
 @end
@@ -16,15 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSLog(@"GOOGLE SIGN");
+    // Do any additional setup after loading the view.
     [GIDSignIn sharedInstance].uiDelegate = self;
-    GIDSignInButton *loginButtonG = [[GIDSignInButton alloc]init];
-    loginButtonG.center = self.view.center;
-    [self.view addSubview:loginButtonG];
-    GIDSignIn *signIn = [GIDSignIn sharedInstance];
-    signIn.delegate = self;
-    
+
+    [self.signInButton setStyle:kGIDSignInButtonStyleIconOnly];
+    GIDSignIn *signInButton = [GIDSignIn sharedInstance];
+    signInButton.delegate = self;
+ //   [[GIDSignIn sharedInstance] signIn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,17 +32,19 @@
     // Dispose of any resources that can be recreated.
 }
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
-    // Perform any operations on signed in user here.
-    NSLog(@"didSignInForUser");
-    NSString *userId = user.userID;                  // For client-side use only!
-    NSString *idToken = user.authentication.idToken; // Safe to send to the server
-    NSString *name = user.profile.name;
-    NSString *email = user.profile.email;
-    
-    
-    // ...
+    self.name.text = user.profile.name;
+    self.email.text = user.profile.email;
+    if ([GIDSignIn sharedInstance].currentUser.profile.hasImage)
+    {
+            NSURL *imageURL = [user.profile imageURLWithDimension:100];
+     
+        [self.image sd_setImageWithURL:imageURL];
+        self.image.layer.cornerRadius = self.image.frame.size.height/2;
+        self.image.layer.masksToBounds = YES;
+    NSLog(@"%@",imageURL);
+    }
+ 
 }
-
 
 /*
 #pragma mark - Navigation
@@ -54,7 +56,12 @@
 }
 */
 
-- (IBAction)SingOut:(id)sender {
-        [[GIDSignIn sharedInstance] signOut];
+- (IBAction)signOut:(id)sender {
+     [[GIDSignIn sharedInstance] signOut];
+    self.name.text = nil;
+    self.email.text = nil;
+    _image.image = [UIImage imageNamed:@"person"];
+    
+    NSLog(@"YOU ARE SIGNED OUT");
 }
 @end
