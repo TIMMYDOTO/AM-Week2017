@@ -7,8 +7,6 @@
 //
 
 #import "Google.h"
-@import Firebase;
-@import GoogleSignIn;
 
 @interface Google ()
 
