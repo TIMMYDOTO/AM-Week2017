@@ -70,8 +70,6 @@
         newTraining[@"timeEnd"] = obj[@"timeEnd"];
         newTraining[@"type"] = obj[@"type"];
         
-        NSLog(@"speakerId: %@", newTraining[@"speakerId"]);
-        
         [allInfo addObject:[[Training alloc] initTrainingWithDict:newTraining]];
     }];
    

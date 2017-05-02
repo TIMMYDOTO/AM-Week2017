@@ -46,6 +46,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     QuizCell *cell = [quizTable dequeueReusableCellWithIdentifier:@"QuizCell" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setupContentWithQuiz:_quizzes[indexPath.row]];
     
     return cell;
