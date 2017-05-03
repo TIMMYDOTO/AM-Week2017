@@ -84,6 +84,7 @@
     [quizzes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull quizObj, BOOL * _Nonnull stop) {
         
         NSMutableDictionary* newQuiz = [[NSMutableDictionary alloc] init];
+
         
         newQuiz[@"title"] = quizObj[@"title"];
         newQuiz[@"question"] = quizObj[@"question"];
@@ -92,6 +93,7 @@
         newQuiz[@"time"] = quizObj[@"time"];
         newQuiz[@"date"] = quizObj[@"date"];
         newQuiz[@"questionId"] = quizObj[@"questionId"];
+
         
         [allInfo addObject:[[Quiz alloc] initQuizzesWithDict:newQuiz]];
     }];
