@@ -1,5 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rmy-zM-rYV">
+
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rmy-zM-rYV">
+
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,7 +38,7 @@
             <objects>
                 <navigationController id="Kca-qW-s4a" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Thursday" id="kvw-aa-23f"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oF7-to-zDN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oF7-to-zDN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -53,7 +55,7 @@
             <objects>
                 <navigationController id="81d-nt-oZl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friday" id="FAZ-M2-a2p"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VaD-5t-7x2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VaD-5t-7x2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -70,7 +72,7 @@
             <objects>
                 <navigationController id="tkr-jn-6gl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Wednesday" id="Zi6-9z-6Ie"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="P90-On-GAe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P90-On-GAe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -867,21 +869,22 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAC-Bw-7tt">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAC-Bw-7tt">
                                 <rect key="frame" x="16" y="605" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submit:" destination="ipr-Qb-IFf" eventType="touchUpInside" id="7g0-no-3HP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PT-b5-Sg7" userLabel="Question">
-                                <rect key="frame" x="187.5" y="127" width="0.0" height="0.0"/>
+                                <rect key="frame" x="188" y="127" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Try answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lpv-Qq-GUb">
-                                <rect key="frame" x="142" y="567" width="91.5" height="30"/>
+                                <rect key="frame" x="142" y="567" width="92" height="30"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -897,7 +900,6 @@
                             <constraint firstItem="Od6-Qc-z9a" firstAttribute="top" secondItem="xzF-G5-CNO" secondAttribute="top" constant="150" id="Rhc-Mq-jTE"/>
                             <constraint firstItem="Lpv-Qq-GUb" firstAttribute="top" secondItem="Od6-Qc-z9a" secondAttribute="bottom" constant="53" id="VWf-t0-Log"/>
                             <constraint firstItem="Od6-Qc-z9a" firstAttribute="top" secondItem="9PT-b5-Sg7" secondAttribute="bottom" constant="23" id="hNM-96-W4f"/>
-                            <constraint firstItem="Od6-Qc-z9a" firstAttribute="centerX" secondItem="TAC-Bw-7tt" secondAttribute="centerX" id="rVk-qk-MgM"/>
                             <constraint firstAttribute="bottom" secondItem="Od6-Qc-z9a" secondAttribute="bottom" constant="153" id="tdP-Gw-zzM"/>
                         </constraints>
                     </view>
@@ -919,7 +921,7 @@
             <objects>
                 <navigationController id="7N1-Tf-hqs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tuesday" id="hlF-zj-aIa"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XSJ-Wq-ACw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XSJ-Wq-ACw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -936,7 +938,7 @@
             <objects>
                 <navigationController id="4db-cP-Zrp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Monday" id="EC9-Wn-icx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oKX-Fz-VAS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oKX-Fz-VAS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -959,6 +961,6 @@
         <image name="person" width="649" height="659"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LnE-9S-cTv"/>
+        <segue reference="jYm-xC-hA7"/>
     </inferredMetricsTieBreakers>
 </document>
