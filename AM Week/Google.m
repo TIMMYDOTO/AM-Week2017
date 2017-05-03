@@ -25,7 +25,15 @@
     [self.signInButton setStyle:kGIDSignInButtonStyleIconOnly];
     GIDSignIn *signInButton = [GIDSignIn sharedInstance];
     signInButton.delegate = self;
+    
+ //   self.name.text = signInButton.currentUser.profile.name;
+//    self.email.text = user.profile.email;
     [self hasInternet];
+   // self.signInButton sig
+    if ([GIDSignIn sharedInstance].currentUser) {
+        [self signIn:[GIDSignIn sharedInstance] didSignInForUser:[GIDSignIn sharedInstance].currentUser withError:nil];
+    }
+
  //   [[GIDSignIn sharedInstance] signIn];
 }
 

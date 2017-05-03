@@ -441,6 +441,10 @@ Copyright 2017 Google
 
 Copyright 2017 Google
 
+## GoogleSymbolUtilities
+
+Copyright 2016 Google
+
 ## GoogleToolboxForMac
 
 
@@ -646,6 +650,10 @@ Copyright 2017 Google
    See the License for the specific language governing permissions and
    limitations under the License.
 
+
+## GoogleUtilities
+
+Copyright 2016 Google
 
 ## SDWebImage
 

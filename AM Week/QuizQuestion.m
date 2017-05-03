@@ -43,13 +43,33 @@
     // Pass the selected object to the new view controller.
 }
 */
+//- (void)keyboardWillShow:(NSNotification *)n
+//{
+//    if (keyboardShown) { return; }
+//    NSDictionary* userInfo = [n userInfo];
+//    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+//    CGRect activeViewFrameInsideGlobalView = [_smallView convertRect:activeView.frame toView:self.view];
+//    CGFloat viewBotomLine = activeViewFrameInsideGlobalView.origin.y+activeViewFrameInsideGlobalView.size.height;
+//    CGFloat keyboardTopLine = self.view.frame.size.height-keyboardSize.height;
+//    CGFloat overlapDistance = viewBotomLine-keyboardTopLine;
+//    
+//    if (overlapDistance>0) {
+//        __block CGRect viewRect = self.view.frame;
+//        viewRect.origin.y = viewRect.origin.y-overlapDistance;
+//        [UIView animateWithDuration:0.5 animations:^{
+//            self.view.frame = viewRect;
+//        } completion:^(BOOL finished) { }];
+//    }
+//    keyboardShown = YES;
+//}
+
 - (void)keyboardDidHide:(NSNotification*)notification {
     NSLog(@"keyboardDidHide");
     [self.view setFrame:CGRectMake(0, 20, 375, 667)];
 }
 - (void)keyboardDidShow:(NSNotification*)notification {
     NSLog(@"keyboardDidShow");
-    [self.view setFrame:CGRectMake(0, -190, 375, 667)];
+    [self.view setFrame:CGRectMake(0, -240, 375, 667)];
 }
 - (IBAction)submit:(UIButton *)sender {
     NSLog(@"valera");
