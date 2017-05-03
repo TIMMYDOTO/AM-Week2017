@@ -89,7 +89,8 @@
     [quizzes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         
         NSMutableDictionary* newQuiz = [[NSMutableDictionary alloc] init];
-        
+        newQuiz[@"title"] = obj[@"title"];
+        newQuiz[@"stream"] = obj[@"stream"];
         newQuiz[@"question"] = obj[@"question"];
         newQuiz[@"answers"] = obj[@"answers"];
         newQuiz[@"timeDate"] = [NSString stringWithFormat:@"%@ %@",obj[@"time"], obj[@"date"]];
@@ -108,8 +109,11 @@
     ref = [[FIRDatabase database] reference];
     refHandle = [ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot){
         NSMutableDictionary *localResult = snapshot.value;
+        if(scope == AMWTrainings){
             [[FirebaseService sharedManager] getAllTrainings:localResult andCompletionBlock:completionBlock];
-//            [[FirebaseService sharedManager] getAllQuizzes:localResult andCompletionBlock:completionBlock];
+        }else{
+            [[FirebaseService sharedManager] getAllQuizzes:localResult andCompletionBlock:completionBlock];
+        }
     }];
 }
 

@@ -22,7 +22,8 @@
     if (self) {
     _title = dict[@"title"];
     _question = dict[@"question"];
-    _date = dict[@"date"];
+    _date = dict[@"timeDate"];
+   _stream = dict[@"stream"];
     }
     return self;
 }

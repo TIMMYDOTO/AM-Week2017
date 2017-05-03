@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "Reachability.h"
 @import GoogleSignIn;
 @import Firebase;
 @interface Google : UIViewController <GIDSignInUIDelegate, GIDSignInDelegate>{

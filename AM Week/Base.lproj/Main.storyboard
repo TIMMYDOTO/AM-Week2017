@@ -35,7 +35,7 @@
             <objects>
                 <navigationController id="Kca-qW-s4a" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Thursday" id="kvw-aa-23f"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oF7-to-zDN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oF7-to-zDN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -52,7 +52,7 @@
             <objects>
                 <navigationController id="81d-nt-oZl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friday" id="FAZ-M2-a2p"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VaD-5t-7x2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VaD-5t-7x2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -69,7 +69,7 @@
             <objects>
                 <navigationController id="tkr-jn-6gl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Wednesday" id="Zi6-9z-6Ie"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P90-On-GAe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="P90-On-GAe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -288,6 +288,7 @@
                                             <outlet property="question" destination="BWA-U8-c33" id="LMi-x4-4fh"/>
                                             <outlet property="timeDate" destination="dR4-Oh-Wje" id="aVH-aI-w2O"/>
                                             <outlet property="title" destination="6IW-H9-37n" id="o8f-g9-eOh"/>
+                                            <segue destination="ipr-Qb-IFf" kind="show" id="FgE-Mr-5ed"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -310,12 +311,84 @@
             </objects>
             <point key="canvasLocation" x="1232.8" y="984.55772113943033"/>
         </scene>
+        <!--Quiz Question-->
+        <scene sceneID="eOn-VQ-OiR">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="ipr-Qb-IFf" customClass="QuizQuestion" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Xm-D7-6WF"/>
+                        <viewControllerLayoutGuide type="bottom" id="446-bA-JZu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xzF-G5-CNO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Od6-Qc-z9a">
+                                <rect key="frame" x="0.0" y="150" width="375" height="364"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKt-2M-Y2T" userLabel="Code">
+                                        <rect key="frame" x="16" y="3" width="343" height="358"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAC-Bw-7tt">
+                                <rect key="frame" x="16" y="605" width="343" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submit:" destination="ipr-Qb-IFf" eventType="touchUpInside" id="7g0-no-3HP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PT-b5-Sg7" userLabel="Question">
+                                <rect key="frame" x="187.5" y="127" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Try answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lpv-Qq-GUb">
+                                <rect key="frame" x="142" y="567" width="91.5" height="30"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="send"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Od6-Qc-z9a" firstAttribute="leading" secondItem="xzF-G5-CNO" secondAttribute="leading" id="EMH-QH-Zf9"/>
+                            <constraint firstAttribute="trailing" secondItem="Od6-Qc-z9a" secondAttribute="trailing" id="EhU-Ef-X4z"/>
+                            <constraint firstItem="Od6-Qc-z9a" firstAttribute="centerX" secondItem="Lpv-Qq-GUb" secondAttribute="centerX" id="F4x-De-G4p"/>
+                            <constraint firstItem="Od6-Qc-z9a" firstAttribute="centerX" secondItem="9PT-b5-Sg7" secondAttribute="centerX" id="HIW-XW-ee5"/>
+                            <constraint firstItem="Od6-Qc-z9a" firstAttribute="top" secondItem="xzF-G5-CNO" secondAttribute="top" constant="150" id="Rhc-Mq-jTE"/>
+                            <constraint firstItem="Lpv-Qq-GUb" firstAttribute="top" secondItem="Od6-Qc-z9a" secondAttribute="bottom" constant="53" id="VWf-t0-Log"/>
+                            <constraint firstItem="Od6-Qc-z9a" firstAttribute="top" secondItem="9PT-b5-Sg7" secondAttribute="bottom" constant="23" id="hNM-96-W4f"/>
+                            <constraint firstItem="Od6-Qc-z9a" firstAttribute="centerX" secondItem="TAC-Bw-7tt" secondAttribute="centerX" id="rVk-qk-MgM"/>
+                            <constraint firstAttribute="bottom" secondItem="Od6-Qc-z9a" secondAttribute="bottom" constant="153" id="tdP-Gw-zzM"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="answer" destination="Lpv-Qq-GUb" id="7s7-wz-WYl"/>
+                        <outlet property="labelForCode" destination="TKt-2M-Y2T" id="4zw-nQ-OGX"/>
+                        <outlet property="question" destination="9PT-b5-Sg7" id="ycr-S0-Ihv"/>
+                        <outlet property="smallView" destination="Od6-Qc-z9a" id="7fB-m2-1In"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KJU-bJ-rxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1992.8" y="984.55772113943033"/>
+        </scene>
         <!--Tuesday-->
         <scene sceneID="MLe-8N-FgQ">
             <objects>
                 <navigationController id="7N1-Tf-hqs" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tuesday" id="hlF-zj-aIa"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XSJ-Wq-ACw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XSJ-Wq-ACw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -332,7 +405,7 @@
             <objects>
                 <navigationController id="4db-cP-Zrp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Monday" id="EC9-Wn-icx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oKX-Fz-VAS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oKX-Fz-VAS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

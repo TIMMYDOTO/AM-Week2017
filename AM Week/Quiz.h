@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSString *time;
 @property (strong, nonatomic) NSString *date;
 @property (strong, nonatomic) NSString *questionId;
+@property (strong, nonatomic) NSString *stream;
 
 - (id) initQuizzesWithDict: (NSDictionary*) dict ;
 
