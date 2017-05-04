@@ -25,6 +25,7 @@
     _title.text = _quiz.title;
    _time.text = _quiz.time;
     _date.text = _quiz.date;
+
     
 }
 

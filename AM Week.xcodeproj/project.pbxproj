@@ -188,7 +188,6 @@
 				8E06D3631EB1E9FC002F8C96 /* Firebase */,
 				FFF3FE4F1EA7750A0033AAFE /* Training */,
 				FFF3FE4A1EA76FC90033AAFE /* Speaker */,
-				E443289E1EB86D6D0084DD88 /* Google */,
 				FFF3FE531EA777680033AAFE /* Quiz */,
 				E48089101EA6062A00A543C3 /* Main.storyboard */,
 				E48089131EA6062A00A543C3 /* Assets.xcassets */,
@@ -243,6 +242,7 @@
 		FFF3FE4A1EA76FC90033AAFE /* Speaker */ = {
 			isa = PBXGroup;
 			children = (
+				E443289E1EB86D6D0084DD88 /* Google */,
 				FFF3FE4B1EA770000033AAFE /* Speaker.h */,
 				FFF3FE4C1EA770000033AAFE /* Speaker.m */,
 			);

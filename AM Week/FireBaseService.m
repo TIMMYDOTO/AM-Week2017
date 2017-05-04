@@ -85,7 +85,6 @@
         
         NSMutableDictionary* newQuiz = [[NSMutableDictionary alloc] init];
 
-        
         newQuiz[@"title"] = quizObj[@"title"];
         newQuiz[@"question"] = quizObj[@"question"];
         newQuiz[@"stream"] = quizObj[@"stream"];
@@ -93,6 +92,7 @@
         newQuiz[@"time"] = quizObj[@"time"];
         newQuiz[@"date"] = quizObj[@"date"];
         newQuiz[@"questionId"] = quizObj[@"questionId"];
+
 
         
         [allInfo addObject:[[Quiz alloc] initQuizzesWithDict:newQuiz]];
