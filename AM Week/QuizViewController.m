@@ -30,8 +30,7 @@
     [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         NSLog(@"ceva: %@", result);
         _quizzes = result;
-        [quizTable insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_quizzes.count-1 inSection:0]] withRowAnimation: UITableViewRowAnimationAutomatic];
-        [quizTable reloadData];
+               [quizTable reloadData];
     }];
 }
 
