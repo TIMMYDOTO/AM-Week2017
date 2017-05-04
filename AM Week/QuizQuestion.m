@@ -8,7 +8,11 @@
 
 #import "QuizQuestion.h"
 
-@interface QuizQuestion () <UITextFieldDelegate>
+@interface QuizQuestion () <UITextFieldDelegate> {
+ //   BOOL keyboardShown;
+    FIRDatabaseHandle refHandle;
+    NSDictionary *dict;
+}
 
 @end
 
@@ -16,7 +20,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"viewDidLoad");
+    
     self.ref = [[FIRDatabase database] reference];
+    refHandle = [[_ref child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        dict = snapshot.value;
+        _question.text = [[dict objectForKey:@"androiodone"] objectForKey: @"question"];
+        _labelForCode.text = [[dict objectForKey:@"androiodone"] objectForKey:@"codeSnippet"];
+        
+    
+    }];
+   
+
+    
+   
+
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(dismissKeyboard)];
     
@@ -45,7 +63,9 @@
 */
 //- (void)keyboardWillShow:(NSNotification *)n
 //{
-//    if (keyboardShown) { return; }
+//    if (keyboardShown) {
+//        return;
+//    }
 //    NSDictionary* userInfo = [n userInfo];
 //    CGSize keyboardSize = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
 //    CGRect activeViewFrameInsideGlobalView = [_smallView convertRect:activeView.frame toView:self.view];
@@ -72,8 +92,8 @@
     [self.view setFrame:CGRectMake(0, -240, 375, 667)];
 }
 - (IBAction)submit:(UIButton *)sender {
-    NSLog(@"valera");
- //   [[[[[_ref child:@"quizzes"]  child:@"androiodone"] child:@"answers"]childByAutoId] setValue:_answer.text];
+  //  NSLog(@"valera");
+   [[[[[_ref child:@"quizzes"]  child:@"androiodone"] child:@"answers"]childByAutoId] setValue:_answer.text];
     
 }
 -(void)dismissKeyboard {
