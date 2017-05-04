@@ -11,9 +11,10 @@
 @interface Training : NSObject
 
 @property (strong, nonatomic) NSString *title;
-@property (strong, nonatomic) NSString *timeDate;
+@property (strong, nonatomic) NSString *time;
 @property (strong, nonatomic) NSString *day;
-@property (strong, nonatomic) NSNumber *location;
+@property (strong, nonatomic) NSString *stream;
+@property (strong, nonatomic) NSString *location;
 @property BOOL remoteCall;
 @property (strong, nonatomic) NSString *shortInfo;
 @property (strong, nonatomic) NSString *longInfo;

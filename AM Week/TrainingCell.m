@@ -11,6 +11,7 @@
 
 @interface TrainingCell()
 
+@property (weak, nonatomic) IBOutlet UILabel *stream;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *timeDate;
 @property (weak, nonatomic) IBOutlet UILabel *speaker;
@@ -22,9 +23,10 @@
 - (void) setupContentWithQuiz:(Training *)training{
     _training = training;
     
+    _stream.text = _training.stream;
     _title.text = _training.title;
-    _timeDate.text = _training.timeDate;
-//    _speaker.text = _training.speaker;
+    _timeDate.text = _training.time;
+    _speaker.text = _training.speaker;
 }
 
 @end

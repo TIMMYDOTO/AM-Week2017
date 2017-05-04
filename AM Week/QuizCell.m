@@ -12,8 +12,8 @@
 @interface QuizCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
-@property (weak, nonatomic) IBOutlet UILabel *question;
-@property (weak, nonatomic) IBOutlet UILabel *timeDate;
+@property (weak, nonatomic) IBOutlet UILabel *date;
+@property (weak, nonatomic) IBOutlet UILabel *time;
 
 @end
 
@@ -23,8 +23,8 @@
     _quiz = quiz;
     
     _title.text = _quiz.title;
-//    _question.text = _quiz.question;
-//    _timeDate.text = _quiz.date;
+    _date.text = _quiz.date;
+    _time.text = _quiz.time;
 }
 
 @end

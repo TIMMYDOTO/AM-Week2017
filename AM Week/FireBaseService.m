@@ -42,33 +42,30 @@
     NSMutableDictionary* speakers = [dict objectForKey:@"speakers"];
     NSMutableArray* allInfo = [[NSMutableArray alloc] init];
     
-    [trainings enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+    [trainings enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull trainingObj, BOOL * _Nonnull stop) {
         
         NSMutableDictionary* newTraining = [[NSMutableDictionary alloc] init];
         
-        newTraining[@"title"] = obj[@"title"];
-        newTraining[@"timeDate"] = [NSString stringWithFormat:@"%@  %@", obj[@"timeStart"], obj[@"date"]];
-        newTraining[@"day"] = obj[@"day"];
-        newTraining[@"location"] = obj[@"location"];
-        newTraining[@"description"] = obj[@"description"];
-        newTraining[@"remoteCall"] = obj[@"remoteCall"];
-        newTraining[@"stream"] = obj[@"stream"];
+        newTraining[@"title"] = trainingObj[@"title"];
+        newTraining[@"time"] = trainingObj[@"timeStart"];
+        newTraining[@"date"] = trainingObj[@"date"];
+        newTraining[@"day"] = trainingObj[@"day"];
+        newTraining[@"location"] = trainingObj[@"location"];
+        newTraining[@"description"] = trainingObj[@"description"];
+        newTraining[@"remoteCall"] = trainingObj[@"remoteCall"];
+        newTraining[@"stream"] = trainingObj[@"stream"];
+        newTraining[@"speaker"] = [trainingObj[@"speakerId"] stringValue];
         
-//        NSString* speakerID = obj[@"speakerId"];
-//        NSLog(@"speakers: %@", speakers);
-//        NSLog(@"speakerID: %@", speakerID);
-//        for (NSMutableDictionary* speaker in speakers) {
-//            NSLog(@"speaker[@""]: %@", speaker[@"id"]);
-//            NSLog(@"speakerID: %@", speakerID);
-//            if ([speaker[@"id"] isEqualToString:speakerID]) {
-//                newTraining[@"speaker"] = [NSString stringWithFormat:@"%@",speaker[@"name"]];
-//            }
-//        }
-        
-        newTraining[@"trainingId"] = obj[@"id"];
-        newTraining[@"timeStart"] = obj[@"timeStart"];
-        newTraining[@"timeEnd"] = obj[@"timeEnd"];
-        newTraining[@"type"] = obj[@"type"];
+        [speakers enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull speakerObj, BOOL * _Nonnull stop) {
+            if ([[speakerObj[@"id"] stringValue] isEqualToString: newTraining[@"speaker"]]) {
+                newTraining[@"speaker"] = [NSString stringWithFormat:@"%@",speakerObj[@"name"]];
+            }
+        }];
+
+        newTraining[@"trainingId"] = trainingObj[@"id"];
+        newTraining[@"timeStart"] = trainingObj[@"timeStart"];
+        newTraining[@"timeEnd"] = trainingObj[@"timeEnd"];
+        newTraining[@"type"] = trainingObj[@"type"];
         
         [allInfo addObject:[[Training alloc] initTrainingWithDict:newTraining]];
     }];
@@ -84,14 +81,17 @@
     NSMutableDictionary* quizzes = [dict objectForKey:@"quizzes"];
     NSMutableArray* allInfo = [[NSMutableArray alloc] init];
     
-    [quizzes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+    [quizzes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull quizObj, BOOL * _Nonnull stop) {
         
         NSMutableDictionary* newQuiz = [[NSMutableDictionary alloc] init];
         
-        newQuiz[@"question"] = obj[@"question"];
-        newQuiz[@"answers"] = obj[@"answers"];
-        newQuiz[@"timeDate"] = [NSString stringWithFormat:@"%@ %@",obj[@"time"], obj[@"date"]];
-        newQuiz[@"questionId"] = obj[@"questionId"];
+        newQuiz[@"title"] = quizObj[@"title"];
+        newQuiz[@"question"] = quizObj[@"question"];
+        newQuiz[@"stream"] = quizObj[@"stream"];
+        newQuiz[@"answers"] = quizObj[@"answers"];
+        newQuiz[@"time"] = quizObj[@"time"];
+        newQuiz[@"date"] = quizObj[@"date"];
+        newQuiz[@"questionId"] = quizObj[@"questionId"];
         
         [allInfo addObject:[[Quiz alloc] initQuizzesWithDict:newQuiz]];
     }];
@@ -106,8 +106,11 @@
     ref = [[FIRDatabase database] reference];
     refHandle = [ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot){
         NSMutableDictionary *localResult = snapshot.value;
+        if(scope == AMWTrainings){
             [[FirebaseService sharedManager] getAllTrainings:localResult andCompletionBlock:completionBlock];
-//            [[FirebaseService sharedManager] getAllQuizzes:localResult andCompletionBlock:completionBlock];
+        }else{
+            [[FirebaseService sharedManager] getAllQuizzes:localResult andCompletionBlock:completionBlock];
+        }
     }];
 }
 

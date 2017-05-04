@@ -20,9 +20,10 @@
     
     self = [super init];
     if (self) {
-    _title = dict[@"title"];
-    _question = dict[@"question"];
-    _date = dict[@"date"];
+        _title = dict[@"title"];
+        _question = dict[@"question"];
+        _time = dict[@"time"];
+        _date = dict[@"date"];
     }
     return self;
 }

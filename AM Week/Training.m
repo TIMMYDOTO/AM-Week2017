@@ -21,8 +21,9 @@
     self = [super init];
     if (self) {
         _title = dict[@"title"];
-        _timeDate = dict[@"timeDate"];
+        _time = dict[@"time"];
         _speaker = dict[@"speaker"];
+        _stream = dict[@"stream"];
     }
     return self;
 }
