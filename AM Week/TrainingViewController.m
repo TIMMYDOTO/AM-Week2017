@@ -11,7 +11,12 @@
 #import "TrainingCell.h"
 #import "Training.h"
 
-@interface TrainingViewController ()
+@interface TrainingViewController (){
+    
+    FIRDatabaseHandle refHandle;
+    NSDictionary *dict;
+}
+
 
 @property (strong, nonatomic) NSMutableArray *trainings;
 @property(nonatomic, weak) IBOutlet UITableView *trainingTable;
@@ -22,6 +27,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.ref = [[FIRDatabase database] reference];
+    refHandle = [[_ref child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        dict = snapshot.value;
+//        _question.text = [[dict objectForKey:@"androiodone"] objectForKey: @"question"];
+//        _labelForCode.text = [[dict objectForKey:@"androiodone"] objectForKey:@"codeSnippet"];
+        
+        
+    }];
+
+    
     
     self.date = [self dateForSelectedTab];
     self.navigationItem.title = [self dateTitleFromDate:self.date];
@@ -77,7 +92,7 @@
     
     TrainingCell *cell = [trainingTable dequeueReusableCellWithIdentifier:@"TrainingCell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell setupContentWithQuiz:_trainings[indexPath.row]];
+    [cell setupContentWithTraining:_trainings[indexPath.row]];
     
     return cell;
 }

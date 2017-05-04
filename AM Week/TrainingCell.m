@@ -15,14 +15,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *timeDate;
 @property (weak, nonatomic) IBOutlet UILabel *speaker;
+@property (strong, nonatomic) IBOutlet UIButton *photo;
 
 @end
 
 @implementation TrainingCell
 
-- (void) setupContentWithQuiz:(Training *)training{
+- (void) setupContentWithTraining:(Training *)training{
     _training = training;
     
+    [self.photo sd_setImageWithURL:imageURL];
     _stream.text = _training.stream;
     _title.text = _training.title;
     _timeDate.text = _training.time;
