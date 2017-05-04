@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIView *smallView;
 
 
+
 - (IBAction)submit:(UIButton *)sender;
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @end
