@@ -25,6 +25,7 @@
     
     self.date = [self dateForSelectedTab];
     self.navigationItem.title = [self dateTitleFromDate:self.date];
+//    self.navigationItem.title.tex
     
     _trainings = [[NSMutableArray alloc] init];
     
@@ -37,7 +38,6 @@
     
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _trainings = result;
-        [trainingTable insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_trainings.count-1 inSection:0]] withRowAnimation: UITableViewRowAnimationAutomatic];
         [trainingTable reloadData];
     }];
 }
