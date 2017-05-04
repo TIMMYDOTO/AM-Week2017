@@ -8,7 +8,9 @@
 
 #import "Google.h"
 
-@interface Google ()
+@interface Google (){
+    
+}
 
 @end
 
@@ -16,12 +18,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"viewDidLoad");
     // Do any additional setup after loading the view.
     [GIDSignIn sharedInstance].uiDelegate = self;
 
     [self.signInButton setStyle:kGIDSignInButtonStyleIconOnly];
     GIDSignIn *signInButton = [GIDSignIn sharedInstance];
     signInButton.delegate = self;
+    
+ //   self.name.text = signInButton.currentUser.profile.name;
+//    self.email.text = user.profile.email;
+    [self hasInternet];
+   // self.signInButton sig
+    if ([GIDSignIn sharedInstance].currentUser) {
+        [self signIn:[GIDSignIn sharedInstance] didSignInForUser:[GIDSignIn sharedInstance].currentUser withError:nil];
+    }
+
  //   [[GIDSignIn sharedInstance] signIn];
 }
 
@@ -43,6 +55,19 @@
     }
  
 }
+-(void)hasInternet{
+    Reachability *reach = [Reachability reachabilityWithHostName:@"gooogle.com"];
+    NetworkStatus internetStat = [reach currentReachabilityStatus];
+    if (internetStat == NotReachable) {
+ 
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"YOUR INTERNET IS OFFLINE" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+      
+    }
+   
+}
 
 /*
 #pragma mark - Navigation
@@ -55,6 +80,7 @@
 */
 
 - (IBAction)signOut:(id)sender {
+    NSLog(@"SIGNED OUT");
      [[GIDSignIn sharedInstance] signOut];
     self.name.text = nil;
     self.email.text = nil;

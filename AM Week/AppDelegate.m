@@ -26,16 +26,17 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 - (void)signIn:(GIDSignIn *)signIn
 didSignInForUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
-    // ...
+
     if (error == nil) {
         GIDAuthentication *authentication = user.authentication;
      //   FIRAuthCredential *credential = [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
        //                                  accessToken:authentication.accessToken];
-        BOOL userId = user.profile.hasImage;
+       BOOL hasImage = user.profile.hasImage;
         NSString *name = user.profile.name;
         NSString *familyName = user.profile.familyName;
         NSURL *imageURL = [user.profile imageURLWithDimension:120];
-        NSLog(@"%d, %@, %@, %@", userId, name, familyName, imageURL);
+   
+        NSLog(@"%d, %@, %@, %@", hasImage, name, familyName, imageURL);
         NSLog(@"YOU ARE SIGNED IN");
         // ...
     } else {
@@ -46,6 +47,7 @@ didSignInForUser:(GIDGoogleUser *)user
 - (void)signIn:(GIDSignIn *)signIn
 didDisconnectWithUser:(GIDGoogleUser *)user
      withError:(NSError *)error {
+    NSLog(@"didDisconnectWithUser");
     // Perform any operations when the user disconnects from app here.
     // ...
 }

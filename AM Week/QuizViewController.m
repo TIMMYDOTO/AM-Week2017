@@ -28,9 +28,9 @@
     _quizzes = [[NSMutableArray alloc] init];
     
     [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+        NSLog(@"ceva: %@", result);
         _quizzes = result;
-        [quizTable insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:_quizzes.count-1 inSection:0]] withRowAnimation: UITableViewRowAnimationAutomatic];
-        [quizTable reloadData];
+               [quizTable reloadData];
     }];
 }
 
@@ -45,7 +45,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     QuizCell *cell = [quizTable dequeueReusableCellWithIdentifier:@"QuizCell" forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setupContentWithQuiz:_quizzes[indexPath.row]];
     
     return cell;

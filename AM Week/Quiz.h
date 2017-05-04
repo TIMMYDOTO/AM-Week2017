@@ -18,6 +18,7 @@
 @property (strong, nonatomic) NSString *stream;
 @property (strong, nonatomic) NSString *questionId;
 
+
 - (id) initQuizzesWithDict: (NSDictionary*) dict ;
 
 @end

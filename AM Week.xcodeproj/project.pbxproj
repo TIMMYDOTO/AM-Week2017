@@ -25,6 +25,9 @@
 		E48089171EA6062A00A543C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48089151EA6062A00A543C3 /* LaunchScreen.storyboard */; };
 		E48089221EA6062A00A543C3 /* AM_WeekTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E48089211EA6062A00A543C3 /* AM_WeekTests.m */; };
 		E480892D1EA6062A00A543C3 /* AM_WeekUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E480892C1EA6062A00A543C3 /* AM_WeekUITests.m */; };
+		E4F628291EB9DA0B005A1FDE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F628281EB9DA0B005A1FDE /* Reachability.m */; };
+		E4F6282B1EB9DA61005A1FDE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F6282A1EB9DA61005A1FDE /* SystemConfiguration.framework */; };
+		E4F6282E1EB9EA59005A1FDE /* QuizQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F6282D1EB9EA59005A1FDE /* QuizQuestion.m */; };
 		FFF3FE4D1EA770000033AAFE /* Speaker.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3FE4C1EA770000033AAFE /* Speaker.m */; };
 		FFF3FE521EA7752F0033AAFE /* Training.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3FE511EA7752F0033AAFE /* Training.m */; };
 		FFF3FE571EA7778A0033AAFE /* Quiz.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF3FE561EA7778A0033AAFE /* Quiz.m */; };
@@ -85,6 +88,11 @@
 		E48089281EA6062A00A543C3 /* AM WeekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AM WeekUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E480892C1EA6062A00A543C3 /* AM_WeekUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AM_WeekUITests.m; sourceTree = "<group>"; };
 		E480892E1EA6062A00A543C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4F628271EB9DA0B005A1FDE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		E4F628281EB9DA0B005A1FDE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		E4F6282A1EB9DA61005A1FDE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E4F6282C1EB9EA59005A1FDE /* QuizQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizQuestion.h; sourceTree = "<group>"; };
+		E4F6282D1EB9EA59005A1FDE /* QuizQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizQuestion.m; sourceTree = "<group>"; };
 		E6CC770DFE72F2A0D6A50490 /* libPods-AM WeekTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AM WeekTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFF3FE4B1EA770000033AAFE /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
 		FFF3FE4C1EA770000033AAFE /* Speaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Speaker.m; sourceTree = "<group>"; };
@@ -99,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4F6282B1EB9DA61005A1FDE /* SystemConfiguration.framework in Frameworks */,
 				AA998C402002DEFC909EF150 /* libPods-AM Week.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,7 +201,6 @@
 				8E06D3631EB1E9FC002F8C96 /* Firebase */,
 				FFF3FE4F1EA7750A0033AAFE /* Training */,
 				FFF3FE4A1EA76FC90033AAFE /* Speaker */,
-				E443289E1EB86D6D0084DD88 /* Google */,
 				FFF3FE531EA777680033AAFE /* Quiz */,
 				E48089101EA6062A00A543C3 /* Main.storyboard */,
 				E48089131EA6062A00A543C3 /* Assets.xcassets */,
@@ -206,6 +214,8 @@
 		E48089071EA6062A00A543C3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E4F628271EB9DA0B005A1FDE /* Reachability.h */,
+				E4F628281EB9DA0B005A1FDE /* Reachability.m */,
 				E480890A1EA6062A00A543C3 /* AppDelegate.h */,
 				E480890B1EA6062A00A543C3 /* AppDelegate.m */,
 				E48089081EA6062A00A543C3 /* main.m */,
@@ -234,6 +244,7 @@
 		F3757DB8072BEFE32A512532 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E4F6282A1EB9DA61005A1FDE /* SystemConfiguration.framework */,
 				DCB42A2910E9F06D32AEB07B /* libPods-AM Week.a */,
 				E6CC770DFE72F2A0D6A50490 /* libPods-AM WeekTests.a */,
 				2C375E6BA30A5E790D1ACBAD /* libPods-AM WeekUITests.a */,
@@ -244,6 +255,7 @@
 		FFF3FE4A1EA76FC90033AAFE /* Speaker */ = {
 			isa = PBXGroup;
 			children = (
+				E443289E1EB86D6D0084DD88 /* Google */,
 				FFF3FE4B1EA770000033AAFE /* Speaker.h */,
 				FFF3FE4C1EA770000033AAFE /* Speaker.m */,
 			);
@@ -272,6 +284,8 @@
 				8E06D3681EB1F23D002F8C96 /* QuizViewController.m */,
 				8E06D36A1EB2045C002F8C96 /* QuizCell.h */,
 				8E06D36B1EB2045C002F8C96 /* QuizCell.m */,
+				E4F6282C1EB9EA59005A1FDE /* QuizQuestion.h */,
+				E4F6282D1EB9EA59005A1FDE /* QuizQuestion.m */,
 			);
 			name = Quiz;
 			sourceTree = "<group>";
@@ -561,12 +575,14 @@
 				FFF3FE521EA7752F0033AAFE /* Training.m in Sources */,
 				E480890C1EA6062A00A543C3 /* AppDelegate.m in Sources */,
 				E48089091EA6062A00A543C3 /* main.m in Sources */,
+				E4F6282E1EB9EA59005A1FDE /* QuizQuestion.m in Sources */,
 				8E06D3661EB1EA10002F8C96 /* FirebaseService.m in Sources */,
 				FFF3FE571EA7778A0033AAFE /* Quiz.m in Sources */,
 				FFF3FE4D1EA770000033AAFE /* Speaker.m in Sources */,
 				8E06D36C1EB2045C002F8C96 /* QuizCell.m in Sources */,
 				8E06D3AA1EB48CD8002F8C96 /* TrainingViewController.m in Sources */,
 				8E06D3691EB1F23D002F8C96 /* QuizViewController.m in Sources */,
+				E4F628291EB9DA0B005A1FDE /* Reachability.m in Sources */,
 				8E06D3AD1EB49A2A002F8C96 /* TrainingCell.m in Sources */,
 				8ED4DCDD1EBB64090060750A /* TrainingTableViewController.m in Sources */,
 			);
