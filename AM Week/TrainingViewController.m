@@ -12,7 +12,7 @@
 #import "Training.h"
 #import "TrainingTableViewController.h"
 @interface TrainingViewController (){
-    NSArray *arr;
+    NSMutableArray *arr;
     FIRDatabaseHandle refHandle;
     NSDictionary *dict;
 }
@@ -81,15 +81,18 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+
     // Dispose of any resources that can be recreated.
 }
+
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"segueToTraining"]) {
-         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        TrainingTableViewController *vs = [segue destinationViewController];
-       
-        vs.speaker = [arr objectAtIndex:indexPath.row];
-        NSLog(@"");
+//         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        TrainingTableViewController *vs = [segue destinationViewController];
+//       
+//        vs.speaker = (Training*)arr[self.tableView.indexPathForSelectedRow.row];
+//        NSLog(@"");
     }
 }
 
