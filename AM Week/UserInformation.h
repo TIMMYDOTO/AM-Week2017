@@ -11,10 +11,11 @@
 #import "Reachability.h"
 @import GoogleSignIn;
 @import Firebase;
-@interface Google : UIViewController <GIDSignInUIDelegate, GIDSignInDelegate>{
+@interface UserInformation : UIViewController <GIDSignInUIDelegate, GIDSignInDelegate>{
     
 }
 @property(weak, nonatomic) IBOutlet GIDSignInButton *signInButton;
+@property(strong, nonatomic) IBOutlet UIView *separatorView;
 - (IBAction)signOut:(id)sender;
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 @property (strong, nonatomic) IBOutlet UILabel *name;
