@@ -23,10 +23,8 @@
     _quiz = quiz;
     
     _title.text = _quiz.title;
-   _time.text = _quiz.time;
+    _time.text = _quiz.time;
     _date.text = _quiz.date;
-
-    
 }
 
 @end
