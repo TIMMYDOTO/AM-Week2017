@@ -25,7 +25,6 @@
     
     self.date = [self dateForSelectedTab];
     self.navigationItem.title = [self dateTitleFromDate:self.date];
-//    self.navigationItem.title.tex
     
     _trainings = [[NSMutableArray alloc] init];
     
