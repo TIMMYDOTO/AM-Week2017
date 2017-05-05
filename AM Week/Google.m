@@ -18,23 +18,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"viewDidLoad");
+    
     // Do any additional setup after loading the view.
     [GIDSignIn sharedInstance].uiDelegate = self;
 
     [self.signInButton setStyle:kGIDSignInButtonStyleIconOnly];
     GIDSignIn *signInButton = [GIDSignIn sharedInstance];
     signInButton.delegate = self;
-    
- //   self.name.text = signInButton.currentUser.profile.name;
-//    self.email.text = user.profile.email;
+
     [self hasInternet];
-   // self.signInButton sig
+ 
     if ([GIDSignIn sharedInstance].currentUser) {
         [self signIn:[GIDSignIn sharedInstance] didSignInForUser:[GIDSignIn sharedInstance].currentUser withError:nil];
     }
 
- //   [[GIDSignIn sharedInstance] signIn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,7 +48,7 @@
         [self.image sd_setImageWithURL:imageURL];
         self.image.layer.cornerRadius = self.image.frame.size.height/2;
         self.image.layer.masksToBounds = YES;
-    NSLog(@"%@",imageURL);
+   
     }
  
 }
@@ -80,7 +77,7 @@
 */
 
 - (IBAction)signOut:(id)sender {
-    NSLog(@"SIGNED OUT");
+    
      [[GIDSignIn sharedInstance] signOut];
     self.name.text = nil;
     self.email.text = nil;

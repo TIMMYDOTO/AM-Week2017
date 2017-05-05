@@ -10,9 +10,9 @@
 #import "FirebaseService.h"
 #import "TrainingCell.h"
 #import "Training.h"
-
+#import "TrainingTableViewController.h"
 @interface TrainingViewController (){
-    
+    NSArray *arr;
     FIRDatabaseHandle refHandle;
     NSDictionary *dict;
 }
@@ -27,25 +27,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"TrainingViewController");
     self.ref = [[FIRDatabase database] reference];
     refHandle = [[_ref child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         dict = snapshot.value;
+       
 //        _question.text = [[dict objectForKey:@"androiodone"] objectForKey: @"question"];
 //        _labelForCode.text = [[dict objectForKey:@"androiodone"] objectForKey:@"codeSnippet"];
-        
-        
+    
     }];
 
     
     
     self.date = [self dateForSelectedTab];
     self.navigationItem.title = [self dateTitleFromDate:self.date];
-//    self.navigationItem.title.tex
     
     _trainings = [[NSMutableArray alloc] init];
     
     UIButton *button = [[UIButton alloc] init];
-    UIImage*image = [UIImage imageNamed:@"person"];
+    UIImage *image = [UIImage imageNamed:@"person"];
     button.frame = CGRectMake(0,0,30,30);
     [button setBackgroundImage:image forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
@@ -83,6 +83,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"segueToTraining"]) {
+         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        TrainingTableViewController *vs = [segue destinationViewController];
+       
+        vs.speaker = [arr objectAtIndex:indexPath.row];
+        NSLog(@"");
+    }
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _trainings.count;
@@ -96,6 +105,5 @@
     
     return cell;
 }
-
 
 @end

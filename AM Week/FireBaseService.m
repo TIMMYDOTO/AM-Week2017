@@ -45,6 +45,7 @@
     [trainings enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull trainingObj, BOOL * _Nonnull stop) {
         
         NSMutableDictionary* newTraining = [[NSMutableDictionary alloc] init];
+      //   NSMutableDictionary* newTrainingg = [[NSMutableDictionary alloc] init];
         
         newTraining[@"title"] = trainingObj[@"title"];
         newTraining[@"time"] = trainingObj[@"timeStart"];
@@ -59,15 +60,27 @@
         [speakers enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull speakerObj, BOOL * _Nonnull stop) {
             if ([[speakerObj[@"id"] stringValue] isEqualToString: newTraining[@"speaker"]]) {
                 newTraining[@"speaker"] = [NSString stringWithFormat:@"%@",speakerObj[@"name"]];
-            }
+                newTraining[@"speakerImage"] = [NSString stringWithFormat:@"%@",speakerObj[@"imageId"]];
+                
+            
+           }
+          
+          
         }];
-
+//        [speakers enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull speakerObjj, BOOL * _Nonnull stop) {
+//            NSLog(@"speakerObjj in speakers ");
+//            if ([[speakerObjj[@"id"] stringValue] isEqualToString: newTrainingg[@"speaker"]]) {
+//                newTrainingg[@"speaker"] = [NSString stringWithFormat:@"%@",speakerObjj[@"imageId"]];
+//                NSLog(@"NSString stringWithFormat: %@", [NSString stringWithFormat:@"%@",speakerObjj[@"imageId"]]);
+//            }
+//        }];
         newTraining[@"trainingId"] = trainingObj[@"id"];
         newTraining[@"timeStart"] = trainingObj[@"timeStart"];
         newTraining[@"timeEnd"] = trainingObj[@"timeEnd"];
         newTraining[@"type"] = trainingObj[@"type"];
         
         [allInfo addObject:[[Training alloc] initTrainingWithDict:newTraining]];
+      
     }];
    
     if (completionBlock)

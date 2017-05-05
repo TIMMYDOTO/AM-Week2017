@@ -12,4 +12,5 @@
 
 @property (nonatomic,retain) NSDate* date;
 @property (strong, nonatomic) FIRDatabaseReference *ref;
+@property (nonatomic, strong) IBOutlet UITableView *tableView;
 @end

@@ -24,6 +24,8 @@
         _time = dict[@"time"];
         _speaker = dict[@"speaker"];
         _stream = dict[@"stream"];
+        _speakerImage = dict[@"speakerImage"];
+      
     }
     return self;
 }

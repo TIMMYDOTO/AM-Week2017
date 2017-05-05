@@ -92,7 +92,7 @@
     [self.view setFrame:CGRectMake(0, -240, 375, 667)];
 }
 - (IBAction)submit:(UIButton *)sender {
-  //  NSLog(@"valera");
+ 
    [[[[[_ref child:@"quizzes"]  child:@"androiodone"] child:@"answers"]childByAutoId] setValue:_answer.text];
     
 }

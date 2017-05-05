@@ -20,6 +20,7 @@
 @property (strong, nonatomic) NSString *longInfo;
 @property (strong, nonatomic) NSString *speaker;
 @property (strong, nonatomic) NSString *trainingId;
+@property (strong, nonatomic) NSString *speakerImage;
 
 - (id) initTrainingWithDict: (NSDictionary*) dict ;
 

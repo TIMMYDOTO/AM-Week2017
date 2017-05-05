@@ -202,6 +202,7 @@
 			children = (
 				8ED4DCD71EBB633C0060750A /* Training Details */,
 				8E06D3631EB1E9FC002F8C96 /* Firebase */,
+				E443289E1EB86D6D0084DD88 /* Google */,
 				FFF3FE4F1EA7750A0033AAFE /* Training */,
 				FFF3FE4A1EA76FC90033AAFE /* Speaker */,
 				FFF3FE531EA777680033AAFE /* Quiz */,
@@ -258,7 +259,6 @@
 		FFF3FE4A1EA76FC90033AAFE /* Speaker */ = {
 			isa = PBXGroup;
 			children = (
-				E443289E1EB86D6D0084DD88 /* Google */,
 				FFF3FE4B1EA770000033AAFE /* Speaker.h */,
 				FFF3FE4C1EA770000033AAFE /* Speaker.m */,
 				E424F6521EBB7EB900078B2F /* SpeakerDeatails.h */,

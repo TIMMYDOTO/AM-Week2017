@@ -36,7 +36,7 @@ didSignInForUser:(GIDGoogleUser *)user
         NSString *familyName = user.profile.familyName;
         NSURL *imageURL = [user.profile imageURLWithDimension:120];
    
-        NSLog(@"%d, %@, %@, %@", hasImage, name, familyName, imageURL);
+      
         NSLog(@"YOU ARE SIGNED IN");
         // ...
     } else {
