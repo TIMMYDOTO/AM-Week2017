@@ -38,7 +38,7 @@
             <objects>
                 <navigationController id="Kca-qW-s4a" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Thursday" selectedImage="Thursday" id="kvw-aa-23f"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oF7-to-zDN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oF7-to-zDN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,7 +60,7 @@
             <objects>
                 <navigationController id="81d-nt-oZl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Friday" selectedImage="Friday" id="FAZ-M2-a2p"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VaD-5t-7x2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VaD-5t-7x2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -82,7 +82,7 @@
             <objects>
                 <navigationController id="tkr-jn-6gl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Wednesday" selectedImage="Wednesday" id="Zi6-9z-6Ie"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="P90-On-GAe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P90-On-GAe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -521,14 +521,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" translatesAutoresizingMaskIntoConstraints="NO" id="6ki-YH-FwY">
-                                                    <rect key="frame" x="122" y="42" width="130" height="130"/>
+                                                    <rect key="frame" x="122.5" y="42" width="130" height="130"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="130" id="AUf-3k-yx0"/>
                                                         <constraint firstAttribute="width" constant="130" id="KF6-vY-vdo"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speaker Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVa-Di-Uzm">
-                                                    <rect key="frame" x="131" y="180" width="112" height="21"/>
+                                                    <rect key="frame" x="131.5" y="180" width="112" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="fhl-Zb-Ghb"/>
                                                     </constraints>
@@ -537,7 +537,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speaker Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iy7-wx-Mz1">
-                                                    <rect key="frame" x="136.5" y="209" width="101" height="21"/>
+                                                    <rect key="frame" x="137" y="209" width="101" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="RDG-gs-WLs"/>
                                                     </constraints>
@@ -946,7 +946,7 @@
             <objects>
                 <navigationController id="4db-cP-Zrp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Monday" selectedImage="Monday" id="EC9-Wn-icx"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oKX-Fz-VAS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oKX-Fz-VAS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -971,7 +971,6 @@
         <image name="Image-2" width="48" height="48"/>
         <image name="Monday" width="28" height="22"/>
         <image name="Thursday" width="22" height="22"/>
-        <image name="Tuesday" width="22" height="22"/>
         <image name="Wednesday" width="27" height="22"/>
         <image name="ic_date" width="96" height="96"/>
         <image name="ic_location" width="96" height="96"/>
@@ -979,8 +978,7 @@
         <image name="person" width="649" height="659"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="twg-Co-WpT"/>
-        <segue reference="ggu-vG-Asi"/>
         <segue reference="jYm-xC-hA7"/>
+        <segue reference="ggu-vG-Asi"/>
     </inferredMetricsTieBreakers>
 </document>
