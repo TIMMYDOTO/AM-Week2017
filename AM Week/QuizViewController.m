@@ -27,7 +27,7 @@
     [super viewDidLoad];
     _quizzes = [[NSMutableArray alloc] init];
     
-    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _quizzes = result;
         [quizTable reloadData];
     }];

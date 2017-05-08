@@ -35,15 +35,16 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
     [button addTarget:self action:@selector(pushToGoogle) forControlEvents:UIControlEventTouchUpInside];
     
-    [[FirebaseService sharedManager] getFirebase:(AMWTrainings) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+    [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _trainings = result;
         [trainingTable reloadData];
     }];
 }
--(void)pushToGoogle
-{
+
+- (void)pushToGoogle {
     [self performSegueWithIdentifier:@"segueIdentifier" sender:self];
 }
+
 - (NSDate*) dateForSelectedTab {
     
     NSDateComponents *comps = [[NSDateComponents alloc] init];
@@ -54,7 +55,7 @@
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 
--(NSString*) dateTitleFromDate:(NSDate*) date {
+- (NSString*) dateTitleFromDate:(NSDate*) date {
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd MMM, EEEE"];
@@ -79,6 +80,13 @@
     [cell setupContentWithQuiz:_trainings[indexPath.row]];
     
     return cell;
+}
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    
+    NSLog(@"didSelectItem: %ld", (long)item.tag);
+//    [self activateTab:item.tag];
+    
 }
 
 

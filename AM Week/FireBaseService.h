@@ -19,10 +19,7 @@ typedef void (^FireBaseCompletionBlock)(NSMutableArray* result, NSError* error);
 
 @interface FirebaseService : NSObject
 
-- (NSMutableArray*) getAllTrainings: (NSMutableDictionary*) dict;
-- (NSMutableArray*) getAllQuizzes: (NSMutableDictionary*) dict;
-- (void) getFirebase;
 + (id) sharedManager;
-- (void) getFirebase: (AMWScope) scope andCompletionBlock: (FireBaseCompletionBlock) completionBlock;
+- (void) getFirebase: (AMWScope) scope day: (NSString*) day andCompletionBlock: (FireBaseCompletionBlock) completionBlock;
 
 @end
