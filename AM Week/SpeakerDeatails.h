@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SpeakerDeatails : UITableViewController
+@interface SpeakerDeatails : UITableViewController{
+@public NSString *speakerImageURL;
+}
 
+@property (strong, nonatomic) IBOutlet UIImageView *speakerImage;
+@property (strong, nonatomic) NSURL *speakerURL;
 @end

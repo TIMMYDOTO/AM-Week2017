@@ -13,10 +13,12 @@
 @end
 
 @implementation TrainingTableViewController
-
+@synthesize description;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+ //   NSLog(@"_speakerObj.speaker %@", _speakerObj.speaker);
+  //  NSLog(@"_speakerObj.speaker %@", _speakerObj.time);
+    [self setupSpeaker];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -28,7 +30,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void) setupSpeaker {
+    _speakerName.text = _training.speaker;
+    _date.text = _training.date;
+    _location.text = _training.location;
+    _language.text = _training.language;
+    _time.text = _training.time;
+    _type.text = _training.type;
+    description.text = _training.description;
+    _stream.text = _training.stream;
 
+    }
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

@@ -7,8 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Training.h"
 
 @interface TrainingTableViewController : UITableViewController
-@property (strong, nonatomic) IBOutlet UIButton *speaker;
+@property (strong, nonatomic) IBOutlet UILabel *date;
+@property (strong, nonatomic) IBOutlet UILabel *location;
+@property (strong, nonatomic) IBOutlet UILabel *language;
+@property (strong, nonatomic) IBOutlet UILabel *time;
+@property (strong, nonatomic) IBOutlet UILabel *type;
+@property (strong, nonatomic) IBOutlet UILabel *stream;
+@property (strong, nonatomic) IBOutlet UIButton *speakerImage;
+@property (strong, nonatomic) IBOutlet UILabel *speakerName;
+@property (strong, nonatomic) IBOutlet UILabel *description;
+@property (strong, nonatomic) Training *training;
 
 @end

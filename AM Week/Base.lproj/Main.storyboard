@@ -131,7 +131,7 @@
                                                     </constraints>
                                                     <state key="normal" image="Image-1"/>
                                                     <connections>
-                                                        <segue destination="cDk-k9-BuF" kind="show" identifier="segueToTraining" id="suX-Sw-IkN"/>
+                                                        <segue destination="e8V-Eq-fLq" kind="show" identifier="segueToSpeaker" id="mcp-Cd-dzX"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide icons for both the selected and unselected states. The selected icon is often a fille" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCr-2g-4rd">
@@ -204,11 +204,11 @@
                                         <color key="backgroundColor" red="0.89796030521392822" green="0.8980897068977356" blue="0.89793211221694946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="photo" destination="fZ1-du-0UQ" id="CbC-Gb-ppg"/>
-                                            <outlet property="speaker" destination="c3C-7g-rtY" id="kvL-wL-rkW"/>
+                                            <outlet property="speakerName" destination="c3C-7g-rtY" id="crz-PT-bM0"/>
                                             <outlet property="stream" destination="mli-Fn-z3p" id="dBn-kd-sSv"/>
                                             <outlet property="timeDate" destination="qJ1-Ks-vvz" id="KG0-eh-P1L"/>
                                             <outlet property="title" destination="aCr-2g-4rd" id="wpa-gA-9oT"/>
-                                            <segue destination="cDk-k9-BuF" kind="show" id="8jv-12-n2q"/>
+                                            <segue destination="cDk-k9-BuF" kind="show" identifier="segueToTraining" id="IKs-w0-6oW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -249,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWK-DW-4fd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077.5999999999999" y="232.53373313343329"/>
+            <point key="canvasLocation" x="1078" y="233"/>
         </scene>
         <!--Training-->
         <scene sceneID="wwb-cT-Eqf">
@@ -461,7 +461,7 @@
                                                     <state key="normal" backgroundImage="person"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Speaker Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ul9-oN-3cZ">
-                                                    <rect key="frame" x="86" y="0.0" width="256" height="52"/>
+                                                    <rect key="frame" x="86" y="2" width="256" height="52"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -475,7 +475,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="e8V-Eq-fLq" kind="show" id="ggu-vG-Asi"/>
+                                            <segue destination="e8V-Eq-fLq" kind="show" id="Zuy-O8-DFm"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -490,12 +490,20 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="YlK-Yc-RWF"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="speaker" destination="k5s-cc-GZS" id="dN9-Jo-bVO"/>
+                        <outlet property="date" destination="WQw-q3-nzv" id="cYd-Ov-oo8"/>
+                        <outlet property="description" destination="Uhw-OM-ppv" id="ZVy-8B-rUP"/>
+                        <outlet property="language" destination="2QJ-Hb-aO0" id="mYH-X1-0u3"/>
+                        <outlet property="location" destination="J5k-HT-YMH" id="axL-sI-y42"/>
+                        <outlet property="speakerImage" destination="k5s-cc-GZS" id="12x-my-Lgk"/>
+                        <outlet property="speakerName" destination="ul9-oN-3cZ" id="FQG-kk-jsy"/>
+                        <outlet property="stream" destination="9Gj-hY-chH" id="bw5-9F-xgv"/>
+                        <outlet property="time" destination="2FK-o3-sfY" id="Vb5-wr-2vR"/>
+                        <outlet property="type" destination="gZ0-4F-VBm" id="4RS-Q1-pTT"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWr-KW-1tu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2213.5999999999999" y="232.53373313343329"/>
+            <point key="canvasLocation" x="2034" y="137"/>
         </scene>
         <!--Speaker-->
         <scene sceneID="uBV-Db-TNb">
@@ -673,10 +681,13 @@
                     <navigationItem key="navigationItem" title="Speaker" id="ktu-jQ-HeP">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Db7-PH-ta9"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="speakerImage" destination="6ki-YH-FwY" id="Vr6-Rp-sXw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bof-Oc-cJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3141.5999999999999" y="232.53373313343329"/>
+            <point key="canvasLocation" x="3191" y="233"/>
         </scene>
         <!--Google-->
         <scene sceneID="BIV-sc-KMr">
@@ -975,6 +986,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LnE-9S-cTv"/>
-        <segue reference="suX-Sw-IkN"/>
+        <segue reference="Zuy-O8-DFm"/>
     </inferredMetricsTieBreakers>
 </document>

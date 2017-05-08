@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <FirebaseDatabase/FirebaseDatabase.h>
+#import "SpeakerDeatails.h"
+#import "TrainingCell.h"
 @interface TrainingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic,retain) NSDate* date;
 @property (strong, nonatomic) FIRDatabaseReference *ref;
-@property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property(nonatomic, weak) IBOutlet UITableView *trainingTable;
+@property(nonatomic, strong) TrainingCell *tc;
 @end

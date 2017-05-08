@@ -48,7 +48,7 @@
       //   NSMutableDictionary* newTrainingg = [[NSMutableDictionary alloc] init];
         
         newTraining[@"title"] = trainingObj[@"title"];
-        newTraining[@"time"] = trainingObj[@"timeStart"];
+        newTraining[@"time"] = [NSString stringWithFormat:@"%@ - %@", trainingObj[@"timeStart"], trainingObj[@"timeEnd"]];
         newTraining[@"date"] = trainingObj[@"date"];
         newTraining[@"day"] = trainingObj[@"day"];
         newTraining[@"location"] = trainingObj[@"location"];
@@ -56,6 +56,7 @@
         newTraining[@"remoteCall"] = trainingObj[@"remoteCall"];
         newTraining[@"stream"] = trainingObj[@"stream"];
         newTraining[@"speaker"] = [trainingObj[@"speakerId"] stringValue];
+        newTraining[@"language"] = trainingObj[@"language"];
         
         [speakers enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull speakerObj, BOOL * _Nonnull stop) {
             if ([[speakerObj[@"id"] stringValue] isEqualToString: newTraining[@"speaker"]]) {

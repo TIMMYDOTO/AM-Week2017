@@ -8,18 +8,19 @@
 
 #import "TrainingViewController.h"
 #import "FirebaseService.h"
-#import "TrainingCell.h"
+
 #import "Training.h"
 #import "TrainingTableViewController.h"
 @interface TrainingViewController (){
     NSMutableArray *arr;
     FIRDatabaseHandle refHandle;
     NSDictionary *dict;
+  
 }
 
 
 @property (strong, nonatomic) NSMutableArray *trainings;
-@property(nonatomic, weak) IBOutlet UITableView *trainingTable;
+
 @end
 
 @implementation TrainingViewController
@@ -27,6 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     NSLog(@"TrainingViewController");
     self.ref = [[FIRDatabase database] reference];
     refHandle = [[_ref child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -52,7 +55,9 @@
     [button addTarget:self action:@selector(pushToGoogle) forControlEvents:UIControlEventTouchUpInside];
     
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+        
         _trainings = result;
+    
         [trainingTable reloadData];
     }];
 }
@@ -87,12 +92,24 @@
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"segueToSpeaker"]) {
+//       SpeakerDeatails *sd = [segue destinationViewController];
+//    
+//    sd.speaker = _trainings[self.trainingTable.indexPathForSelectedRow.row];
+  
+        
+    
+     //  NSLog(@"sd.speaker%@",sd.speaker);
+    }
     if ([segue.identifier isEqualToString:@"segueToTraining"]) {
-//         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        TrainingTableViewController *vs = [segue destinationViewController];
-//       
-//        vs.speaker = (Training*)arr[self.tableView.indexPathForSelectedRow.row];
-//        NSLog(@"");
+        TrainingTableViewController *sd = [segue destinationViewController];
+        
+        sd.training = _trainings[self.trainingTable.indexPathForSelectedRow.row];
+
+        sd.speakerImage.imageView.contentMode = _tc.photo.imageView.contentMode;
+        
+        //    NSLog(@"sd.speakerURL %@", sd.speakerURL);
+        //NSLog(@"sd.speaker%@",sd.speakerObj);
     }
 }
 
