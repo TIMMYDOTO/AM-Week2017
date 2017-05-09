@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <FirebaseDatabase/FirebaseDatabase.h>
+#import <Canvas/Canvas.h>
 @interface QuizQuestion : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *question;
 @property (strong, nonatomic) IBOutlet UILabel *labelForCode;

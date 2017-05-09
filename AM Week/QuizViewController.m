@@ -30,7 +30,9 @@
     [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         NSLog(@"ceva: %@", result);
         _quizzes = result;
-               [quizTable reloadData];
+        [quizTable reloadData];
+        
+        
     }];
 }
 

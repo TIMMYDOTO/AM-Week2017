@@ -30,16 +30,11 @@
         
     
     }];
-   
-
     
-   
-
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(dismissKeyboard)];
-    
+
     [self.view addGestureRecognizer:tap];
-    // Do any additional setup after loading the view.
     [_answer addTarget:self action:@selector(submit:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [_answer addTarget:self action:@selector(dismissKeyboard) forControlEvents:UIControlEventEditingDidEndOnExit];
     
@@ -93,7 +88,7 @@
 }
 - (IBAction)submit:(UIButton *)sender {
  
-   [[[[[_ref child:@"quizzes"]  child:@"androiodone"] child:@"answers"]childByAutoId] setValue:_answer.text];
+ //  [[[[[_ref child:@"quizzes"]  child:@"androiodone"] child:@"answers"]childByAutoId] setValue:_answer.text];
     
 }
 -(void)dismissKeyboard {

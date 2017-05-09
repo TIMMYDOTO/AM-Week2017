@@ -28,13 +28,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    NSLog(@"TrainingViewController");
+ 
+      [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+         
+          [_animationView startCanvasAnimation];
+      }];
+
     self.ref = [[FIRDatabase database] reference];
     refHandle = [[_ref child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         dict = snapshot.value;
-       
+
 //        _question.text = [[dict objectForKey:@"androiodone"] objectForKey: @"question"];
 //        _labelForCode.text = [[dict objectForKey:@"androiodone"] objectForKey:@"codeSnippet"];
     
@@ -93,23 +96,12 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"segueToSpeaker"]) {
-//       SpeakerDeatails *sd = [segue destinationViewController];
-//    
-//    sd.speaker = _trainings[self.trainingTable.indexPathForSelectedRow.row];
-  
-        
-    
-     //  NSLog(@"sd.speaker%@",sd.speaker);
+
     }
     if ([segue.identifier isEqualToString:@"segueToTraining"]) {
         TrainingTableViewController *sd = [segue destinationViewController];
-        
         sd.training = _trainings[self.trainingTable.indexPathForSelectedRow.row];
-
-        sd.speakerImage.imageView.contentMode = _tc.photo.imageView.contentMode;
         
-        //    NSLog(@"sd.speakerURL %@", sd.speakerURL);
-        //NSLog(@"sd.speaker%@",sd.speakerObj);
     }
 }
 
