@@ -31,6 +31,13 @@
     // Dispose of any resources that can be recreated.
 }
 - (void) setupSpeaker {
+   // _str1 = _training.speakerImage;
+  //  NSLog(@"_str1 %@", _str1);
+    [self.speakerImage sd_setImageWithURL:[NSURL URLWithString:_training.speakerImage] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"person"]];
+    self.speakerImage.layer.cornerRadius = self.speakerImage.frame.size.height/2;
+    self.speakerImage.layer.masksToBounds = YES;
+    self.speakerImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    
     _speakerName.text = _training.speaker;
     _date.text = _training.date;
     _location.text = _training.location;

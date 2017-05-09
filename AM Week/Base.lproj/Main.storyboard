@@ -997,7 +997,7 @@
         <image name="person" width="649" height="659"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Zuy-O8-DFm"/>
         <segue reference="LnE-9S-cTv"/>
-        <segue reference="mcp-Cd-dzX"/>
     </inferredMetricsTieBreakers>
 </document>
