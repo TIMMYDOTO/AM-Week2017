@@ -35,7 +35,8 @@
 - (void) setupSpeaker {
 
    NSLog(@"_training.speakerImage %@", _training.speakerImage);
-    [self.speakerImage sd_setBackgroundImageWithURL:[NSURL URLWithString:_training.speakerImage] forState:UIControlStateNormal];
+
+    [self.speakerImage sd_setImageWithURL:[NSURL URLWithString:_training.speakerImage] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"person"]];
     self.speakerImage.layer.cornerRadius = self.speakerImage.frame.size.height/2;
     self.speakerImage.layer.masksToBounds = YES;
     self.speakerImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
