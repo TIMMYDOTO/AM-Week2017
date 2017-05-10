@@ -7,23 +7,25 @@
 //
 
 #import "TrainingTableViewController.h"
-
+#import "FirebaseService.h"
 @interface TrainingTableViewController ()
-
+@property (strong, nonatomic) NSMutableArray *trainings;
 @end
 
+
 @implementation TrainingTableViewController
-@synthesize description;
+@synthesize description, tableView;
 - (void)viewDidLoad {
     [super viewDidLoad];
- //   NSLog(@"_speakerObj.speaker %@", _speakerObj.speaker);
-  //  NSLog(@"_speakerObj.speaker %@", _speakerObj.time);
+      _trainings = [[NSMutableArray alloc] init];
+    [[FirebaseService sharedManager] getFirebase:(AMWTrainings) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+        
+        _trainings = result;
+        
+        [tableView reloadData];
+    }];
     [self setupSpeaker];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,9 +33,9 @@
     // Dispose of any resources that can be recreated.
 }
 - (void) setupSpeaker {
-   // _str1 = _training.speakerImage;
-  //  NSLog(@"_str1 %@", _str1);
-    [self.speakerImage sd_setImageWithURL:[NSURL URLWithString:_training.speakerImage] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"person"]];
+
+   NSLog(@"_training.speakerImage %@", _training.speakerImage);
+   [self.speakerImage sd_setImageWithURL:[NSURL URLWithString:_training.speakerImage] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"person"]];
     self.speakerImage.layer.cornerRadius = self.speakerImage.frame.size.height/2;
     self.speakerImage.layer.masksToBounds = YES;
     self.speakerImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -49,6 +51,13 @@
 
     }
 #pragma mark - Table view data source
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"segueToSpeaker"]) {
+        SpeakerDeatails *sd = [segue destinationViewController];
+       sd.details = _trainings[self.tableView.indexPathForSelectedRow.row];
+        
+    }
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;

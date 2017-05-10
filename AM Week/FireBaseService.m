@@ -62,8 +62,8 @@
             if ([[speakerObj[@"id"] stringValue] isEqualToString: newTraining[@"speaker"]]) {
                 newTraining[@"speaker"] = [NSString stringWithFormat:@"%@",speakerObj[@"name"]];
                 newTraining[@"speakerImage"] = [NSString stringWithFormat:@"%@",speakerObj[@"imageId"]];
-                
-            
+                newTraining[@"shortInfo"] = [NSString stringWithFormat:@"%@",speakerObj[@"shortInfo"]];
+                newTraining[@"longInfo"] = [NSString stringWithFormat:@"%@",speakerObj[@"longInfo"]];
            }
           
           

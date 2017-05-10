@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Training.h"
 #import <SDWebImage/UIButton+WebCache.h>
-
+#import "SpeakerDeatails.h"
+//#import "TrainingViewController.m"
 @interface TrainingTableViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UILabel *date;
 @property (strong, nonatomic) IBOutlet UILabel *location;
@@ -20,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *speakerImage;
 @property (strong, nonatomic) IBOutlet UILabel *speakerName;
 @property (strong, nonatomic) IBOutlet UILabel *description;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSString *str1;
 @property (strong, nonatomic) Training *training;

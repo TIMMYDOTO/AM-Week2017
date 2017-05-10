@@ -28,12 +28,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+    
+        [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+            
+            [_animationView startCanvasAnimation];
+        }];
  
-      [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
-         
-          [_animationView startCanvasAnimation];
-      }];
-
+   
     self.ref = [[FIRDatabase database] reference];
     refHandle = [[_ref child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         dict = snapshot.value;
@@ -47,7 +49,7 @@
     
     self.date = [self dateForSelectedTab];
     self.navigationItem.title = [self dateTitleFromDate:self.date];
-    
+   
     _trainings = [[NSMutableArray alloc] init];
     
     UIButton *button = [[UIButton alloc] init];
@@ -64,9 +66,10 @@
         [trainingTable reloadData];
     }];
 }
+
 -(void)pushToGoogle
 {
-    [self performSegueWithIdentifier:@"segueIdentifier" sender:self];
+    [self performSegueWithIdentifier:@"toGoogle" sender:self];
 }
 - (NSDate*) dateForSelectedTab {
     
@@ -94,13 +97,16 @@
 }
 
 
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"segueToSpeaker"]) {
-
+        SpeakerDeatails *sd = [segue destinationViewController];
+        sd.details = _trainings[self.trainingTable.indexPathForSelectedRow.row];
+        
     }
     if ([segue.identifier isEqualToString:@"segueToTraining"]) {
-        TrainingTableViewController *sd = [segue destinationViewController];
-        sd.training = _trainings[self.trainingTable.indexPathForSelectedRow.row];
+        TrainingTableViewController *td = [segue destinationViewController];
+        td.training = _trainings[self.trainingTable.indexPathForSelectedRow.row];
         
     }
 }

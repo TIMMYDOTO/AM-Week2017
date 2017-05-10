@@ -27,7 +27,8 @@
 @property (strong, nonatomic) NSString *speakerImage;
 @property (strong, nonatomic) NSString *language;
 @property (strong, nonatomic) NSString *type;
-
+@property (strong, nonatomic) NSString *shortInfo;
+@property (strong, nonatomic) NSString *longInfo;
 - (id) initTrainingWithDict: (NSDictionary*) dict ;
 
 @end

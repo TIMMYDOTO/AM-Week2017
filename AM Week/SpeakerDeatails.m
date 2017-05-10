@@ -17,7 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"SpeakerDeatails");
-    NSLog(@"speakerURL: %@",self.speakerURL);
+    [self setupSpeakerDetails];
+  //  NSLog(@"speakerURL: %@",self.speakerURL);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -31,7 +32,22 @@
 }
 
 #pragma mark - Table view data source
-
+-(void)setupSpeakerDetails{
+    _speakerName.text = _details.speaker;
+    _speakerDetails.text = _details.shortInfo;
+    
+    [_speakerImage sd_setImageWithURL:[NSURL URLWithString:_details.speakerImage]];
+    self.speakerImage.layer.cornerRadius = self.speakerImage.frame.size.height/2;
+    self.speakerImage.layer.masksToBounds = YES;
+ 
+    
+    _about.text = _details.longInfo;
+    _trainingTitle.text = _details.title;
+    _trainingStream.text = _details.stream;
+    _trainingTime.text = _details.time;
+    _date.text = _details.date;
+    NSLog(@"_speakerName.text%@", _speakerName.text);
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
     return 3;
