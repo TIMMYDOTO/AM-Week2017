@@ -18,7 +18,7 @@
 		D979888248E7BB0D3B1BF862 /* libPods-AM WeekUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C375E6BA30A5E790D1ACBAD /* libPods-AM WeekUITests.a */; };
 		E424F6541EBB7EB900078B2F /* SpeakerDeatails.m in Sources */ = {isa = PBXBuildFile; fileRef = E424F6531EBB7EB900078B2F /* SpeakerDeatails.m */; };
 		E424F69B1EC09D2700078B2F /* TrainingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E424F69A1EC09D2700078B2F /* TrainingViewController.m */; };
-		E443289C1EB86D5F0084DD88 /* Google.m in Sources */ = {isa = PBXBuildFile; fileRef = E443289B1EB86D5F0084DD88 /* Google.m */; };
+		E42A61001EC3465A00B99BBD /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = E42A60FF1EC3465A00B99BBD /* UserInformation.m */; };
 		E48089091EA6062A00A543C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E48089081EA6062A00A543C3 /* main.m */; };
 		E480890C1EA6062A00A543C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E480890B1EA6062A00A543C3 /* AppDelegate.m */; };
 		E48089121EA6062A00A543C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48089101EA6062A00A543C3 /* Main.storyboard */; };
@@ -72,13 +72,11 @@
 		CFBA7DC793214FE1BF43C0AF /* Pods-AM Week.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM Week.release.xcconfig"; path = "Pods/Target Support Files/Pods-AM Week/Pods-AM Week.release.xcconfig"; sourceTree = "<group>"; };
 		DCB42A2910E9F06D32AEB07B /* libPods-AM Week.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AM Week.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9A456E5A7A86D48B6EE858 /* Pods-AM WeekTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM WeekTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AM WeekTests/Pods-AM WeekTests.release.xcconfig"; sourceTree = "<group>"; };
-
 		E424F6521EBB7EB900078B2F /* SpeakerDeatails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerDeatails.h; sourceTree = "<group>"; };
 		E424F6531EBB7EB900078B2F /* SpeakerDeatails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerDeatails.m; sourceTree = "<group>"; };
 		E424F69A1EC09D2700078B2F /* TrainingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingViewController.m; sourceTree = "<group>"; };
-		E443289A1EB86D5F0084DD88 /* Google.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Google.h; sourceTree = "<group>"; };
-		E443289B1EB86D5F0084DD88 /* Google.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Google.m; sourceTree = "<group>"; };
-
+		E42A60FE1EC3465A00B99BBD /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
+		E42A60FF1EC3465A00B99BBD /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
 		E48089041EA6062A00A543C3 /* AM Week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AM Week.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48089081EA6062A00A543C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E480890A1EA6062A00A543C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -170,8 +168,8 @@
 		E443289E1EB86D6D0084DD88 /* User Information */ = {
 			isa = PBXGroup;
 			children = (
-				E443289A1EB86D5F0084DD88 /* UserInformation.h */,
-				E443289B1EB86D5F0084DD88 /* UserInformation.m */,
+				E42A60FE1EC3465A00B99BBD /* UserInformation.h */,
+				E42A60FF1EC3465A00B99BBD /* UserInformation.m */,
 			);
 			name = "User Information";
 			sourceTree = "<group>";
@@ -204,7 +202,6 @@
 			children = (
 				8ED4DCD71EBB633C0060750A /* Training Details */,
 				8E06D3631EB1E9FC002F8C96 /* Firebase */,
-				E443289E1EB86D6D0084DD88 /* Google */,
 				FFF3FE4F1EA7750A0033AAFE /* Training */,
 				E443289E1EB86D6D0084DD88 /* User Information */,
 				FFF3FE4A1EA76FC90033AAFE /* Speaker */,
@@ -579,8 +576,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E443289C1EB86D5F0084DD88 /* UserInformation.m in Sources */,
 				FFF3FE521EA7752F0033AAFE /* Training.m in Sources */,
+				E42A61001EC3465A00B99BBD /* UserInformation.m in Sources */,
 				E480890C1EA6062A00A543C3 /* AppDelegate.m in Sources */,
 				E48089091EA6062A00A543C3 /* main.m in Sources */,
 				E4F6282E1EB9EA59005A1FDE /* QuizQuestion.m in Sources */,

@@ -26,7 +26,7 @@
     _speakerName.text = _training.speaker;
     
     _imageURL = [NSURL URLWithString:_training.speakerImage];
-    UIImage *image = [UIImage imageNamed:@"person"];
+    UIImage *image = [UIImage imageNamed:@"Image Placeholder"];
     
     [self.photo sd_setImageWithURL:_imageURL forState:UIControlStateNormal placeholderImage:image];
     self.photo.layer.cornerRadius = self.photo.frame.size.height/2;

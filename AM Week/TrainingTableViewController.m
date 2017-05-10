@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
       _trainings = [[NSMutableArray alloc] init];
-    [[FirebaseService sharedManager] getFirebase:(AMWTrainings) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+    [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day:[NSString stringWithFormat:@"%lu", self.tabBarController.selectedIndex+1] andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         
         _trainings = result;
         
@@ -53,7 +53,8 @@
     }
 #pragma mark - Table view data source
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"segueToSpeaker"]) {
+    if ([segue.identifier isEqualToString:@"segueFromTrainingToSpeaker"]) {
+        NSLog(@"segueFromTrainingToSpeaker");
         SpeakerDeatails *sd = [segue destinationViewController];
        sd.details = _trainings[self.tableView.indexPathForSelectedRow.row];
         

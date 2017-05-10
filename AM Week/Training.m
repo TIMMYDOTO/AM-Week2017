@@ -32,6 +32,7 @@
         _type = dict[@"type"];
         _shortInfo = dict[@"shortInfo"];
         _longInfo = dict[@"longInfo"];
+      
     }
     return self;
 }

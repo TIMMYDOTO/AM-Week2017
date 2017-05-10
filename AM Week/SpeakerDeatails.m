@@ -42,11 +42,12 @@
  
     
     _about.text = _details.longInfo;
+  
     _trainingTitle.text = _details.title;
     _trainingStream.text = _details.stream;
     _trainingTime.text = _details.time;
     _date.text = _details.date;
-    NSLog(@"_speakerName.text%@", _speakerName.text);
+   
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections

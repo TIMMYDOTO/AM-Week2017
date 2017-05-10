@@ -30,7 +30,7 @@
     [super viewDidLoad];
    
     
-        [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+        [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil  andCompletionBlock:^(NSMutableArray *result, NSError *error) {
             
             [_animationView startCanvasAnimation];
         }];
