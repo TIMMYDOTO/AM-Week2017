@@ -8,13 +8,19 @@
 
 #import "TrainingViewController.h"
 #import "FirebaseService.h"
-#import "TrainingCell.h"
-#import "Training.h"
 
-@interface TrainingViewController ()
+#import "Training.h"
+#import "TrainingTableViewController.h"
+@interface TrainingViewController (){
+    NSMutableArray *arr;
+    FIRDatabaseHandle refHandle;
+    NSDictionary *dict;
+  
+}
+
 
 @property (strong, nonatomic) NSMutableArray *trainings;
-@property(nonatomic, weak) IBOutlet UITableView *trainingTable;
+
 @end
 
 @implementation TrainingViewController
@@ -22,27 +28,50 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+    
+        [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+            
+            [_animationView startCanvasAnimation];
+        }];
+ 
+   
+    self.ref = [[FIRDatabase database] reference];
+    refHandle = [[_ref child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        dict = snapshot.value;
+
+//        _question.text = [[dict objectForKey:@"androiodone"] objectForKey: @"question"];
+//        _labelForCode.text = [[dict objectForKey:@"androiodone"] objectForKey:@"codeSnippet"];
+    
+    }];
+
+    
     
     self.date = [self dateForSelectedTab];
     self.navigationItem.title = [self dateTitleFromDate:self.date];
-    
+
     _trainings = [[NSMutableArray alloc] init];
     
     UIButton *button = [[UIButton alloc] init];
-    UIImage*image = [UIImage imageNamed:@"person"];
+    UIImage *image = [UIImage imageNamed:@"person"];
     button.frame = CGRectMake(0,0,30,30);
     [button setBackgroundImage:image forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
     [button addTarget:self action:@selector(pushToGoogle) forControlEvents:UIControlEventTouchUpInside];
     
+
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+
         _trainings = result;
+    
         [trainingTable reloadData];
     }];
 }
 
-- (void)pushToGoogle {
-    [self performSegueWithIdentifier:@"segueIdentifier" sender:self];
+
+-(void)pushToGoogle
+{
+    [self performSegueWithIdentifier:@"toGoogle" sender:self];
 }
 
 - (NSDate*) dateForSelectedTab {
@@ -66,7 +95,23 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+
     // Dispose of any resources that can be recreated.
+}
+
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"segueToSpeaker"]) {
+        SpeakerDeatails *sd = [segue destinationViewController];
+        sd.details = _trainings[self.trainingTable.indexPathForSelectedRow.row];
+        
+    }
+    if ([segue.identifier isEqualToString:@"segueToTraining"]) {
+        TrainingTableViewController *td = [segue destinationViewController];
+        td.training = _trainings[self.trainingTable.indexPathForSelectedRow.row];
+        
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -77,17 +122,12 @@
     
     TrainingCell *cell = [trainingTable dequeueReusableCellWithIdentifier:@"TrainingCell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell setupContentWithQuiz:_trainings[indexPath.row]];
+    [cell setupContentWithTraining:_trainings[indexPath.row]];
     
     return cell;
 }
 
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    
-    NSLog(@"didSelectItem: %ld", (long)item.tag);
-//    [self activateTab:item.tag];
-    
-}
+
 
 
 @end

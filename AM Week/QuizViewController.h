@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TrainingViewController.h"
 @interface QuizViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

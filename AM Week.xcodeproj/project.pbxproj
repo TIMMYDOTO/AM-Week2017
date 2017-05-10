@@ -10,14 +10,15 @@
 		8E06D3661EB1EA10002F8C96 /* FirebaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E06D3651EB1EA10002F8C96 /* FirebaseService.m */; };
 		8E06D3691EB1F23D002F8C96 /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E06D3681EB1F23D002F8C96 /* QuizViewController.m */; };
 		8E06D36C1EB2045C002F8C96 /* QuizCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E06D36B1EB2045C002F8C96 /* QuizCell.m */; };
-		8E06D3AA1EB48CD8002F8C96 /* TrainingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E06D3A91EB48CD8002F8C96 /* TrainingViewController.m */; };
 		8E06D3AD1EB49A2A002F8C96 /* TrainingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E06D3AC1EB49A29002F8C96 /* TrainingCell.m */; };
 		8EC9076B1EA640C900A9417E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EC9076A1EA640C900A9417E /* GoogleService-Info.plist */; };
 		8ED4DCDD1EBB64090060750A /* TrainingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4DCDC1EBB64090060750A /* TrainingTableViewController.m */; };
 		8EEA4980214E59CD1EDE4146 /* libPods-AM WeekTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CC770DFE72F2A0D6A50490 /* libPods-AM WeekTests.a */; };
 		AA998C402002DEFC909EF150 /* libPods-AM Week.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB42A2910E9F06D32AEB07B /* libPods-AM Week.a */; };
 		D979888248E7BB0D3B1BF862 /* libPods-AM WeekUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C375E6BA30A5E790D1ACBAD /* libPods-AM WeekUITests.a */; };
-		E443289C1EB86D5F0084DD88 /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = E443289B1EB86D5F0084DD88 /* UserInformation.m */; };
+		E424F6541EBB7EB900078B2F /* SpeakerDeatails.m in Sources */ = {isa = PBXBuildFile; fileRef = E424F6531EBB7EB900078B2F /* SpeakerDeatails.m */; };
+		E424F69B1EC09D2700078B2F /* TrainingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E424F69A1EC09D2700078B2F /* TrainingViewController.m */; };
+		E443289C1EB86D5F0084DD88 /* Google.m in Sources */ = {isa = PBXBuildFile; fileRef = E443289B1EB86D5F0084DD88 /* Google.m */; };
 		E48089091EA6062A00A543C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E48089081EA6062A00A543C3 /* main.m */; };
 		E480890C1EA6062A00A543C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E480890B1EA6062A00A543C3 /* AppDelegate.m */; };
 		E48089121EA6062A00A543C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48089101EA6062A00A543C3 /* Main.storyboard */; };
@@ -61,7 +62,6 @@
 		8E06D36A1EB2045C002F8C96 /* QuizCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizCell.h; sourceTree = "<group>"; };
 		8E06D36B1EB2045C002F8C96 /* QuizCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizCell.m; sourceTree = "<group>"; };
 		8E06D3A81EB48CD8002F8C96 /* TrainingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingViewController.h; sourceTree = "<group>"; };
-		8E06D3A91EB48CD8002F8C96 /* TrainingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingViewController.m; sourceTree = "<group>"; };
 		8E06D3AB1EB49A29002F8C96 /* TrainingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCell.h; sourceTree = "<group>"; };
 		8E06D3AC1EB49A29002F8C96 /* TrainingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingCell.m; sourceTree = "<group>"; };
 		8EC9076A1EA640C900A9417E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -72,8 +72,13 @@
 		CFBA7DC793214FE1BF43C0AF /* Pods-AM Week.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM Week.release.xcconfig"; path = "Pods/Target Support Files/Pods-AM Week/Pods-AM Week.release.xcconfig"; sourceTree = "<group>"; };
 		DCB42A2910E9F06D32AEB07B /* libPods-AM Week.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AM Week.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE9A456E5A7A86D48B6EE858 /* Pods-AM WeekTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM WeekTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AM WeekTests/Pods-AM WeekTests.release.xcconfig"; sourceTree = "<group>"; };
-		E443289A1EB86D5F0084DD88 /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
-		E443289B1EB86D5F0084DD88 /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
+
+		E424F6521EBB7EB900078B2F /* SpeakerDeatails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerDeatails.h; sourceTree = "<group>"; };
+		E424F6531EBB7EB900078B2F /* SpeakerDeatails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerDeatails.m; sourceTree = "<group>"; };
+		E424F69A1EC09D2700078B2F /* TrainingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingViewController.m; sourceTree = "<group>"; };
+		E443289A1EB86D5F0084DD88 /* Google.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Google.h; sourceTree = "<group>"; };
+		E443289B1EB86D5F0084DD88 /* Google.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Google.m; sourceTree = "<group>"; };
+
 		E48089041EA6062A00A543C3 /* AM Week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AM Week.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48089081EA6062A00A543C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E480890A1EA6062A00A543C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -199,6 +204,7 @@
 			children = (
 				8ED4DCD71EBB633C0060750A /* Training Details */,
 				8E06D3631EB1E9FC002F8C96 /* Firebase */,
+				E443289E1EB86D6D0084DD88 /* Google */,
 				FFF3FE4F1EA7750A0033AAFE /* Training */,
 				E443289E1EB86D6D0084DD88 /* User Information */,
 				FFF3FE4A1EA76FC90033AAFE /* Speaker */,
@@ -258,6 +264,8 @@
 			children = (
 				FFF3FE4B1EA770000033AAFE /* Speaker.h */,
 				FFF3FE4C1EA770000033AAFE /* Speaker.m */,
+				E424F6521EBB7EB900078B2F /* SpeakerDeatails.h */,
+				E424F6531EBB7EB900078B2F /* SpeakerDeatails.m */,
 			);
 			name = Speaker;
 			sourceTree = "<group>";
@@ -268,7 +276,7 @@
 				FFF3FE501EA7752F0033AAFE /* Training.h */,
 				FFF3FE511EA7752F0033AAFE /* Training.m */,
 				8E06D3A81EB48CD8002F8C96 /* TrainingViewController.h */,
-				8E06D3A91EB48CD8002F8C96 /* TrainingViewController.m */,
+				E424F69A1EC09D2700078B2F /* TrainingViewController.m */,
 				8E06D3AB1EB49A29002F8C96 /* TrainingCell.h */,
 				8E06D3AC1EB49A29002F8C96 /* TrainingCell.m */,
 			);
@@ -579,10 +587,11 @@
 				8E06D3661EB1EA10002F8C96 /* FirebaseService.m in Sources */,
 				FFF3FE571EA7778A0033AAFE /* Quiz.m in Sources */,
 				FFF3FE4D1EA770000033AAFE /* Speaker.m in Sources */,
+				E424F69B1EC09D2700078B2F /* TrainingViewController.m in Sources */,
 				8E06D36C1EB2045C002F8C96 /* QuizCell.m in Sources */,
-				8E06D3AA1EB48CD8002F8C96 /* TrainingViewController.m in Sources */,
 				8E06D3691EB1F23D002F8C96 /* QuizViewController.m in Sources */,
 				E4F628291EB9DA0B005A1FDE /* Reachability.m in Sources */,
+				E424F6541EBB7EB900078B2F /* SpeakerDeatails.m in Sources */,
 				8E06D3AD1EB49A2A002F8C96 /* TrainingCell.m in Sources */,
 				8ED4DCDD1EBB64090060750A /* TrainingTableViewController.m in Sources */,
 			);

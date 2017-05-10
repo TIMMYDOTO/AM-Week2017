@@ -14,6 +14,6 @@
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *shortInfo;
 @property (strong, nonatomic) NSString *longInfo;
-@property (strong, nonatomic) NSArray *trainings;
+
 
 @end

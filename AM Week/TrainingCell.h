@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <SDWebImage/UIButton+WebCache.h>
 @class Training;
 
 @interface TrainingCell : UITableViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *stream;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *timeDate;
+@property (weak, nonatomic) IBOutlet UILabel *speakerName;
+@property (strong, nonatomic) IBOutlet UIButton *photo;
 @property (retain, nonatomic) Training* training;
-
-- (void) setupContentWithQuiz:(Training *)training;
+@property (strong, nonatomic) NSURL *imageURL;
+- (void) setupContentWithTraining:(Training *)training;
 
 @end

@@ -15,16 +15,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     [GIDSignIn sharedInstance].uiDelegate = self;
 
     [self.signInButton setStyle:kGIDSignInButtonStyleIconOnly];
     GIDSignIn *signInButton = [GIDSignIn sharedInstance];
     signInButton.delegate = self;
+
     
     [self hasInternet];
     if ([GIDSignIn sharedInstance].currentUser) {
         [self signIn:[GIDSignIn sharedInstance] didSignInForUser:[GIDSignIn sharedInstance].currentUser withError:nil];
     }
+
 }
 
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user withError:(NSError *)error {
@@ -40,6 +43,7 @@
             self.image.layer.cornerRadius = self.image.frame.size.height/2;
             self.image.layer.masksToBounds = YES;
         }
+
     }
 }
 
@@ -57,7 +61,6 @@
 
 - (IBAction)signOut:(id)sender {
     
-    NSLog(@"SIGNED OUT");
      [[GIDSignIn sharedInstance] signOut];
     self.separatorView.alpha = 1;
     self.name.text = nil;
