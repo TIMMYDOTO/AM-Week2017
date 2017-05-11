@@ -7,9 +7,9 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>681821793276-01n0kqoon5eosco07fgvmn1bn1ppbfal.apps.googleusercontent.com</string>
+	<string>681821793276-j267is8togmf2hn7imc4m2tu4vksfkc4.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.681821793276-01n0kqoon5eosco07fgvmn1bn1ppbfal</string>
+	<string>com.googleusercontent.apps.681821793276-j267is8togmf2hn7imc4m2tu4vksfkc4</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAeyY96ozQQGp_soHTAHGg5HOQiHSWpv1Q</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +17,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.endava.amweek</string>
+	<string>com.endava.amw</string>
 	<key>PROJECT_ID</key>
 	<string>amweek-eae7f</string>
 	<key>STORAGE_BUCKET</key>
@@ -33,7 +33,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:681821793276:ios:84d63463c910d8db</string>
+	<string>1:681821793276:ios:f68510446428b93f</string>
 	<key>DATABASE_URL</key>
 	<string>https://amweek-eae7f.firebaseio.com</string>
 </dict>

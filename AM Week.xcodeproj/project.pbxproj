@@ -64,9 +64,10 @@
 		8E06D3A81EB48CD8002F8C96 /* TrainingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingViewController.h; sourceTree = "<group>"; };
 		8E06D3AB1EB49A29002F8C96 /* TrainingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCell.h; sourceTree = "<group>"; };
 		8E06D3AC1EB49A29002F8C96 /* TrainingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingCell.m; sourceTree = "<group>"; };
-		8EC9076A1EA640C900A9417E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8EC9076A1EA640C900A9417E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8ED4DCDB1EBB64090060750A /* TrainingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingTableViewController.h; sourceTree = "<group>"; };
 		8ED4DCDC1EBB64090060750A /* TrainingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingTableViewController.m; sourceTree = "<group>"; };
+		8ED4DD231EC488BB0060750A /* AM Week.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AM Week.entitlements"; sourceTree = "<group>"; };
 		9FC676E9943090D4A2E23C44 /* Pods-AM WeekUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM WeekUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AM WeekUITests/Pods-AM WeekUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7A9488C9ABDE0854785595D /* Pods-AM Week.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM Week.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AM Week/Pods-AM Week.debug.xcconfig"; sourceTree = "<group>"; };
 		CFBA7DC793214FE1BF43C0AF /* Pods-AM Week.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM Week.release.xcconfig"; path = "Pods/Target Support Files/Pods-AM Week/Pods-AM Week.release.xcconfig"; sourceTree = "<group>"; };
@@ -177,7 +178,6 @@
 		E48088FB1EA6062A00A543C3 = {
 			isa = PBXGroup;
 			children = (
-				8EC9076A1EA640C900A9417E /* GoogleService-Info.plist */,
 				E48089061EA6062A00A543C3 /* AM Week */,
 				E48089201EA6062A00A543C3 /* AM WeekTests */,
 				E480892B1EA6062A00A543C3 /* AM WeekUITests */,
@@ -218,6 +218,8 @@
 		E48089071EA6062A00A543C3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8EC9076A1EA640C900A9417E /* GoogleService-Info.plist */,
+				8ED4DD231EC488BB0060750A /* AM Week.entitlements */,
 				E4F628271EB9DA0B005A1FDE /* Reachability.h */,
 				E4F628281EB9DA0B005A1FDE /* Reachability.m */,
 				E480890A1EA6062A00A543C3 /* AppDelegate.h */,
@@ -371,7 +373,13 @@
 				TargetAttributes = {
 					E48089031EA6062A00A543C3 = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+						DevelopmentTeam = W3FZKU8HEQ;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					E480891C1EA6062A00A543C3 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -740,10 +748,15 @@
 			baseConfigurationReference = B7A9488C9ABDE0854785595D /* Pods-AM Week.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "AM Week/AM Week.entitlements";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = W3FZKU8HEQ;
 				INFOPLIST_FILE = "AM Week/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.endava.amweek;
+				PRODUCT_BUNDLE_IDENTIFIER = com.endava.amw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5ee7b28a-a364-4ad9-9b43-b05d07a1e406";
+				PROVISIONING_PROFILE_SPECIFIER = "Endava AMW Development";
 			};
 			name = Debug;
 		};
@@ -752,10 +765,16 @@
 			baseConfigurationReference = CFBA7DC793214FE1BF43C0AF /* Pods-AM Week.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "AM Week/AM Week.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Endava (W3FZKU8HEQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Endava (W3FZKU8HEQ)";
+				DEVELOPMENT_TEAM = W3FZKU8HEQ;
 				INFOPLIST_FILE = "AM Week/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.endava.amweek;
+				PRODUCT_BUNDLE_IDENTIFIER = com.endava.amw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "28f39f22-4ff2-4fe1-bb96-2a7c3dc3ae61";
+				PROVISIONING_PROFILE_SPECIFIER = "Endava AMW";
 			};
 			name = Release;
 		};

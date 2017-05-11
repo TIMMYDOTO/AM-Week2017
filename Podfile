@@ -13,7 +13,7 @@ target 'AM Week' do
   pod 'GoogleSignIn'
   pod 'GoogleUtilities'
   pod 'Canvas'
-  
+  pod 'Firebase/Messaging'   
   target 'AM WeekTests' do
     inherit! :search_paths
     # Pods for testing

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rmy-zM-rYV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rmy-zM-rYV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -42,7 +42,7 @@
                 <navigationController id="Kca-qW-s4a" customClass="NavigationBarController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Thursday" selectedImage="Thursday" id="kvw-aa-23f"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oF7-to-zDN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oF7-to-zDN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,7 +65,7 @@
                 <navigationController id="81d-nt-oZl" customClass="NavigationBarController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Friday" selectedImage="Friday" id="FAZ-M2-a2p"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VaD-5t-7x2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VaD-5t-7x2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -88,7 +88,7 @@
                 <navigationController id="tkr-jn-6gl" customClass="NavigationBarController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Wednesday" selectedImage="Wednesday" id="Zi6-9z-6Ie"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="P90-On-GAe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P90-On-GAe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -126,7 +126,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tms-a1-MUe" id="eEA-TB-8m8">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="134.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="135"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZ1-du-0UQ">
@@ -534,13 +534,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWr-KW-1tu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2282" y="89"/>
+            <point key="canvasLocation" x="2175" y="233"/>
         </scene>
         <!--Speaker-->
         <scene sceneID="uBV-Db-TNb">
             <objects>
                 <tableViewController id="e8V-Eq-fLq" customClass="SpeakerDeatails" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="uhT-Vr-Ef9">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="uhT-Vr-Ef9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.89796030521392822" green="0.8980897068977356" blue="0.89793211221694946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -725,7 +725,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bof-Oc-cJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3048.8000000000002" y="156.97151424287858"/>
+            <point key="canvasLocation" x="3074" y="233"/>
         </scene>
         <!--User Information-->
         <scene sceneID="BIV-sc-KMr">
@@ -820,7 +820,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q5H-mN-bUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2756" y="993.55322338830592"/>
+            <point key="canvasLocation" x="3073" y="1049"/>
         </scene>
         <!--Quizes-->
         <scene sceneID="yNy-X1-lAh">
@@ -842,7 +842,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OGh-Ae-EfT" id="731-fK-VY1">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="85.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IW-H9-37n" userLabel="Quiz Title">
@@ -946,7 +946,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJR-9x-qxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1078" y="1003"/>
+            <point key="canvasLocation" x="1292" y="1048"/>
         </scene>
         <!--Quiz Question-->
         <scene sceneID="eOn-VQ-OiR">
@@ -1004,7 +1004,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJU-bJ-rxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1942" y="1024"/>
+            <point key="canvasLocation" x="2174" y="1048"/>
         </scene>
         <!--Navigation Bar Controller-->
         <scene sceneID="MLe-8N-FgQ">
@@ -1012,7 +1012,7 @@
                 <navigationController id="7N1-Tf-hqs" customClass="NavigationBarController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Tuesday" selectedImage="Tuesday" id="hlF-zj-aIa"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XSJ-Wq-ACw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XSJ-Wq-ACw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1035,7 +1035,7 @@
                 <navigationController id="4db-cP-Zrp" customClass="NavigationBarController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Monday" selectedImage="Monday" id="EC9-Wn-icx"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oKX-Fz-VAS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oKX-Fz-VAS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1071,7 +1071,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="w4M-hI-9s9"/>
-        <segue reference="CMc-eh-bRa"/>
-        <segue reference="8XM-t2-jD5"/>
+        <segue reference="nfV-Ca-2t6"/>
+        <segue reference="jmq-9H-ihr"/>
     </inferredMetricsTieBreakers>
 </document>
