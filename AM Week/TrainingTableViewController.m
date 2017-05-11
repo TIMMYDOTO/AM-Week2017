@@ -8,6 +8,7 @@
 
 #import "TrainingTableViewController.h"
 #import "FirebaseService.h"
+
 @interface TrainingTableViewController ()
 @property (strong, nonatomic) NSMutableArray *trainings;
 @end

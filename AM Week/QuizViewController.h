@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TrainingViewController.h"
-@interface QuizViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+#import "UserInformation.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
+@interface QuizViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, GIDSignInUIDelegate, GIDSignInDelegate>
+
+@property (nonatomic,assign) UIImage *userPicture;
 @end

@@ -8,8 +8,9 @@
 
 #import "TrainingViewController.h"
 #import "FirebaseService.h"
-
+#import "TrainingCell.h"
 #import "Training.h"
+
 #import "TrainingTableViewController.h"
 @interface TrainingViewController (){
     
@@ -21,8 +22,8 @@
 }
 
 
-@property (strong, nonatomic) NSMutableArray *trainings;
 
+@property (strong, nonatomic) NSMutableArray *trainings;
 @end
 
 @implementation TrainingViewController
@@ -30,6 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
    
     
     
@@ -44,25 +46,21 @@
     
     }];
 
-    
+
     
     self.date = [self dateForSelectedTab];
     self.navigationItem.title = [self dateTitleFromDate:self.date];
-
+    
     _trainings = [[NSMutableArray alloc] init];
     
-    UIButton *button = [[UIButton alloc] init];
-    UIImage *image = [UIImage imageNamed:@"Image Placeholder"];
-    button.frame = CGRectMake(0,0,30,30);
-    [button setBackgroundImage:image forState:UIControlStateNormal];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
-    [button addTarget:self action:@selector(pushToGoogle) forControlEvents:UIControlEventTouchUpInside];
-    
 
+    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil  andCompletionBlock:^(NSMutableArray* result, NSError* error) {
+        [_animationView startCanvasAnimation];
+    }];
+
+    
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] andCompletionBlock:^(NSMutableArray *result, NSError *error) {
-
         _trainings = result;
-    
         [trainingTable reloadData];
     }];
     
@@ -71,12 +69,6 @@
         
         [_animationView startCanvasAnimation];
     }];
-}
-
-
--(void)pushToGoogle
-{
-    [self performSegueWithIdentifier:@"toGoogle" sender:self];
 }
 
 - (NSDate*) dateForSelectedTab {
@@ -101,6 +93,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
+
     // Dispose of any resources that can be recreated.
 }
 
@@ -119,6 +112,7 @@
         td.training = _trainings[self.trainingTable.indexPathForSelectedRow.row];
         
     }
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -134,11 +128,11 @@
     return cell;
 }
 
+
 -(void)showSpeakerProfileForTraining:(Training *)training {
     currentTrainig = training;
     [self performSegueWithIdentifier:@"segueToSpeaker" sender:nil];
     
 }
-
 
 @end
