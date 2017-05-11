@@ -31,11 +31,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-   
-    
-    
- 
    
     self.ref = [[FIRDatabase database] reference];
     refHandle = [[_ref child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
@@ -135,4 +130,7 @@
     
 }
 
+- (IBAction)OpenQR:(id)sender {
+    
+}
 @end

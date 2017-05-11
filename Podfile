@@ -14,6 +14,7 @@ target 'AM Week' do
   pod 'GoogleUtilities'
   pod 'Canvas'
   pod 'Firebase/Messaging'   
+  pod 'QRCodeReaderViewController'
   target 'AM WeekTests' do
     inherit! :search_paths
     # Pods for testing
