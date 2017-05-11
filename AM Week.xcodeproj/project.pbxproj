@@ -11,7 +11,6 @@
 		8E06D3691EB1F23D002F8C96 /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E06D3681EB1F23D002F8C96 /* QuizViewController.m */; };
 		8E06D36C1EB2045C002F8C96 /* QuizCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E06D36B1EB2045C002F8C96 /* QuizCell.m */; };
 		8E06D3AD1EB49A2A002F8C96 /* TrainingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E06D3AC1EB49A29002F8C96 /* TrainingCell.m */; };
-		8EC9076B1EA640C900A9417E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8EC9076A1EA640C900A9417E /* GoogleService-Info.plist */; };
 		8ED4DCDD1EBB64090060750A /* TrainingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4DCDC1EBB64090060750A /* TrainingTableViewController.m */; };
 		8EEA4980214E59CD1EDE4146 /* libPods-AM WeekTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CC770DFE72F2A0D6A50490 /* libPods-AM WeekTests.a */; };
 		AA998C402002DEFC909EF150 /* libPods-AM Week.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB42A2910E9F06D32AEB07B /* libPods-AM Week.a */; };
@@ -19,6 +18,7 @@
 		E424F6541EBB7EB900078B2F /* SpeakerDeatails.m in Sources */ = {isa = PBXBuildFile; fileRef = E424F6531EBB7EB900078B2F /* SpeakerDeatails.m */; };
 		E424F69B1EC09D2700078B2F /* TrainingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E424F69A1EC09D2700078B2F /* TrainingViewController.m */; };
 		E42A61001EC3465A00B99BBD /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = E42A60FF1EC3465A00B99BBD /* UserInformation.m */; };
+		E465BF731EC465B000110F1A /* QRReader.m in Sources */ = {isa = PBXBuildFile; fileRef = E465BF721EC465B000110F1A /* QRReader.m */; };
 		E48089091EA6062A00A543C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E48089081EA6062A00A543C3 /* main.m */; };
 		E480890C1EA6062A00A543C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E480890B1EA6062A00A543C3 /* AppDelegate.m */; };
 		E48089121EA6062A00A543C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48089101EA6062A00A543C3 /* Main.storyboard */; };
@@ -26,6 +26,8 @@
 		E48089171EA6062A00A543C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48089151EA6062A00A543C3 /* LaunchScreen.storyboard */; };
 		E48089221EA6062A00A543C3 /* AM_WeekTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E48089211EA6062A00A543C3 /* AM_WeekTests.m */; };
 		E480892D1EA6062A00A543C3 /* AM_WeekUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E480892C1EA6062A00A543C3 /* AM_WeekUITests.m */; };
+		E4B2B04C1EC4910000F7AE8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4B2B04B1EC4910000F7AE8F /* GoogleService-Info.plist */; };
+		E4B2B04F1EC49DB500F7AE8F /* QRComponentsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B2B04E1EC49DB500F7AE8F /* QRComponentsDetailsViewController.m */; };
 		E4F628291EB9DA0B005A1FDE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F628281EB9DA0B005A1FDE /* Reachability.m */; };
 		E4F6282B1EB9DA61005A1FDE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F6282A1EB9DA61005A1FDE /* SystemConfiguration.framework */; };
 		E4F6282E1EB9EA59005A1FDE /* QuizQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F6282D1EB9EA59005A1FDE /* QuizQuestion.m */; };
@@ -64,7 +66,6 @@
 		8E06D3A81EB48CD8002F8C96 /* TrainingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingViewController.h; sourceTree = "<group>"; };
 		8E06D3AB1EB49A29002F8C96 /* TrainingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCell.h; sourceTree = "<group>"; };
 		8E06D3AC1EB49A29002F8C96 /* TrainingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingCell.m; sourceTree = "<group>"; };
-		8EC9076A1EA640C900A9417E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8ED4DCDB1EBB64090060750A /* TrainingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingTableViewController.h; sourceTree = "<group>"; };
 		8ED4DCDC1EBB64090060750A /* TrainingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingTableViewController.m; sourceTree = "<group>"; };
 		9FC676E9943090D4A2E23C44 /* Pods-AM WeekUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM WeekUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AM WeekUITests/Pods-AM WeekUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +78,8 @@
 		E424F69A1EC09D2700078B2F /* TrainingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingViewController.m; sourceTree = "<group>"; };
 		E42A60FE1EC3465A00B99BBD /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
 		E42A60FF1EC3465A00B99BBD /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
+		E465BF711EC465B000110F1A /* QRReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRReader.h; sourceTree = "<group>"; };
+		E465BF721EC465B000110F1A /* QRReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRReader.m; sourceTree = "<group>"; };
 		E48089041EA6062A00A543C3 /* AM Week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AM Week.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48089081EA6062A00A543C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E480890A1EA6062A00A543C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -91,6 +94,9 @@
 		E48089281EA6062A00A543C3 /* AM WeekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AM WeekUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E480892C1EA6062A00A543C3 /* AM_WeekUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AM_WeekUITests.m; sourceTree = "<group>"; };
 		E480892E1EA6062A00A543C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4B2B04B1EC4910000F7AE8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E4B2B04D1EC49DB500F7AE8F /* QRComponentsDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRComponentsDetailsViewController.h; sourceTree = "<group>"; };
+		E4B2B04E1EC49DB500F7AE8F /* QRComponentsDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRComponentsDetailsViewController.m; sourceTree = "<group>"; };
 		E4F628271EB9DA0B005A1FDE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		E4F628281EB9DA0B005A1FDE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		E4F6282A1EB9DA61005A1FDE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -174,10 +180,22 @@
 			name = "User Information";
 			sourceTree = "<group>";
 		};
+		E465BF701EC464FC00110F1A /* QRCodeReader */ = {
+			isa = PBXGroup;
+			children = (
+				E465BF711EC465B000110F1A /* QRReader.h */,
+				E465BF721EC465B000110F1A /* QRReader.m */,
+				E4B2B04D1EC49DB500F7AE8F /* QRComponentsDetailsViewController.h */,
+				E4B2B04E1EC49DB500F7AE8F /* QRComponentsDetailsViewController.m */,
+			);
+			name = QRCodeReader;
+			sourceTree = "<group>";
+		};
 		E48088FB1EA6062A00A543C3 = {
 			isa = PBXGroup;
 			children = (
-				8EC9076A1EA640C900A9417E /* GoogleService-Info.plist */,
+				E4B2B04B1EC4910000F7AE8F /* GoogleService-Info.plist */,
+				E465BF701EC464FC00110F1A /* QRCodeReader */,
 				E48089061EA6062A00A543C3 /* AM Week */,
 				E48089201EA6062A00A543C3 /* AM WeekTests */,
 				E480892B1EA6062A00A543C3 /* AM WeekUITests */,
@@ -371,6 +389,7 @@
 				TargetAttributes = {
 					E48089031EA6062A00A543C3 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = W3FZKU8HEQ;
 						ProvisioningStyle = Automatic;
 					};
 					E480891C1EA6062A00A543C3 = {
@@ -410,8 +429,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4B2B04C1EC4910000F7AE8F /* GoogleService-Info.plist in Resources */,
 				E48089171EA6062A00A543C3 /* LaunchScreen.storyboard in Resources */,
-				8EC9076B1EA640C900A9417E /* GoogleService-Info.plist in Resources */,
 				E48089141EA6062A00A543C3 /* Assets.xcassets in Resources */,
 				E48089121EA6062A00A543C3 /* Main.storyboard in Resources */,
 			);
@@ -577,9 +596,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFF3FE521EA7752F0033AAFE /* Training.m in Sources */,
+				E4B2B04F1EC49DB500F7AE8F /* QRComponentsDetailsViewController.m in Sources */,
 				E42A61001EC3465A00B99BBD /* UserInformation.m in Sources */,
 				E480890C1EA6062A00A543C3 /* AppDelegate.m in Sources */,
 				E48089091EA6062A00A543C3 /* main.m in Sources */,
+				E465BF731EC465B000110F1A /* QRReader.m in Sources */,
 				E4F6282E1EB9EA59005A1FDE /* QuizQuestion.m in Sources */,
 				8E06D3661EB1EA10002F8C96 /* FirebaseService.m in Sources */,
 				FFF3FE571EA7778A0033AAFE /* Quiz.m in Sources */,
@@ -740,6 +761,7 @@
 			baseConfigurationReference = B7A9488C9ABDE0854785595D /* Pods-AM Week.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W3FZKU8HEQ;
 				INFOPLIST_FILE = "AM Week/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.endava.amweek;
@@ -752,6 +774,7 @@
 			baseConfigurationReference = CFBA7DC793214FE1BF43C0AF /* Pods-AM Week.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W3FZKU8HEQ;
 				INFOPLIST_FILE = "AM Week/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.endava.amweek;

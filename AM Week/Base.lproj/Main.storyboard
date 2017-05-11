@@ -105,6 +105,75 @@
             </objects>
             <point key="canvasLocation" x="-274" y="344"/>
         </scene>
+        <!--Reader-->
+        <scene sceneID="8dV-Wh-2bE">
+            <objects>
+                <viewController id="DCT-zZ-7dA" customClass="QRReader" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Nb-zR-dN6"/>
+                        <viewControllerLayoutGuide type="bottom" id="1eE-1X-Zk7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Oyz-1H-fCn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egj-0J-gxD">
+                                <rect key="frame" x="130" y="550" width="116" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="scanAction:" destination="DCT-zZ-7dA" eventType="touchUpInside" id="7se-mZ-V1I"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="et2-TX-huV" kind="show" identifier="showQRComponents" id="reH-RL-INd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zGA-Ta-wze" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="945" y="-743"/>
+        </scene>
+        <!--Components Details View Controller-->
+        <scene sceneID="YFR-ng-OCo">
+            <objects>
+                <viewController id="et2-TX-huV" customClass="QRComponentsDetailsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ivm-bd-0xc"/>
+                        <viewControllerLayoutGuide type="bottom" id="fxl-t1-5TV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X9U-AG-pGv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XGz-o6-X4V">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XGz-o6-X4V" secondAttribute="trailing" id="2mS-as-vMP"/>
+                            <constraint firstItem="XGz-o6-X4V" firstAttribute="top" secondItem="X9U-AG-pGv" secondAttribute="top" id="IXd-7J-IL9"/>
+                            <constraint firstAttribute="bottom" secondItem="XGz-o6-X4V" secondAttribute="bottom" id="N58-D7-h1r"/>
+                            <constraint firstItem="XGz-o6-X4V" firstAttribute="leading" secondItem="X9U-AG-pGv" secondAttribute="leading" id="V13-5p-wPB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="UiB-Id-P2B">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="zdS-pB-fj5">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="XGz-o6-X4V" id="7Gp-Fm-Dhn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WKg-4t-1vz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1701.5999999999999" y="-748.87556221889065"/>
+        </scene>
         <!--Training View Controller-->
         <scene sceneID="5aq-ZH-YwM">
             <objects>
@@ -263,6 +332,10 @@
                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="QR"/>
+                                <connections>
+                                    <action selector="OpenQR:" destination="alq-9F-DV3" eventType="touchUpInside" id="VPm-0Y-8dp"/>
+                                    <segue destination="DCT-zZ-7dA" kind="show" id="TK4-Hv-GCO"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>

@@ -19,5 +19,6 @@
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property(nonatomic, weak) IBOutlet UITableView *trainingTable;
 
+- (IBAction)OpenQR:(id)sender;
 
 @end
