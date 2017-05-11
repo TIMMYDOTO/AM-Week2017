@@ -12,6 +12,8 @@
 #import "Training.h"
 #import "TrainingTableViewController.h"
 @interface TrainingViewController (){
+    
+    Training* currentTrainig;
     NSMutableArray *arr;
     FIRDatabaseHandle refHandle;
     NSDictionary *dict;
@@ -30,10 +32,7 @@
     [super viewDidLoad];
    
     
-        [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil  andCompletionBlock:^(NSMutableArray *result, NSError *error) {
-            
-            [_animationView startCanvasAnimation];
-        }];
+    
  
    
     self.ref = [[FIRDatabase database] reference];
@@ -53,7 +52,7 @@
     _trainings = [[NSMutableArray alloc] init];
     
     UIButton *button = [[UIButton alloc] init];
-    UIImage *image = [UIImage imageNamed:@"person"];
+    UIImage *image = [UIImage imageNamed:@"Image Placeholder"];
     button.frame = CGRectMake(0,0,30,30);
     [button setBackgroundImage:image forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
@@ -65,6 +64,12 @@
         _trainings = result;
     
         [trainingTable reloadData];
+    }];
+    
+    
+    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil  andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+        
+        [_animationView startCanvasAnimation];
     }];
 }
 
@@ -104,7 +109,9 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"segueToSpeaker"]) {
         SpeakerDeatails *sd = [segue destinationViewController];
-        sd.details = _trainings[self.trainingTable.indexPathForSelectedRow.row];
+    
+        sd.details = currentTrainig;
+        currentTrainig = nil;
         
     }
     if ([segue.identifier isEqualToString:@"segueToTraining"]) {
@@ -123,11 +130,15 @@
     TrainingCell *cell = [trainingTable dequeueReusableCellWithIdentifier:@"TrainingCell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell setupContentWithTraining:_trainings[indexPath.row]];
-    
+    cell.delegate = self;
     return cell;
 }
 
-
+-(void)showSpeakerProfileForTraining:(Training *)training {
+    currentTrainig = training;
+    [self performSegueWithIdentifier:@"segueToSpeaker" sender:nil];
+    
+}
 
 
 @end

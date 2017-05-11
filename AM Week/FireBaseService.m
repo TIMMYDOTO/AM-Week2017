@@ -126,7 +126,8 @@
         NSMutableDictionary *localResult = snapshot.value;
         if(scope == AMWTrainings){
             [[FirebaseService sharedManager] getAllTrainings:localResult forDay:day andCompletionBlock:completionBlock];
-        }else{
+        } else
+        {
             [[FirebaseService sharedManager] getAllQuizzes:localResult andCompletionBlock:completionBlock];
         }
     }];

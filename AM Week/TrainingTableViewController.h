@@ -26,4 +26,6 @@
 @property (strong, nonatomic) NSString *str1;
 @property (strong, nonatomic) Training *training;
 
+
+
 @end

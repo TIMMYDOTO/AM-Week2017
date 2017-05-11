@@ -16,6 +16,15 @@
 
 @implementation TrainingCell
 
+
+- (IBAction)showSpeakerProfile:(id)sender {
+
+    if ([self.delegate respondsToSelector:@selector(showSpeakerProfileForTraining:)]) {
+        [self.delegate showSpeakerProfileForTraining:self.training];
+    }
+
+}
+
 - (void) setupContentWithTraining:(Training *)training{
     _training = training;
 

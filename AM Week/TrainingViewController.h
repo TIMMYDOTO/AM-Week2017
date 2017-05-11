@@ -12,7 +12,7 @@
 #import "TrainingCell.h"
 #import <Canvas/Canvas.h>
 
-@interface TrainingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TrainingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TrainingCellDelegate>
 @property (weak, nonatomic) IBOutlet CSAnimationView *animationView;
 
 @property (nonatomic,retain) NSDate* date;

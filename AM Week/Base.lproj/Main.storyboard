@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -136,7 +137,7 @@
                                                     </constraints>
                                                     <state key="normal" image="Image Placeholder"/>
                                                     <connections>
-                                                        <segue destination="e8V-Eq-fLq" kind="show" identifier="segueToSpeaker" id="4uN-Y2-4wR"/>
+                                                        <action selector="showSpeakerProfile:" destination="tms-a1-MUe" eventType="touchUpInside" id="rDQ-5S-u4z"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide icons for both the selected and unselected states. The selected icon is often a fille" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCr-2g-4rd">
@@ -257,6 +258,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="AHe-J3-UXP">
                         <barButtonItem key="backBarButtonItem" title="Back" id="evr-hW-5ED"/>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="nQ0-Hs-arN" userLabel="QR">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gbi-DD-0Z5">
+                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="QR"/>
+                            </button>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="YuC-nO-Byf">
                             <connections>
                                 <segue destination="zjx-pe-YT4" kind="show" id="TUf-z0-XMZ"/>
@@ -268,6 +276,7 @@
                         <outlet property="animationView" destination="2Ye-d6-Wcb" id="Z1o-Ex-Ufi"/>
                         <outlet property="trainingTable" destination="MP9-Fm-Ts3" id="gx8-6g-Lep"/>
                         <segue destination="zjx-pe-YT4" kind="show" identifier="toGoogle" id="CMc-eh-bRa"/>
+                        <segue destination="e8V-Eq-fLq" kind="show" identifier="segueToSpeaker" id="8XM-t2-jD5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWK-DW-4fd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -970,23 +979,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAC-Bw-7tt">
-                                <rect key="frame" x="16" y="605" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4j7-yz-Qsp">
+                                <rect key="frame" x="0.0" y="64" width="375" height="478"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DTu-nO-vwL">
+                                <rect key="frame" x="0.0" y="550" width="375" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="lO7-W6-OxK"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAC-Bw-7tt">
+                                <rect key="frame" x="16" y="588" width="343" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="submit:" destination="ipr-Qb-IFf" eventType="touchUpInside" id="7g0-no-3HP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="40" baselineAdjustment="alignBaselines" minimumScaleFactor="0.55000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="9PT-b5-Sg7" userLabel="Question">
-                                <rect key="frame" x="10" y="64" width="355" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DTu-nO-vwL" secondAttribute="trailing" id="Eg5-ng-fr3"/>
+                            <constraint firstItem="TAC-Bw-7tt" firstAttribute="leading" secondItem="xzF-G5-CNO" secondAttribute="leadingMargin" id="b61-Qg-Vb2"/>
+                            <constraint firstAttribute="trailing" secondItem="4j7-yz-Qsp" secondAttribute="trailing" id="bIN-gZ-0WL"/>
+                            <constraint firstItem="DTu-nO-vwL" firstAttribute="top" secondItem="4j7-yz-Qsp" secondAttribute="bottom" constant="8" id="fG6-kT-810"/>
+                            <constraint firstItem="TAC-Bw-7tt" firstAttribute="top" secondItem="DTu-nO-vwL" secondAttribute="bottom" constant="8" id="r4c-Gd-etR"/>
+                            <constraint firstItem="4j7-yz-Qsp" firstAttribute="leading" secondItem="xzF-G5-CNO" secondAttribute="leading" id="shd-zP-onN"/>
+                            <constraint firstItem="446-bA-JZu" firstAttribute="top" secondItem="TAC-Bw-7tt" secondAttribute="bottom" id="u07-gq-dZx"/>
+                            <constraint firstItem="4j7-yz-Qsp" firstAttribute="top" secondItem="8Xm-D7-6WF" secondAttribute="bottom" id="weP-Tp-J5y"/>
+                            <constraint firstItem="TAC-Bw-7tt" firstAttribute="trailing" secondItem="xzF-G5-CNO" secondAttribute="trailingMargin" id="x0e-1g-Uzn"/>
+                            <constraint firstItem="DTu-nO-vwL" firstAttribute="leading" secondItem="xzF-G5-CNO" secondAttribute="leading" id="znW-S5-wqh"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cBf-RM-Xfi">
                         <barButtonItem key="rightBarButtonItem" title="Item" id="YEf-YH-LIh">
@@ -997,13 +1026,10 @@
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <connections>
-                        <outlet property="question" destination="9PT-b5-Sg7" id="ycr-S0-Ihv"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJU-bJ-rxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1943" y="1004"/>
+            <point key="canvasLocation" x="1941.5999999999999" y="1003.4482758620691"/>
         </scene>
         <!--Navigation Bar Controller-->
         <scene sceneID="MLe-8N-FgQ">
@@ -1070,7 +1096,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="w4M-hI-9s9"/>
-        <segue reference="vJa-3n-alw"/>
-        <segue reference="jmq-9H-ihr"/>
+        <segue reference="TUf-z0-XMZ"/>
+        <segue reference="8XM-t2-jD5"/>
     </inferredMetricsTieBreakers>
 </document>

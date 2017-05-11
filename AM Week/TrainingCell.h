@@ -10,7 +10,16 @@
 #import <SDWebImage/UIButton+WebCache.h>
 @class Training;
 
+
+@protocol TrainingCellDelegate <NSObject>
+
+- (void) showSpeakerProfileForTraining: (Training*) training;
+
+@end
+
 @interface TrainingCell : UITableViewCell
+
+@property (retain, nonatomic) id <TrainingCellDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *stream;
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *timeDate;
