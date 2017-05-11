@@ -45,31 +45,40 @@
     [trainings enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull trainingObj, BOOL * _Nonnull stop) {
     
         NSMutableDictionary* newTraining = [[NSMutableDictionary alloc] init];
+   
+
+        newTraining[@"title"] = trainingObj[@"title"];
+        newTraining[@"time"] = [NSString stringWithFormat:@"%@ - %@", trainingObj[@"timeStart"], trainingObj[@"timeEnd"]];
+        newTraining[@"date"] = trainingObj[@"date"];
+        newTraining[@"day"] = trainingObj[@"day"];
+        newTraining[@"location"] = trainingObj[@"location"];
+        newTraining[@"description"] = trainingObj[@"description"];
+        newTraining[@"remoteCall"] = trainingObj[@"remoteCall"];
+        newTraining[@"stream"] = trainingObj[@"stream"];
+        newTraining[@"speaker"] = [trainingObj[@"speakerId"] stringValue];
+        newTraining[@"language"] = trainingObj[@"language"];
         
-        if([[trainingObj[@"day"] stringValue] isEqualToString:day]){
-        
-            newTraining[@"title"] = trainingObj[@"title"];
-            newTraining[@"time"] = trainingObj[@"timeStart"];
-            newTraining[@"date"] = trainingObj[@"date"];
-            newTraining[@"location"] = trainingObj[@"location"];
-            newTraining[@"description"] = trainingObj[@"description"];
-            newTraining[@"remoteCall"] = trainingObj[@"remoteCall"];
-            newTraining[@"stream"] = trainingObj[@"stream"];
-            newTraining[@"speaker"] = [trainingObj[@"speakerId"] stringValue];
-        
-            [speakers enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull speakerObj, BOOL * _Nonnull stop) {
-                if ([[speakerObj[@"id"] stringValue] isEqualToString: newTraining[@"speaker"]]) {
-                    newTraining[@"speaker"] = [NSString stringWithFormat:@"%@",speakerObj[@"name"]];
-                }
-            }];
+        [speakers enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull speakerObj, BOOL * _Nonnull stop) {
+            if ([[speakerObj[@"id"] stringValue] isEqualToString: newTraining[@"speaker"]]) {
+                newTraining[@"speaker"] = [NSString stringWithFormat:@"%@",speakerObj[@"name"]];
+                newTraining[@"speakerImage"] = [NSString stringWithFormat:@"%@",speakerObj[@"imageId"]];
+                newTraining[@"shortInfo"] = [NSString stringWithFormat:@"%@",speakerObj[@"shortInfo"]];
+                newTraining[@"longInfo"] = [NSString stringWithFormat:@"%@",speakerObj[@"longInfo"]];
+           }
+          
+          
+        }];
+
 
             newTraining[@"trainingId"] = trainingObj[@"id"];
             newTraining[@"timeStart"] = trainingObj[@"timeStart"];
             newTraining[@"timeEnd"] = trainingObj[@"timeEnd"];
             newTraining[@"type"] = trainingObj[@"type"];
         
-            [allInfo addObject:[[Training alloc] initTrainingWithDict:newTraining]];
-        }
+
+        [allInfo addObject:[[Training alloc] initTrainingWithDict:newTraining]];
+      
+
     }];
    
     NSArray *sortedArray;

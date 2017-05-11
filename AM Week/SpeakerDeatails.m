@@ -1,71 +1,61 @@
 //
-//  TrainingTableViewController.m
+//  SpeakerDeatails.m
 //  AM Week
 //
-//  Created by Ion Verdes on 5/4/17.
+//  Created by Artiom Schiopu on 5/4/17.
 //  Copyright © 2017 Artiom Schiopu. All rights reserved.
 //
 
-#import "TrainingTableViewController.h"
-#import "FirebaseService.h"
-@interface TrainingTableViewController ()
-@property (strong, nonatomic) NSMutableArray *trainings;
+#import "SpeakerDeatails.h"
+
+@interface SpeakerDeatails ()
+
 @end
 
+@implementation SpeakerDeatails
 
-@implementation TrainingTableViewController
-@synthesize description, tableView;
 - (void)viewDidLoad {
     [super viewDidLoad];
-      _trainings = [[NSMutableArray alloc] init];
-    [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day:[NSString stringWithFormat:@"%lu", self.tabBarController.selectedIndex+1] andCompletionBlock:^(NSMutableArray *result, NSError *error) {
-        
-        _trainings = result;
-        
-        [tableView reloadData];
-    }];
-    [self setupSpeaker];
-
+    NSLog(@"SpeakerDeatails");
+    [self setupSpeakerDetails];
+  //  NSLog(@"speakerURL: %@",self.speakerURL);
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (void) setupSpeaker {
 
-   NSLog(@"_training.speakerImage %@", _training.speakerImage);
-
-    [self.speakerImage sd_setImageWithURL:[NSURL URLWithString:_training.speakerImage] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"person"]];
+#pragma mark - Table view data source
+-(void)setupSpeakerDetails{
+    _speakerName.text = _details.speaker;
+    _speakerDetails.text = _details.shortInfo;
+    
+    [_speakerImage sd_setImageWithURL:[NSURL URLWithString:_details.speakerImage]];
     self.speakerImage.layer.cornerRadius = self.speakerImage.frame.size.height/2;
     self.speakerImage.layer.masksToBounds = YES;
-    self.speakerImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
+ 
     
-    _speakerName.text = _training.speaker;
-    _date.text = _training.date;
-    _location.text = _training.location;
-    _language.text = _training.language;
-    _time.text = _training.time;
-    _type.text = _training.type;
-    description.text = _training.description;
-    _stream.text = _training.stream;
-
-    }
-#pragma mark - Table view data source
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"segueFromTrainingToSpeaker"]) {
-        NSLog(@"segueFromTrainingToSpeaker");
-        SpeakerDeatails *sd = [segue destinationViewController];
-       sd.details = _trainings[self.tableView.indexPathForSelectedRow.row];
-        
-    }
+    _about.text = _details.longInfo;
+  
+    _trainingTitle.text = _details.title;
+    _trainingStream.text = _details.stream;
+    _trainingTime.text = _details.time;
+    _date.text = _details.date;
+   
 }
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Incomplete implementation, return the number of sections
     return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete implementation, return the number of rows
     return 1;
 }
 
