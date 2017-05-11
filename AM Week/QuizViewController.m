@@ -47,6 +47,8 @@
 - (void) viewWillAppear:(BOOL)animated{
     if ([GIDSignIn sharedInstance].currentUser) {
         [self signIn:[GIDSignIn sharedInstance] didSignInForUser:[GIDSignIn sharedInstance].currentUser withError:nil];
+    }else{
+        [self setupUserButton:nil];
     }
 }
 

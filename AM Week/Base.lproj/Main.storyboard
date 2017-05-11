@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rmy-zM-rYV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rmy-zM-rYV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -978,7 +978,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJU-bJ-rxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1943" y="1004"/>
+            <point key="canvasLocation" x="1942" y="1024"/>
         </scene>
         <!--Navigation Bar Controller-->
         <scene sceneID="MLe-8N-FgQ">
@@ -1044,13 +1044,8 @@
         <image name="Wednesday" width="31" height="34"/>
     </resources>
     <inferredMetricsTieBreakers>
-<<<<<<< HEAD
-        <segue reference="AdE-as-GfB"/>
-        <segue reference="4jc-jj-eLG"/>
-=======
         <segue reference="w4M-hI-9s9"/>
-        <segue reference="vJa-3n-alw"/>
-        <segue reference="jmq-9H-ihr"/>
->>>>>>> 5e6ecae77abd34fe523f6ac6da40b917504e29d1
+        <segue reference="4uN-Y2-4wR"/>
+        <segue reference="nfV-Ca-2t6"/>
     </inferredMetricsTieBreakers>
 </document>

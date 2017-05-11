@@ -14,7 +14,6 @@
 @interface TrainingViewController ()
 
 @property (strong, nonatomic) NSMutableArray *trainings;
-@property(nonatomic, weak) IBOutlet UITableView *trainingTable;
 @end
 
 @implementation TrainingViewController
@@ -27,6 +26,10 @@
     self.navigationItem.title = [self dateTitleFromDate:self.date];
     
     _trainings = [[NSMutableArray alloc] init];
+    
+    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil  andCompletionBlock:^(NSMutableArray* result, NSError* error) {
+        [_animationView startCanvasAnimation];
+    }];
     
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _trainings = result;
@@ -65,7 +68,7 @@
     
     TrainingCell *cell = [trainingTable dequeueReusableCellWithIdentifier:@"TrainingCell" forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell setupContentWithQuiz:_trainings[indexPath.row]];
+    [cell setupContentWithTraining:_trainings[indexPath.row]];
     
     return cell;
 }
