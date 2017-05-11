@@ -245,11 +245,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="AHe-J3-UXP">
                         <barButtonItem key="backBarButtonItem" title="Back" id="evr-hW-5ED"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="YuC-nO-Byf">
-                            <connections>
-                                <segue destination="zjx-pe-YT4" kind="show" id="TUf-z0-XMZ"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
@@ -506,11 +501,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Training" id="K54-3P-q6u">
                         <barButtonItem key="backBarButtonItem" title="Back" id="YlK-Yc-RWF"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="4sr-aj-t8W">
-                            <connections>
-                                <segue destination="zjx-pe-YT4" kind="show" id="vJa-3n-alw"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWr-KW-1tu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -692,11 +682,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Speaker" id="ktu-jQ-HeP">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Db7-PH-ta9"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="bAw-Nb-dyk">
-                            <connections>
-                                <segue destination="zjx-pe-YT4" kind="show" id="7pH-eH-cIn"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bof-Oc-cJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -914,14 +899,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Quizes" id="6cW-yu-X71" customClass="n">
                         <barButtonItem key="backBarButtonItem" title="Back" id="c42-fn-HLW"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="jZS-og-wb7">
-                            <connections>
-                                <segue destination="zjx-pe-YT4" kind="show" id="Cri-Dx-dX0"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="quizTable" destination="YBD-3k-kl7" id="F8q-HI-L4w"/>
+                        <segue destination="zjx-pe-YT4" kind="show" identifier="login" id="nfV-Ca-2t6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YJR-9x-qxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -958,13 +939,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cBf-RM-Xfi">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="YEf-YH-LIh">
-                            <connections>
-                                <segue destination="zjx-pe-YT4" kind="show" id="wWp-A3-oby"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="cBf-RM-Xfi"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
@@ -1041,6 +1016,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="AdE-as-GfB"/>
         <segue reference="4jc-jj-eLG"/>
-        <segue reference="TUf-z0-XMZ"/>
     </inferredMetricsTieBreakers>
 </document>

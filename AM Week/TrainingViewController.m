@@ -28,21 +28,10 @@
     
     _trainings = [[NSMutableArray alloc] init];
     
-    UIButton *button = [[UIButton alloc] init];
-    UIImage*image = [UIImage imageNamed:@"person"];
-    button.frame = CGRectMake(0,0,30,30);
-    [button setBackgroundImage:image forState:UIControlStateNormal];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
-    [button addTarget:self action:@selector(pushToGoogle) forControlEvents:UIControlEventTouchUpInside];
-    
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _trainings = result;
         [trainingTable reloadData];
     }];
-}
-
-- (void)pushToGoogle {
-    [self performSegueWithIdentifier:@"segueIdentifier" sender:self];
 }
 
 - (NSDate*) dateForSelectedTab {
@@ -66,7 +55,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -81,13 +69,5 @@
     
     return cell;
 }
-
-- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
-    
-    NSLog(@"didSelectItem: %ld", (long)item.tag);
-//    [self activateTab:item.tag];
-    
-}
-
 
 @end

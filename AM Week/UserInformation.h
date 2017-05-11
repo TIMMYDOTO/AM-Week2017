@@ -9,17 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "Reachability.h"
+
 @import GoogleSignIn;
 @import Firebase;
-@interface UserInformation : UIViewController <GIDSignInUIDelegate, GIDSignInDelegate>{
-    
-}
-@property(weak, nonatomic) IBOutlet GIDSignInButton *signInButton;
-@property(strong, nonatomic) IBOutlet UIView *separatorView;
-- (IBAction)signOut:(id)sender;
+
+@interface UserInformation : UIViewController <GIDSignInUIDelegate, GIDSignInDelegate>
+
+@property (weak, nonatomic) IBOutlet GIDSignInButton *signInButton;
+@property (strong, nonatomic) IBOutlet UIView *separatorView;
 @property (strong, nonatomic) IBOutlet UIImageView *image;
 @property (strong, nonatomic) IBOutlet UILabel *name;
 @property (strong, nonatomic) IBOutlet UILabel *email;
 
-    
+- (IBAction)signOut:(id)sender;
+
 @end
