@@ -11,7 +11,8 @@
 #import "SpeakerDeatails.h"
 #import "TrainingCell.h"
 #import <Canvas/Canvas.h>
-
+#import "QRCodeRead.h"
+#import "QRCodeReaderViewController.h"
 @interface TrainingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TrainingCellDelegate>
 @property (weak, nonatomic) IBOutlet CSAnimationView *animationView;
 

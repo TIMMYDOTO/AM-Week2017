@@ -10,5 +10,7 @@
 
 @interface QRComponentsDetailsViewController : UIViewController
 @property (strong,nonatomic) NSString* component;
+- (IBAction)SavePhotoToLibrary:(UIBarButtonItem *)sender;
+
 
 @end

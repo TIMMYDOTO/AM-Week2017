@@ -28,6 +28,7 @@
 		E480892D1EA6062A00A543C3 /* AM_WeekUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E480892C1EA6062A00A543C3 /* AM_WeekUITests.m */; };
 		E4B2B04C1EC4910000F7AE8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4B2B04B1EC4910000F7AE8F /* GoogleService-Info.plist */; };
 		E4B2B04F1EC49DB500F7AE8F /* QRComponentsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B2B04E1EC49DB500F7AE8F /* QRComponentsDetailsViewController.m */; };
+		E4B2B0581EC5C0B600F7AE8F /* QRCodeRead.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B2B0571EC5C0B600F7AE8F /* QRCodeRead.m */; };
 		E4F628291EB9DA0B005A1FDE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F628281EB9DA0B005A1FDE /* Reachability.m */; };
 		E4F6282B1EB9DA61005A1FDE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4F6282A1EB9DA61005A1FDE /* SystemConfiguration.framework */; };
 		E4F6282E1EB9EA59005A1FDE /* QuizQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F6282D1EB9EA59005A1FDE /* QuizQuestion.m */; };
@@ -99,6 +100,8 @@
 		E4B2B04B1EC4910000F7AE8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E4B2B04D1EC49DB500F7AE8F /* QRComponentsDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRComponentsDetailsViewController.h; sourceTree = "<group>"; };
 		E4B2B04E1EC49DB500F7AE8F /* QRComponentsDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRComponentsDetailsViewController.m; sourceTree = "<group>"; };
+		E4B2B0561EC5C0B600F7AE8F /* QRCodeRead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeRead.h; sourceTree = "<group>"; };
+		E4B2B0571EC5C0B600F7AE8F /* QRCodeRead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeRead.m; sourceTree = "<group>"; };
 		E4F628271EB9DA0B005A1FDE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		E4F628281EB9DA0B005A1FDE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		E4F6282A1EB9DA61005A1FDE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -189,6 +192,8 @@
 				E465BF721EC465B000110F1A /* QRReader.m */,
 				E4B2B04D1EC49DB500F7AE8F /* QRComponentsDetailsViewController.h */,
 				E4B2B04E1EC49DB500F7AE8F /* QRComponentsDetailsViewController.m */,
+				E4B2B0561EC5C0B600F7AE8F /* QRCodeRead.h */,
+				E4B2B0571EC5C0B600F7AE8F /* QRCodeRead.m */,
 			);
 			name = QRCodeReader;
 			sourceTree = "<group>";
@@ -621,6 +626,7 @@
 				E424F6541EBB7EB900078B2F /* SpeakerDeatails.m in Sources */,
 				8E06D3AD1EB49A2A002F8C96 /* TrainingCell.m in Sources */,
 				8ED4DCDD1EBB64090060750A /* TrainingTableViewController.m in Sources */,
+				E4B2B0581EC5C0B600F7AE8F /* QRCodeRead.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

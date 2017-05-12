@@ -12,13 +12,16 @@
 #import "Training.h"
 
 #import "TrainingTableViewController.h"
+
 @interface TrainingViewController (){
     
     Training* currentTrainig;
     NSMutableArray *arr;
     FIRDatabaseHandle refHandle;
     NSDictionary *dict;
-  
+    
+        NSString* resultString;
+    
 }
 
 
@@ -131,6 +134,25 @@
 }
 
 - (IBAction)OpenQR:(id)sender {
+    QRCodeRead *reader = [[QRCodeRead alloc]init];
+    [reader scanAction];
     
 }
+//- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
+//{
+//    [reader stopScanning];
+//    
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        
+//        resultString = result;
+//        [self performSegueWithIdentifier:@"showQRComponents" sender:nil];
+//        
+//        
+//        //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCodeReader" message:result delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+//        // [alert show];
+//        
+//        
+//        return;
+//    }];
+//}
 @end

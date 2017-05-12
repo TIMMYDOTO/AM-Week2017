@@ -18,9 +18,23 @@
 
 
 - (void)viewDidLoad {
-    
+   
+    _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    _webView.scalesPageToFit = YES;
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.component]]];
 }
 
 
+- (IBAction)SavePhotoToLibrary:(UIBarButtonItem *)sender {
+    UIGraphicsBeginImageContext(_webView.bounds.size);
+    [_webView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    UIImageWriteToSavedPhotosAlbum(image,
+                                   nil,
+                                   nil,
+                                   nil);
+    
+    
+}
 @end
