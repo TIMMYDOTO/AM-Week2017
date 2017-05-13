@@ -11,9 +11,9 @@
 #import "SpeakerDeatails.h"
 #import "TrainingCell.h"
 #import <Canvas/Canvas.h>
-#import "QRCodeRead.h"
+#import "QRCodeReader.h"
 #import "QRCodeReaderViewController.h"
-@interface TrainingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TrainingCellDelegate>
+@interface TrainingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TrainingCellDelegate, QRCodeReaderDelegate>
 @property (weak, nonatomic) IBOutlet CSAnimationView *animationView;
 
 @property (nonatomic,retain) NSDate* date;

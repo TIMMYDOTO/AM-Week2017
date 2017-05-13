@@ -72,6 +72,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - GoogleSignIn
   - GoogleUtilities
+  - GTMSessionFetcher (~> 1.1)
   - QRCodeReaderViewController
   - SDWebImage (~> 3.8)
 
@@ -94,6 +95,6 @@ SPEC CHECKSUMS:
   QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 066a79b3d7e7992d21d15a46928e37122b12c982
+PODFILE CHECKSUM: 60ed084128d6bb08cdcc60469bf2eecf121260ec
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

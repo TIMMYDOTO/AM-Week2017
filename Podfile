@@ -6,6 +6,9 @@ target 'AM Week' do
   # use_frameworks!
 
   # Pods for AM Week
+  # pod 'GoogleToolboxForMac', '~> 2.1'
+  pod 'GTMSessionFetcher', '~> 1.1' # version 1.1 & newer up to - but not including - 2.0
+  # pod 'gtm-logger', '>= 0.0.5' # version 0.0.5 or newer
   pod 'SDWebImage', '~>3.8'
   pod 'Firebase/Core'
   pod 'Firebase/Database'

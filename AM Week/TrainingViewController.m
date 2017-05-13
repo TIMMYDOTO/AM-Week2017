@@ -10,18 +10,17 @@
 #import "FirebaseService.h"
 #import "TrainingCell.h"
 #import "Training.h"
-
 #import "TrainingTableViewController.h"
-
+#import "QRComponentsDetailsViewController.h"
 @interface TrainingViewController (){
     
     Training* currentTrainig;
     NSMutableArray *arr;
     FIRDatabaseHandle refHandle;
     NSDictionary *dict;
-    
-        NSString* resultString;
-    
+    NSString* resultString;
+    QRCodeReaderViewController *vc;
+
 }
 
 
@@ -43,9 +42,6 @@
 //        _labelForCode.text = [[dict objectForKey:@"androiodone"] objectForKey:@"codeSnippet"];
     
     }];
-
-
-    
     self.date = [self dateForSelectedTab];
     self.navigationItem.title = [self dateTitleFromDate:self.date];
     
@@ -110,7 +106,10 @@
         td.training = _trainings[self.trainingTable.indexPathForSelectedRow.row];
         
     }
-
+    if ([segue.identifier isEqualToString:@"showQRComponents"]) {
+    QRComponentsDetailsViewController* detailsVC = [segue destinationViewController];
+    detailsVC.component = resultString;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -134,25 +133,44 @@
 }
 
 - (IBAction)OpenQR:(id)sender {
-    QRCodeRead *reader = [[QRCodeRead alloc]init];
-    [reader scanAction];
-    
+    if ([QRCodeReader supportsMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]]) {
+        vc = nil;
+        QRCodeReader *reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+        vc                   = [QRCodeReaderViewController readerWithCancelButtonTitle:@"Cancel"				codeReader:reader startScanningAtLoad:YES showSwitchCameraButton:YES showTorchButton:YES];
+        vc.modalPresentationStyle = UIModalPresentationFormSheet;
+        vc.delegate = self;
+        
+        
+        [vc setCompletionWithBlock:^(NSString *resultAsString) {
+            NSLog(@"Completion with result: %@", resultAsString);
+        }];
+        
+        
+        [self presentViewController:vc animated:YES completion:NULL];
+        
+    }
+    else {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Reader not supported by the current device" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        [alert show];
+    }
 }
-//- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
-//{
-//    [reader stopScanning];
-//    
-//    [self dismissViewControllerAnimated:YES completion:^{
-//        
-//        resultString = result;
-//        [self performSegueWithIdentifier:@"showQRComponents" sender:nil];
-//        
-//        
-//        //UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCodeReader" message:result delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
-//        // [alert show];
-//        
-//        
-//        return;
-//    }];
-//}
+    
+- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
+    {
+        NSLog(@"didScanResult");
+        [reader stopScanning];
+        [vc dismissViewControllerAnimated:YES completion:^{
+        resultString = result;
+        [self performSegueWithIdentifier:@"showQRComponents" sender:nil];
+        }];
+}
+    
+	
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader
+{
+        [vc dismissViewControllerAnimated:YES completion:NULL];
+}
+
 @end
