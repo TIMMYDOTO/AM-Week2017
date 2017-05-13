@@ -11,6 +11,8 @@
 		8E06D3691EB1F23D002F8C96 /* QuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E06D3681EB1F23D002F8C96 /* QuizViewController.m */; };
 		8E06D36C1EB2045C002F8C96 /* QuizCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E06D36B1EB2045C002F8C96 /* QuizCell.m */; };
 		8E06D3AD1EB49A2A002F8C96 /* TrainingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E06D3AC1EB49A29002F8C96 /* TrainingCell.m */; };
+		8E104DF11EC5AE6F006E6173 /* SpeakerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E104DF01EC5AE6E006E6173 /* SpeakerCell.m */; };
+		8E104DF41EC5C082006E6173 /* TrainingDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E104DF31EC5C082006E6173 /* TrainingDetailsCell.m */; };
 		8ED4DCDD1EBB64090060750A /* TrainingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4DCDC1EBB64090060750A /* TrainingTableViewController.m */; };
 		8EEA4980214E59CD1EDE4146 /* libPods-AM WeekTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CC770DFE72F2A0D6A50490 /* libPods-AM WeekTests.a */; };
 		AA998C402002DEFC909EF150 /* libPods-AM Week.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB42A2910E9F06D32AEB07B /* libPods-AM Week.a */; };
@@ -66,6 +68,10 @@
 		8E06D3A81EB48CD8002F8C96 /* TrainingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingViewController.h; sourceTree = "<group>"; };
 		8E06D3AB1EB49A29002F8C96 /* TrainingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingCell.h; sourceTree = "<group>"; };
 		8E06D3AC1EB49A29002F8C96 /* TrainingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingCell.m; sourceTree = "<group>"; };
+		8E104DEF1EC5AE6E006E6173 /* SpeakerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerCell.h; sourceTree = "<group>"; };
+		8E104DF01EC5AE6E006E6173 /* SpeakerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerCell.m; sourceTree = "<group>"; };
+		8E104DF21EC5C082006E6173 /* TrainingDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingDetailsCell.h; sourceTree = "<group>"; };
+		8E104DF31EC5C082006E6173 /* TrainingDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingDetailsCell.m; sourceTree = "<group>"; };
 		8EC9076A1EA640C900A9417E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8ED4DCDB1EBB64090060750A /* TrainingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingTableViewController.h; sourceTree = "<group>"; };
 		8ED4DCDC1EBB64090060750A /* TrainingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingTableViewController.m; sourceTree = "<group>"; };
@@ -169,6 +175,8 @@
 			children = (
 				8ED4DCDB1EBB64090060750A /* TrainingTableViewController.h */,
 				8ED4DCDC1EBB64090060750A /* TrainingTableViewController.m */,
+				8E104DF21EC5C082006E6173 /* TrainingDetailsCell.h */,
+				8E104DF31EC5C082006E6173 /* TrainingDetailsCell.m */,
 			);
 			name = "Training Details";
 			sourceTree = "<group>";
@@ -285,6 +293,8 @@
 				FFF3FE4C1EA770000033AAFE /* Speaker.m */,
 				E424F6521EBB7EB900078B2F /* SpeakerDeatails.h */,
 				E424F6531EBB7EB900078B2F /* SpeakerDeatails.m */,
+				8E104DEF1EC5AE6E006E6173 /* SpeakerCell.h */,
+				8E104DF01EC5AE6E006E6173 /* SpeakerCell.m */,
 			);
 			name = Speaker;
 			sourceTree = "<group>";
@@ -609,10 +619,12 @@
 				E42A61001EC3465A00B99BBD /* UserInformation.m in Sources */,
 				E480890C1EA6062A00A543C3 /* AppDelegate.m in Sources */,
 				E48089091EA6062A00A543C3 /* main.m in Sources */,
+				8E104DF41EC5C082006E6173 /* TrainingDetailsCell.m in Sources */,
 				E465BF731EC465B000110F1A /* QRReader.m in Sources */,
 				E4F6282E1EB9EA59005A1FDE /* QuizQuestion.m in Sources */,
 				8E06D3661EB1EA10002F8C96 /* FirebaseService.m in Sources */,
 				FFF3FE571EA7778A0033AAFE /* Quiz.m in Sources */,
+				8E104DF11EC5AE6F006E6173 /* SpeakerCell.m in Sources */,
 				FFF3FE4D1EA770000033AAFE /* Speaker.m in Sources */,
 				E424F69B1EC09D2700078B2F /* TrainingViewController.m in Sources */,
 				8E06D36C1EB2045C002F8C96 /* QuizCell.m in Sources */,

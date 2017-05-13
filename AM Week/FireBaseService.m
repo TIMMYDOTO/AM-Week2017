@@ -9,6 +9,7 @@
 #import "FirebaseService.h"
 #import "Training.h"
 #import "Quiz.h"
+#import "Speaker.h"
 
 @import FirebaseDatabase;
 
@@ -56,15 +57,13 @@
             newTraining[@"description"] = trainingObj[@"description"];
             newTraining[@"remoteCall"] = trainingObj[@"remoteCall"];
             newTraining[@"stream"] = trainingObj[@"stream"];
-            newTraining[@"speaker"] = [trainingObj[@"speakerId"] stringValue];
+            newTraining[@"speakerID"] = [trainingObj[@"speakerId"] stringValue];
             newTraining[@"language"] = trainingObj[@"language"];
         
             [speakers enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull speakerObj, BOOL * _Nonnull stop) {
-                if ([[speakerObj[@"id"] stringValue] isEqualToString: newTraining[@"speaker"]]) {
+                if ([[speakerObj[@"id"] stringValue] isEqualToString: newTraining[@"speakerID"]]) {
                     newTraining[@"speaker"] = [NSString stringWithFormat:@"%@",speakerObj[@"name"]];
                     newTraining[@"speakerImage"] = [NSString stringWithFormat:@"%@",speakerObj[@"imageId"]];
-                    newTraining[@"shortInfo"] = [NSString stringWithFormat:@"%@",speakerObj[@"shortInfo"]];
-                    newTraining[@"longInfo"] = [NSString stringWithFormat:@"%@",speakerObj[@"longInfo"]];
                 }
             }];
 
@@ -116,15 +115,41 @@
     return allInfo;
 }
 
-- (void) getFirebase: (AMWScope) scope day: (NSString*) day andCompletionBlock: (FireBaseCompletionBlock) completionBlock {
+- (NSMutableArray*) getSpeaker: (NSMutableDictionary*) dict forSpeakerID:(NSString*) spId andCompletionBlock:(FireBaseCompletionBlock) completionBlock {
+    
+    NSMutableDictionary* quizzes = [dict objectForKey:@"speakers"];
+    NSMutableArray* allInfo = [[NSMutableArray alloc] init];
+    
+    [quizzes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull speakerObj, BOOL * _Nonnull stop) {
+        
+        NSMutableDictionary* newSpeaker = [[NSMutableDictionary alloc] init];
+        
+        if([[speakerObj[@"id"] stringValue] isEqualToString:spId]){
+            newSpeaker[@"speakerName"] = speakerObj[@"name"];
+            newSpeaker[@"shortInfo"] = speakerObj[@"shortInfo"];
+            newSpeaker[@"longInfo"] = speakerObj[@"longInfo"];
+            newSpeaker[@"imageURL"] = speakerObj[@"imageId"];
+        
+            [allInfo addObject:[[Speaker alloc] initSpeakerWithDict:newSpeaker]];
+        }
+    }];
+    
+    if (completionBlock)
+        completionBlock(allInfo,nil);
+    
+    return allInfo;
+}
+
+- (void) getFirebase: (AMWScope) scope day: (NSString*) day speakerID: (NSString*) spId andCompletionBlock: (FireBaseCompletionBlock) completionBlock {
     ref = [[FIRDatabase database] reference];
     refHandle = [ref observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot){
         NSMutableDictionary *localResult = snapshot.value;
         if(scope == AMWTrainings){
             [[FirebaseService sharedManager] getAllTrainings:localResult forDay:day andCompletionBlock:completionBlock];
-        } else
-        {
+        } else if(scope == AMWQuizzes) {
             [[FirebaseService sharedManager] getAllQuizzes:localResult andCompletionBlock:completionBlock];
+        } else if(scope == AMWSpeaker){
+            [[FirebaseService sharedManager] getSpeaker:localResult forSpeakerID: spId andCompletionBlock:completionBlock];
         }
     }];
 }

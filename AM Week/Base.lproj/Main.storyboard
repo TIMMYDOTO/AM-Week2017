@@ -42,7 +42,7 @@
                 <navigationController id="Kca-qW-s4a" customClass="NavigationBarController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Thursday" selectedImage="Thursday" id="kvw-aa-23f"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oF7-to-zDN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oF7-to-zDN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,7 +65,7 @@
                 <navigationController id="81d-nt-oZl" customClass="NavigationBarController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Friday" selectedImage="Friday" id="FAZ-M2-a2p"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VaD-5t-7x2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VaD-5t-7x2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -88,7 +88,7 @@
                 <navigationController id="tkr-jn-6gl" customClass="NavigationBarController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Wednesday" selectedImage="Wednesday" id="Zi6-9z-6Ie"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P90-On-GAe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="P90-On-GAe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -195,7 +195,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tms-a1-MUe" id="eEA-TB-8m8">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="135"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="134.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZ1-du-0UQ">
@@ -363,7 +363,7 @@
                         <sections>
                             <tableViewSection id="jWS-cP-KHC">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="163" id="h1Z-AG-mqL">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="163" id="h1Z-AG-mqL" customClass="TrainingDetailsCell">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="163"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h1Z-AG-mqL" id="cBq-8F-a1G">
@@ -417,7 +417,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QJ-Hb-aO0">
-                                                    <rect key="frame" x="39" y="126" width="139" height="20"/>
+                                                    <rect key="frame" x="39" y="126" width="138" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="EnX-29-wAT"/>
                                                     </constraints>
@@ -457,8 +457,15 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Stream Icon" translatesAutoresizingMaskIntoConstraints="NO" id="9N1-hV-ML9">
+                                                    <rect key="frame" x="177" y="126" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="6Dg-UA-pUW"/>
+                                                        <constraint firstAttribute="width" constant="20" id="equ-hF-9Sb"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Gj-hY-chH">
-                                                    <rect key="frame" x="201" y="126" width="158" height="20"/>
+                                                    <rect key="frame" x="200" y="126" width="159" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="RHH-sZ-Nop"/>
                                                     </constraints>
@@ -466,13 +473,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Stream Icon" translatesAutoresizingMaskIntoConstraints="NO" id="9N1-hV-ML9">
-                                                    <rect key="frame" x="177.5" y="126" width="20" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="6Dg-UA-pUW"/>
-                                                        <constraint firstAttribute="width" constant="20" id="equ-hF-9Sb"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="0cb-yX-I8A" secondAttribute="bottom" constant="16.5" id="0Y4-uh-tQ1"/>
@@ -513,12 +513,21 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.89796030521392822" green="0.8980897068977356" blue="0.89793211221694946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="date" destination="WQw-q3-nzv" id="JSe-g3-Djg"/>
+                                            <outlet property="language" destination="2QJ-Hb-aO0" id="KkY-OB-8Br"/>
+                                            <outlet property="location" destination="J5k-HT-YMH" id="C1b-cM-Be4"/>
+                                            <outlet property="stream" destination="9Gj-hY-chH" id="4gt-8X-pfZ"/>
+                                            <outlet property="time" destination="2FK-o3-sfY" id="Q3Z-Rb-e4P"/>
+                                            <outlet property="title" destination="FCc-yi-x3J" id="skx-FU-7wV"/>
+                                            <outlet property="type" destination="gZ0-4F-VBm" id="rL7-cC-gTu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Description" id="l08-bI-8EV">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Mt1-ai-xsD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="Mt1-ai-xsD" customClass="TrainingDetailsCell">
                                         <rect key="frame" x="0.0" y="191" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mt1-ai-xsD" id="4JI-Wd-9uK">
@@ -543,23 +552,21 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="about" destination="Uhw-OM-ppv" id="IFk-fW-FhC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Speaker" id="xJU-W8-Flu">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="52" id="nrr-V9-kp1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="52" id="nrr-V9-kp1" customClass="TrainingDetailsCell">
                                         <rect key="frame" x="0.0" y="264" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="nrr-V9-kp1" id="CXQ-Fl-SIH">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5s-cc-GZS">
-                                                    <rect key="frame" x="15" y="1" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="Image Placeholder"/>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Speaker Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ul9-oN-3cZ">
                                                     <rect key="frame" x="212" y="16" width="112" height="21"/>
                                                     <constraints>
@@ -569,6 +576,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oga-nU-KLB">
+                                                    <rect key="frame" x="15" y="1" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="ul9-oN-3cZ" secondAttribute="bottom" id="kBE-vo-KPy"/>
@@ -578,6 +589,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="name" destination="ul9-oN-3cZ" id="rIt-sv-uva"/>
+                                            <outlet property="picture" destination="Oga-nU-KLB" id="Fh6-u9-cdK"/>
                                             <segue destination="e8V-Eq-fLq" kind="show" identifier="segueFromTrainingToSpeaker" id="jmq-9H-ihr"/>
                                         </connections>
                                     </tableViewCell>
@@ -593,16 +606,10 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="YlK-Yc-RWF"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="date" destination="WQw-q3-nzv" id="cYd-Ov-oo8"/>
-                        <outlet property="description" destination="Uhw-OM-ppv" id="ZVy-8B-rUP"/>
-                        <outlet property="language" destination="2QJ-Hb-aO0" id="mYH-X1-0u3"/>
-                        <outlet property="location" destination="J5k-HT-YMH" id="axL-sI-y42"/>
-                        <outlet property="speakerImage" destination="k5s-cc-GZS" id="12x-my-Lgk"/>
-                        <outlet property="speakerName" destination="ul9-oN-3cZ" id="FQG-kk-jsy"/>
-                        <outlet property="stream" destination="9Gj-hY-chH" id="bw5-9F-xgv"/>
-                        <outlet property="tableView" destination="aJI-2U-bgX" id="37X-LK-Kag"/>
-                        <outlet property="time" destination="2FK-o3-sfY" id="Vb5-wr-2vR"/>
-                        <outlet property="type" destination="gZ0-4F-VBm" id="4RS-Q1-pTT"/>
+                        <outlet property="aboutTrainingTableViewCell" destination="Mt1-ai-xsD" id="8b5-z1-gYb"/>
+                        <outlet property="speakerTableViewCell" destination="nrr-V9-kp1" id="pZc-Vm-DHz"/>
+                        <outlet property="trainingTableView" destination="aJI-2U-bgX" id="HCc-vF-SHG"/>
+                        <outlet property="trainingTableViewCell" destination="h1Z-AG-mqL" id="mbO-Km-UNg"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWr-KW-1tu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -620,7 +627,7 @@
                         <sections>
                             <tableViewSection id="syK-DB-O6y">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="250" id="nfx-2h-vIk">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="250" id="nfx-2h-vIk" customClass="SpeakerCell">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nfx-2h-vIk" id="Y76-XV-hdY">
@@ -663,12 +670,17 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.2821531296" green="0.32764080169999998" blue="0.35528832669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="details" destination="Iy7-wx-Mz1" id="v7Z-xe-re4"/>
+                                            <outlet property="image" destination="6ki-YH-FwY" id="S4l-xi-gbD"/>
+                                            <outlet property="name" destination="IVa-Di-Uzm" id="0HY-ut-Miv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="About Speaker" id="hdo-At-dEy">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="ga6-mh-uLD">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="ga6-mh-uLD" customClass="SpeakerCell">
                                         <rect key="frame" x="0.0" y="278" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ga6-mh-uLD" id="jFy-S3-qKg">
@@ -690,12 +702,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="about" destination="inL-yG-HGB" id="bZ3-to-rxC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Trainings" id="LpL-hh-N9R">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="LRe-eu-vmv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SpeakerTrainings" rowHeight="90" id="LRe-eu-vmv">
                                         <rect key="frame" x="0.0" y="386" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LRe-eu-vmv" id="5xj-CA-wjI">
@@ -786,14 +801,8 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="Db7-PH-ta9"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="about" destination="inL-yG-HGB" id="GGc-sV-dda"/>
-                        <outlet property="date" destination="GjL-rC-Sw1" id="Qzm-x4-sNl"/>
-                        <outlet property="speakerDetails" destination="Iy7-wx-Mz1" id="1fb-Vw-OsO"/>
-                        <outlet property="speakerImage" destination="6ki-YH-FwY" id="Vr6-Rp-sXw"/>
-                        <outlet property="speakerName" destination="IVa-Di-Uzm" id="yF9-Kr-wJC"/>
-                        <outlet property="trainingStream" destination="2Z7-cd-J2z" id="8dI-1f-nsR"/>
-                        <outlet property="trainingTime" destination="CX2-WB-O2y" id="bJb-jw-0AC"/>
-                        <outlet property="trainingTitle" destination="0zX-0x-2Bv" id="chr-cN-Zmh"/>
+                        <outlet property="aboutSpeakerTableViewCell" destination="ga6-mh-uLD" id="8lN-zG-Zcg"/>
+                        <outlet property="speakerTableViewCell" destination="nfx-2h-vIk" id="xC2-zb-GCk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bof-Oc-cJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -915,7 +924,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OGh-Ae-EfT" id="731-fK-VY1">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="86"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="85.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IW-H9-37n" userLabel="Quiz Title">
@@ -1085,7 +1094,7 @@
                 <navigationController id="7N1-Tf-hqs" customClass="NavigationBarController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Tuesday" selectedImage="Tuesday" id="hlF-zj-aIa"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XSJ-Wq-ACw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="XSJ-Wq-ACw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1108,7 +1117,7 @@
                 <navigationController id="4db-cP-Zrp" customClass="NavigationBarController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Monday" selectedImage="Monday" id="EC9-Wn-icx"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oKX-Fz-VAS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oKX-Fz-VAS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1144,7 +1153,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="w4M-hI-9s9"/>
-        <segue reference="nfV-Ca-2t6"/>
+        <segue reference="CMc-eh-bRa"/>
         <segue reference="jmq-9H-ihr"/>
     </inferredMetricsTieBreakers>
 </document>

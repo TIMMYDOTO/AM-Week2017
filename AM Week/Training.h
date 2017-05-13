@@ -20,9 +20,10 @@
 @property (strong, nonatomic) NSString *stream;
 @property (strong, nonatomic) NSString *location;
 @property BOOL remoteCall;
-@property (strong, nonatomic) NSString *description;
+@property (strong, nonatomic) NSString *about;
 
 @property (strong, nonatomic) NSString *speaker;
+@property (strong, nonatomic) NSString *speakerId;
 @property (strong, nonatomic) NSString *trainingId;
 @property (strong, nonatomic) NSString *speakerImage;
 @property (strong, nonatomic) NSString *language;

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    AMWPeople,
+    AMWSpeaker,
     AMWTrainings,
     AMWQuizzes
 } AMWScope;
@@ -20,6 +20,6 @@ typedef void (^FireBaseCompletionBlock)(NSMutableArray* result, NSError* error);
 @interface FirebaseService : NSObject
 
 + (id) sharedManager;
-- (void) getFirebase: (AMWScope) scope day: (NSString*) day andCompletionBlock: (FireBaseCompletionBlock) completionBlock;
+- (void) getFirebase: (AMWScope) scope day: (NSString*) day speakerID: (NSString*) spId andCompletionBlock: (FireBaseCompletionBlock) completionBlock;
 
 @end

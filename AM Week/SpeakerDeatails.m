@@ -9,15 +9,22 @@
 #import "SpeakerDeatails.h"
 
 @interface SpeakerDeatails ()
-
 @end
 
 @implementation SpeakerDeatails
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"SpeakerDeatails");
-    [self setupSpeakerDetails];
+    
+    [_speakerTableViewCell setupContentWithSpeaker: _details];
+    [_aboutSpeakerTableViewCell setupContentWithAboutSpeaker: _details];
+    
+//    [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+//        _trainings = result;
+//        [trainingTable reloadData];
+//    }];
+    
+//    [self setupSpeakerDetails];
   //  NSLog(@"speakerURL: %@",self.speakerURL);
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -31,43 +38,43 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
--(void)setupSpeakerDetails{
-    _speakerName.text = _details.speaker;
-    _speakerDetails.text = _details.shortInfo;
-    
-    [_speakerImage sd_setImageWithURL:[NSURL URLWithString:_details.speakerImage]];
-    self.speakerImage.layer.cornerRadius = self.speakerImage.frame.size.height/2;
-    self.speakerImage.layer.masksToBounds = YES;
- 
-    
-    _about.text = _details.longInfo;
-  
-    _trainingTitle.text = _details.title;
-    _trainingStream.text = _details.stream;
-    _trainingTime.text = _details.time;
-    _date.text = _details.date;
-   
-}
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 3;
-}
+//-(void)setupSpeakerDetails{
+//    _speakerName.text = _details.speaker;
+//    _speakerDetails.text = _details.shortInfo;
+//    
+//    [_speakerImage sd_setImageWithURL:[NSURL URLWithString:_details.speakerImage]];
+//    self.speakerImage.layer.cornerRadius = self.speakerImage.frame.size.height/2;
+//    self.speakerImage.layer.masksToBounds = YES;
+// 
+//    
+//    _about.text = _details.longInfo;
+//  
+//    _trainingTitle.text = _details.title;
+//    _trainingStream.text = _details.stream;
+//    _trainingTime.text = _details.time;
+//    _date.text = _details.date;
+//}
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 1;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return 3;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    
+//    return 1;
+//}
+//
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if(indexPath.section < [super numberOfSectionsInTableView:tableView]) {
+//        return [super tableView: tableView cellForRowAtIndexPath: indexPath];
+//    }
+//    else {
+//        // do your own dynamic cell management;
+//    }
+//    return nil;
+//}
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
 
 /*
 // Override to support conditional editing of the table view.

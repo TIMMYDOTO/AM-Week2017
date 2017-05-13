@@ -10,8 +10,6 @@
 #import "Training.h"
 
 @interface TrainingCell()
-
-
 @end
 
 @implementation TrainingCell
@@ -28,7 +26,6 @@
 - (void) setupContentWithTraining:(Training *)training{
     _training = training;
 
-   
     _stream.text = _training.stream;
     _title.text = _training.title;
     _timeDate.text = _training.time;

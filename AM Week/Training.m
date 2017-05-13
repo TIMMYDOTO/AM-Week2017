@@ -23,16 +23,14 @@
         _title = dict[@"title"];
         _time = dict[@"time"];
         _speaker = dict[@"speaker"];
+        _speakerId = dict[@"speakerID"];
         _stream = dict[@"stream"];
         _speakerImage = dict[@"speakerImage"];
         _language = dict[@"language"];
         _location = dict[@"location"];
-        description = dict[@"description"];
+        _about = dict[@"description"];
         _date = dict[@"date"];
         _type = dict[@"type"];
-        _shortInfo = dict[@"shortInfo"];
-        _longInfo = dict[@"longInfo"];
-      
     }
     return self;
 }

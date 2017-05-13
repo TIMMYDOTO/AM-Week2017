@@ -15,5 +15,6 @@
 @property (strong, nonatomic) NSString *shortInfo;
 @property (strong, nonatomic) NSString *longInfo;
 
+- (id) initSpeakerWithDict: (NSDictionary*) dict;
 
 @end
