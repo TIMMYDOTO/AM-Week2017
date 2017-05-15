@@ -13,6 +13,7 @@
 #import <Canvas/Canvas.h>
 #import "QRCodeReader.h"
 #import "QRCodeReaderViewController.h"
+#import "QRComponentsDetailsViewController.h"
 @interface TrainingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TrainingCellDelegate, QRCodeReaderDelegate>
 @property (weak, nonatomic) IBOutlet CSAnimationView *animationView;
 

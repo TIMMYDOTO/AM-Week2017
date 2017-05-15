@@ -21,7 +21,9 @@
     
     _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _webView.scalesPageToFit = YES;
+    NSLog(@"self.component %@", self.component);
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.component]]];
+    NSLog(@"viewDidLoad");
 }
 
 
@@ -37,6 +39,7 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Image is saved" message:nil preferredStyle:UIAlertControllerStyleAlert];
     [self presentViewController:alert animated:YES completion:nil];
     [self performSelector:@selector(dismissAlert) withObject:nil afterDelay:1];
+    NSLog(@"SavePhotoToLibrary");
 }
 -(void)dismissAlert{
     [self dismissViewControllerAnimated:YES completion:nil];

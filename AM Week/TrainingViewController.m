@@ -18,7 +18,8 @@
     NSMutableArray *arr;
     FIRDatabaseHandle refHandle;
     NSDictionary *dict;
-  
+    QRCodeReaderViewController *vc;
+    NSString *resultString;
 }
 @property (strong, nonatomic) NSMutableArray *trainings;
 @property (strong, nonatomic) NSMutableArray *speaker;
@@ -39,16 +40,13 @@
     [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil speakerID: nil andCompletionBlock:^(NSMutableArray* result, NSError* error) {
         [_animationView startCanvasAnimation];
     }];
-
     
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _trainings = result;
         [trainingTable reloadData];
     }];
     
-    
     [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
-        
         [_animationView startCanvasAnimation];
     }];
 }
@@ -73,6 +71,10 @@
 }
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"showQRComponents"]) {
+        QRComponentsDetailsViewController* detailsVC = [segue destinationViewController];
+        detailsVC.component = resultString;
+    }
     if ([segue.identifier isEqualToString:@"segueToSpeaker"]) {
         SpeakerDeatails *sd = [segue destinationViewController];
         sd.training = currentTrainig;
@@ -102,11 +104,50 @@
     currentTrainig = training;
     [[FirebaseService sharedManager] getFirebase:(AMWSpeaker) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: currentTrainig.speakerId andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _speaker = result;
-        [self performSegueWithIdentifier:@"segueToSpeaker" sender:nil];
+        if(self){
+            [self performSegueWithIdentifier:@"segueToSpeaker" sender:nil];
+        }
     }];
 }
 
 - (IBAction)OpenQR:(id)sender {
+        if ([QRCodeReader supportsMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]]) {
+              vc = nil;
+               QRCodeReader *reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+               vc                   = [QRCodeReaderViewController readerWithCancelButtonTitle:@"Cancel"				codeReader:reader startScanningAtLoad:YES showSwitchCameraButton:YES showTorchButton:YES];
+               vc.modalPresentationStyle = UIModalPresentationFormSheet;
+               vc.delegate = self;
     
+    
+               [vc setCompletionWithBlock:^(NSString *resultAsString) {
+                      NSLog(@"Completion with result: %@", resultAsString);
+                   }];
+    
+    
+               [self presentViewController:vc animated:YES completion:NULL];
+    
+           }
+    else {
+    
+               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Reader not supported by the current device" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+               [alert show];
+           }
+    }
+
+- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
+    {
+           NSLog(@"didScanResult");
+           [reader stopScanning];
+           [vc dismissViewControllerAnimated:YES completion:^{
+            resultString = result;
+            [self performSegueWithIdentifier:@"showQRComponents" sender:nil];
+               }];
+    }
+
+
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader
+{
+         [vc dismissViewControllerAnimated:YES completion:NULL];
 }
 @end

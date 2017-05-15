@@ -20,7 +20,6 @@
 		E424F6541EBB7EB900078B2F /* SpeakerDeatails.m in Sources */ = {isa = PBXBuildFile; fileRef = E424F6531EBB7EB900078B2F /* SpeakerDeatails.m */; };
 		E424F69B1EC09D2700078B2F /* TrainingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E424F69A1EC09D2700078B2F /* TrainingViewController.m */; };
 		E42A61001EC3465A00B99BBD /* UserInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = E42A60FF1EC3465A00B99BBD /* UserInformation.m */; };
-		E465BF731EC465B000110F1A /* QRReader.m in Sources */ = {isa = PBXBuildFile; fileRef = E465BF721EC465B000110F1A /* QRReader.m */; };
 		E48089091EA6062A00A543C3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E48089081EA6062A00A543C3 /* main.m */; };
 		E480890C1EA6062A00A543C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E480890B1EA6062A00A543C3 /* AppDelegate.m */; };
 		E48089121EA6062A00A543C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48089101EA6062A00A543C3 /* Main.storyboard */; };
@@ -86,8 +85,6 @@
 		E424F69A1EC09D2700078B2F /* TrainingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingViewController.m; sourceTree = "<group>"; };
 		E42A60FE1EC3465A00B99BBD /* UserInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInformation.h; sourceTree = "<group>"; };
 		E42A60FF1EC3465A00B99BBD /* UserInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInformation.m; sourceTree = "<group>"; };
-		E465BF711EC465B000110F1A /* QRReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRReader.h; sourceTree = "<group>"; };
-		E465BF721EC465B000110F1A /* QRReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRReader.m; sourceTree = "<group>"; };
 		E48089041EA6062A00A543C3 /* AM Week.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AM Week.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48089081EA6062A00A543C3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E480890A1EA6062A00A543C3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -193,8 +190,6 @@
 		E465BF701EC464FC00110F1A /* QRCodeReader */ = {
 			isa = PBXGroup;
 			children = (
-				E465BF711EC465B000110F1A /* QRReader.h */,
-				E465BF721EC465B000110F1A /* QRReader.m */,
 				E4B2B04D1EC49DB500F7AE8F /* QRComponentsDetailsViewController.h */,
 				E4B2B04E1EC49DB500F7AE8F /* QRComponentsDetailsViewController.m */,
 			);
@@ -404,7 +399,7 @@
 					E48089031EA6062A00A543C3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = W3FZKU8HEQ;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -620,7 +615,6 @@
 				E480890C1EA6062A00A543C3 /* AppDelegate.m in Sources */,
 				E48089091EA6062A00A543C3 /* main.m in Sources */,
 				8E104DF41EC5C082006E6173 /* TrainingDetailsCell.m in Sources */,
-				E465BF731EC465B000110F1A /* QRReader.m in Sources */,
 				E4F6282E1EB9EA59005A1FDE /* QuizQuestion.m in Sources */,
 				8E06D3661EB1EA10002F8C96 /* FirebaseService.m in Sources */,
 				FFF3FE571EA7778A0033AAFE /* Quiz.m in Sources */,
@@ -784,13 +778,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "AM Week/AM Week.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = W3FZKU8HEQ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "AM Week/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.endava.amw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5ee7b28a-a364-4ad9-9b43-b05d07a1e406";
-				PROVISIONING_PROFILE_SPECIFIER = "Endava AMW Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -801,14 +796,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "AM Week/AM Week.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Endava (W3FZKU8HEQ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Endava (W3FZKU8HEQ)";
-				DEVELOPMENT_TEAM = W3FZKU8HEQ;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "AM Week/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.endava.amw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "28f39f22-4ff2-4fe1-bb96-2a7c3dc3ae61";
-				PROVISIONING_PROFILE_SPECIFIER = "Endava AMW";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};

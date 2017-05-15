@@ -105,37 +105,6 @@
             </objects>
             <point key="canvasLocation" x="-274" y="344"/>
         </scene>
-        <!--Reader-->
-        <scene sceneID="8dV-Wh-2bE">
-            <objects>
-                <viewController id="DCT-zZ-7dA" customClass="QRReader" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7Nb-zR-dN6"/>
-                        <viewControllerLayoutGuide type="bottom" id="1eE-1X-Zk7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Oyz-1H-fCn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egj-0J-gxD">
-                                <rect key="frame" x="130" y="550" width="116" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="scanAction:" destination="DCT-zZ-7dA" eventType="touchUpInside" id="7se-mZ-V1I"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <segue destination="et2-TX-huV" kind="show" identifier="showQRComponents" id="reH-RL-INd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zGA-Ta-wze" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="945" y="-743"/>
-        </scene>
         <!--Components Details View Controller-->
         <scene sceneID="YFR-ng-OCo">
             <objects>
@@ -164,6 +133,9 @@
                     <navigationItem key="navigationItem" id="UiB-Id-P2B">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="zdS-pB-fj5">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="SavePhotoToLibrary:" destination="et2-TX-huV" id="NdY-g0-Sih"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -172,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKg-4t-1vz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1701.5999999999999" y="-748.87556221889065"/>
+            <point key="canvasLocation" x="1417" y="-693"/>
         </scene>
         <!--Training View Controller-->
         <scene sceneID="5aq-ZH-YwM">
@@ -334,7 +306,6 @@
                                 <state key="normal" title="QR"/>
                                 <connections>
                                     <action selector="OpenQR:" destination="alq-9F-DV3" eventType="touchUpInside" id="VPm-0Y-8dp"/>
-                                    <segue destination="DCT-zZ-7dA" kind="show" id="TK4-Hv-GCO"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -345,6 +316,7 @@
                         <outlet property="trainingTable" destination="MP9-Fm-Ts3" id="gx8-6g-Lep"/>
                         <segue destination="zjx-pe-YT4" kind="show" identifier="toGoogle" id="CMc-eh-bRa"/>
                         <segue destination="e8V-Eq-fLq" kind="show" identifier="segueToSpeaker" id="8XM-t2-jD5"/>
+                        <segue destination="et2-TX-huV" kind="show" identifier="showQRComponents" id="S95-fG-Voc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWK-DW-4fd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1161,6 +1133,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="w4M-hI-9s9"/>
         <segue reference="CMc-eh-bRa"/>
-        <segue reference="jmq-9H-ihr"/>
+        <segue reference="8XM-t2-jD5"/>
     </inferredMetricsTieBreakers>
 </document>
