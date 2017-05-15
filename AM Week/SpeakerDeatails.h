@@ -7,11 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Training.h"
+#import "Speaker.h"
+#import "SpeakerCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "FirebaseService.h"
+#import "Training.h"
+
 @interface SpeakerDeatails : UITableViewController{
-@public NSString *speakerImageURL;
+    @public NSString *speakerImageURL;
 }
+
+@property (strong, nonatomic) IBOutlet SpeakerCell *speakerTableViewCell;
+@property (strong, nonatomic) IBOutlet SpeakerCell *aboutSpeakerTableViewCell;
+@property (strong, nonatomic) IBOutlet SpeakerCell *speakerTrainingsTableViewCell;
 
 @property (strong, nonatomic) IBOutlet UILabel *speakerName;
 @property (strong, nonatomic) IBOutlet UILabel *speakerDetails;
@@ -23,6 +31,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *trainingTime;
 
 @property (strong, nonatomic) IBOutlet UILabel *date;
-@property (strong, nonatomic) Training *details;
+@property (strong, nonatomic) Speaker *details;
+@property (strong, nonatomic) Training *training;
 @property (strong, nonatomic) NSURL *speakerURL;
 @end

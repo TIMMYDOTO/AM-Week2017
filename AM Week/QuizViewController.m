@@ -37,7 +37,7 @@
     
     _image = [[UIImageView alloc] init];
     
-    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _quizzes = result;
         [quizTable reloadData];
 
