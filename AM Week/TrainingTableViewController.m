@@ -29,6 +29,7 @@
     if ([segue.identifier isEqualToString:@"segueFromTrainingToSpeaker"]) {
         SpeakerDeatails *sd = [segue destinationViewController];
         sd.details = _speaker[0];
+        sd.training = _training;
     }
 }
 

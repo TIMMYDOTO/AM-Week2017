@@ -18,6 +18,7 @@
     
     [_speakerTableViewCell setupContentWithSpeaker: _details];
     [_aboutSpeakerTableViewCell setupContentWithAboutSpeaker: _details];
+    [_speakerTrainingsTableViewCell setupContentWithSpeakerTrainings: _training];
     
 //    [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
 //        _trainings = result;

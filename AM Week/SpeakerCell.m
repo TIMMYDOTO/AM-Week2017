@@ -31,7 +31,12 @@
 }
 
 - (void) setupContentWithSpeakerTrainings:(Training *)training{
-
+    _training = training;
+    
+    _trainingTitle.text = _training.title;
+    _trainingStream.text = _training.stream;
+    _trainingTime.text = _training.time;
+    _trainingDate.text = _training.date;
 }
 
 @end

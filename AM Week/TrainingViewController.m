@@ -72,10 +72,10 @@
     return weekDayText;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"segueToSpeaker"]) {
         SpeakerDeatails *sd = [segue destinationViewController];
-    
+        sd.training = currentTrainig;
         sd.details = _speaker[0];
         currentTrainig = nil;
     } else if ([segue.identifier isEqualToString:@"segueToTraining"]) {
@@ -98,7 +98,7 @@
 }
 
 
-- (void)showSpeakerProfileForTraining:(Training *)training {
+- (void) showSpeakerProfileForTraining:(Training *)training {
     currentTrainig = training;
     [[FirebaseService sharedManager] getFirebase:(AMWSpeaker) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: currentTrainig.speakerId andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _speaker = result;
