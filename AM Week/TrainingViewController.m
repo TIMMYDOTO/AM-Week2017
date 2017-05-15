@@ -21,8 +21,6 @@
   
 }
 
-
-
 @property (strong, nonatomic) NSMutableArray *trainings;
 @end
 
@@ -35,13 +33,18 @@
     self.ref = [[FIRDatabase database] reference];
     refHandle = [[_ref child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         dict = snapshot.value;
-
+        _nrOfQuizzes.text = [NSString stringWithFormat:@"%lu", (unsigned long)dict.count];
 //        _question.text = [[dict objectForKey:@"androiodone"] objectForKey: @"question"];
 //        _labelForCode.text = [[dict objectForKey:@"androiodone"] objectForKey:@"codeSnippet"];
     
     }];
 
-
+    _nrOfQuizzes.backgroundColor = [UIColor greenColor];
+    _nrOfQuizzes.layer.cornerRadius = _nrOfQuizzes.frame.size.height/2;
+    _nrOfQuizzes.layer.masksToBounds = YES;
+    _nrOfQuizzes.layer.borderWidth = 2;
+    _nrOfQuizzes.layer.borderColor =[[UIColor blueColor] CGColor];
+    
     
     self.date = [self dateForSelectedTab];
     self.navigationItem.title = [self dateTitleFromDate:self.date];

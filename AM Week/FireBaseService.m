@@ -105,7 +105,7 @@
         newQuiz[@"answers"] = quizObj[@"answers"];
         newQuiz[@"time"] = quizObj[@"time"];
         newQuiz[@"date"] = quizObj[@"date"];
-        newQuiz[@"questionId"] = quizObj[@"questionId"];
+//        newQuiz[@"questionId"] = quizObj[@"questionId"];
         
         [allInfo addObject:[[Quiz alloc] initQuizzesWithDict:newQuiz]];
     }];
