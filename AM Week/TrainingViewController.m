@@ -37,7 +37,7 @@
     _trainings = [[NSMutableArray alloc] init];
     _speaker = [[NSMutableArray alloc] init];
 
-    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil speakerID: nil andCompletionBlock:^(NSMutableArray* result, NSError* error) {
+    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         [_animationView startCanvasAnimation];
     }];
     
@@ -78,7 +78,6 @@
     if ([segue.identifier isEqualToString:@"segueToSpeaker"]) {
         SpeakerDeatails *sd = [segue destinationViewController];
         sd.training = currentTrainig;
-        sd.details = _speaker[0];
         currentTrainig = nil;
     } else if ([segue.identifier isEqualToString:@"segueToTraining"]) {
         TrainingTableViewController *td = [segue destinationViewController];
@@ -102,52 +101,36 @@
 
 - (void) showSpeakerProfileForTraining:(Training *)training {
     currentTrainig = training;
-    [[FirebaseService sharedManager] getFirebase:(AMWSpeaker) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: currentTrainig.speakerId andCompletionBlock:^(NSMutableArray *result, NSError *error) {
-        _speaker = result;
-        if(self){
-            [self performSegueWithIdentifier:@"segueToSpeaker" sender:nil];
-        }
-    }];
+    [self performSegueWithIdentifier:@"segueToSpeaker" sender:nil];
 }
 
 - (IBAction)OpenQR:(id)sender {
-        if ([QRCodeReader supportsMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]]) {
-              vc = nil;
-               QRCodeReader *reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
-               vc                   = [QRCodeReaderViewController readerWithCancelButtonTitle:@"Cancel"				codeReader:reader startScanningAtLoad:YES showSwitchCameraButton:YES showTorchButton:YES];
-               vc.modalPresentationStyle = UIModalPresentationFormSheet;
-               vc.delegate = self;
-    
-    
-               [vc setCompletionWithBlock:^(NSString *resultAsString) {
-                      NSLog(@"Completion with result: %@", resultAsString);
-                   }];
-    
-    
-               [self presentViewController:vc animated:YES completion:NULL];
-    
-           }
-    else {
-    
-               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Reader not supported by the current device" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        
-               [alert show];
-           }
-    }
+    if ([QRCodeReader supportsMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]]) {
+        vc = nil;
+        QRCodeReader *reader = [QRCodeReader readerWithMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];
+        vc = [QRCodeReaderViewController readerWithCancelButtonTitle:@"Cancel" codeReader:reader startScanningAtLoad:YES showSwitchCameraButton:YES showTorchButton:YES];
+        vc.modalPresentationStyle = UIModalPresentationFormSheet;
+        vc.delegate = self;
+        [vc setCompletionWithBlock:^(NSString *resultAsString) {
+            NSLog(@"Completion with result: %@", resultAsString);
+        }];
+        [self presentViewController:vc animated:YES completion:NULL];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Reader not supported by the current device" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+}
 
-- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
-    {
-           NSLog(@"didScanResult");
-           [reader stopScanning];
-           [vc dismissViewControllerAnimated:YES completion:^{
-            resultString = result;
-            [self performSegueWithIdentifier:@"showQRComponents" sender:nil];
-               }];
-    }
+- (void) reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result {
+    NSLog(@"didScanResult");
+    [reader stopScanning];
+    [vc dismissViewControllerAnimated:YES completion:^{
+        resultString = result;
+        [self performSegueWithIdentifier:@"showQRComponents" sender:nil];
+    }];
+}
 
-
-- (void)readerDidCancel:(QRCodeReaderViewController *)reader
-{
-         [vc dismissViewControllerAnimated:YES completion:NULL];
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader {
+    [vc dismissViewControllerAnimated:YES completion:NULL];
 }
 @end
