@@ -30,6 +30,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]
+                                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.transform = CGAffineTransformMakeScale(1.3, 1.3);
+    CGRect frame = spinner.frame;
+    
+    
+    frame.origin.x = (self.view.frame.size.width / 2 - frame.size.width / 2);
+    frame.origin.y = (self.view.frame.size.height / 2 - frame.size.height / 2);
+    spinner.frame = frame;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
     _quizzes = [[NSMutableArray alloc] init];
     
     _userButton = [[UIButton alloc] init];
@@ -39,6 +50,7 @@
     
     [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _quizzes = result;
+        [spinner stopAnimating];
         [quizTable reloadData];
 
     }];
