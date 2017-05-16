@@ -21,6 +21,7 @@
 @property (nonatomic,retain) NSDate* date;
 @property (strong, nonatomic) FIRDatabaseReference *ref;
 @property(nonatomic, weak) IBOutlet UITableView *trainingTable;
+@property (strong, nonatomic) IBOutlet UIView *mainView;
 
 - (IBAction)OpenQR:(id)sender;
 

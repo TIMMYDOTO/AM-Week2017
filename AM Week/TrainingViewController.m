@@ -29,26 +29,35 @@
 @synthesize trainingTable;
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-
+   [super viewDidLoad];
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]
+                                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    spinner.transform = CGAffineTransformMakeScale(1.3, 1.3);
+    CGRect frame = spinner.frame;
+    
+    
+    frame.origin.x = (self.view.frame.size.width / 2 - frame.size.width / 2);
+    frame.origin.y = (self.view.frame.size.height / 2 - frame.size.height / 2);
+    spinner.frame = frame;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
     self.date = [self dateForSelectedTab];
     self.navigationItem.title = [self dateTitleFromDate:self.date];
     
     _trainings = [[NSMutableArray alloc] init];
     _speaker = [[NSMutableArray alloc] init];
-
-    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
-        [_animationView startCanvasAnimation];
-    }];
     
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _trainings = result;
         [trainingTable reloadData];
+        [spinner stopAnimating];
+        NSLog(@"spinner stopAnimating");
     }];
     
     [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         [_animationView startCanvasAnimation];
     }];
+   
 }
 
 - (NSDate*) dateForSelectedTab {
