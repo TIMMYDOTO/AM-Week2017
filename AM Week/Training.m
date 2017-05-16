@@ -31,6 +31,7 @@
         _about = dict[@"description"];
         _date = dict[@"date"];
         _type = dict[@"type"];
+        _trainingId = [dict[@"id"] stringValue];
     }
     return self;
 }

@@ -71,6 +71,7 @@
             newTraining[@"timeStart"] = trainingObj[@"timeStart"];
             newTraining[@"timeEnd"] = trainingObj[@"timeEnd"];
             newTraining[@"type"] = trainingObj[@"type"];
+            newTraining[@"id"] = trainingObj[@"id"];
         
             [allInfo addObject:[[Training alloc] initTrainingWithDict:newTraining]];
         }

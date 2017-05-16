@@ -16,7 +16,6 @@
     
     Training* currentTrainig;
     NSMutableArray *arr;
-    FIRDatabaseHandle refHandle;
     NSDictionary *dict;
     QRCodeReaderViewController *vc;
     NSString *resultString;
@@ -37,10 +36,7 @@
     _trainings = [[NSMutableArray alloc] init];
     _speaker = [[NSMutableArray alloc] init];
 
-    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
-        [_animationView startCanvasAnimation];
-    }];
-    
+
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _trainings = result;
         [trainingTable reloadData];

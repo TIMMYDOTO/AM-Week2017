@@ -167,7 +167,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tms-a1-MUe" id="eEA-TB-8m8">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="135"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="134.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZ1-du-0UQ">
@@ -179,6 +179,15 @@
                                                     <state key="normal" image="Image Placeholder"/>
                                                     <connections>
                                                         <action selector="showSpeakerProfile:" destination="tms-a1-MUe" eventType="touchUpInside" id="rDQ-5S-u4z"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWn-4w-r9r">
+                                                    <rect key="frame" x="312" y="5" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" image="Starboy-empty"/>
+                                                    <state key="selected" image="Starboy-full"/>
+                                                    <connections>
+                                                        <action selector="assignToTraining:" destination="tms-a1-MUe" eventType="touchUpInside" id="ua8-oH-2sA"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provide icons for both the selected and unselected states. The selected icon is often a fille" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCr-2g-4rd">
@@ -252,6 +261,7 @@
                                         <connections>
                                             <outlet property="photo" destination="fZ1-du-0UQ" id="SOK-rF-wnP"/>
                                             <outlet property="speakerName" destination="c3C-7g-rtY" id="crz-PT-bM0"/>
+                                            <outlet property="starButton" destination="DWn-4w-r9r" id="lV6-ta-cgy"/>
                                             <outlet property="stream" destination="mli-Fn-z3p" id="dBn-kd-sSv"/>
                                             <outlet property="timeDate" destination="qJ1-Ks-vvz" id="KG0-eh-P1L"/>
                                             <outlet property="title" destination="aCr-2g-4rd" id="wpa-gA-9oT"/>
@@ -903,7 +913,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OGh-Ae-EfT" id="731-fK-VY1">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="86"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="85.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6IW-H9-37n" userLabel="Quiz Title">
@@ -1124,6 +1134,8 @@
         <image name="Microphone Icon" width="20" height="20"/>
         <image name="Monday" width="31" height="34"/>
         <image name="Quiz Icon" width="64" height="64"/>
+        <image name="Starboy-empty" width="27" height="27"/>
+        <image name="Starboy-full" width="27" height="27"/>
         <image name="Stream Icon" width="20" height="17"/>
         <image name="Thursday" width="31" height="34"/>
         <image name="Tuesday" width="31" height="34"/>

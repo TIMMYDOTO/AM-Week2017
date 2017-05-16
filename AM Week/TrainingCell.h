@@ -26,6 +26,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *speakerName;
 @property (strong, nonatomic) IBOutlet UIButton *photo;
 
+@property (strong, nonatomic) IBOutlet UIButton *starButton;
+@property (strong, nonatomic) NSString *dateForNotification;
+
 @property (retain, nonatomic) Training* training;
 @property (strong, nonatomic) NSURL *imageURL;
 
