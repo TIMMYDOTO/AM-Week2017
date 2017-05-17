@@ -274,30 +274,6 @@
                                     <outlet property="delegate" destination="alq-9F-DV3" id="pWF-tN-jPK"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ye-d6-Wcb" customClass="CSAnimationView">
-                                <rect key="frame" x="280" y="530" width="80" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cln-zD-0Jk">
-                                        <rect key="frame" x="18" y="14" width="44" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="Quiz Icon"/>
-                                        <connections>
-                                            <segue destination="NHz-U2-fyB" kind="show" id="7aj-qx-Q0S"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="pop"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="pauseAnimationOnAwake" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -322,16 +298,16 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="animationView" destination="2Ye-d6-Wcb" id="Z1o-Ex-Ufi"/>
                         <outlet property="trainingTable" destination="MP9-Fm-Ts3" id="gx8-6g-Lep"/>
                         <segue destination="zjx-pe-YT4" kind="show" identifier="toGoogle" id="CMc-eh-bRa"/>
                         <segue destination="e8V-Eq-fLq" kind="show" identifier="segueToSpeaker" id="8XM-t2-jD5"/>
                         <segue destination="et2-TX-huV" kind="show" identifier="showQRComponents" id="S95-fG-Voc"/>
+                        <segue destination="NHz-U2-fyB" kind="show" identifier="segueToQuizzes" id="vPg-i3-Lks"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWK-DW-4fd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292" y="233"/>
+            <point key="canvasLocation" x="1292" y="232.53373313343329"/>
         </scene>
         <!--Training-->
         <scene sceneID="wwb-cT-Eqf">
@@ -592,6 +568,7 @@
                         <outlet property="speakerTableViewCell" destination="nrr-V9-kp1" id="pZc-Vm-DHz"/>
                         <outlet property="trainingTableView" destination="aJI-2U-bgX" id="HCc-vF-SHG"/>
                         <outlet property="trainingTableViewCell" destination="h1Z-AG-mqL" id="mbO-Km-UNg"/>
+                        <segue destination="NHz-U2-fyB" kind="show" identifier="segueToQuizzes" id="5wy-1Z-eyU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWr-KW-1tu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -792,6 +769,7 @@
                         <outlet property="aboutSpeakerTableViewCell" destination="ga6-mh-uLD" id="8lN-zG-Zcg"/>
                         <outlet property="speakerTableViewCell" destination="nfx-2h-vIk" id="xC2-zb-GCk"/>
                         <outlet property="speakerTrainingsTableViewCell" destination="LRe-eu-vmv" id="6aj-9X-NDY"/>
+                        <segue destination="NHz-U2-fyB" kind="show" identifier="segueToQuizzes" id="ExF-MO-9ZE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bof-Oc-cJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1143,6 +1121,7 @@
         <image name="Wednesday" width="31" height="34"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="vPg-i3-Lks"/>
         <segue reference="w4M-hI-9s9"/>
         <segue reference="8XM-t2-jD5"/>
         <segue reference="CMc-eh-bRa"/>

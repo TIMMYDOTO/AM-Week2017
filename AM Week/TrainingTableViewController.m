@@ -7,8 +7,15 @@
 //
 
 #import "TrainingTableViewController.h"
+#import "FirebaseService.h"
+#import "ENMBadgedBarButtonItem.h"
 
-@interface TrainingTableViewController ()
+@interface TrainingTableViewController (){
+    NSDictionary *dict;
+    FIRDatabaseHandle refHandle;
+}
+@property (strong, nonatomic) NSMutableArray *trainings;
+@property (nonatomic, strong) ENMBadgedBarButtonItem *navButton;
 @end
 
 @implementation TrainingTableViewController
@@ -20,6 +27,38 @@
         _speaker = result;
         [_speakerTableViewCell setupContentWithSpeaker:_speaker[0]];
     }];
+
+    refHandle = [[[[FIRDatabase database] reference] child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        dict = snapshot.value;
+        self.navButton.badgeValue = [NSString stringWithFormat:@"%lu", (unsigned long)dict.count];
+    }];
+    
+    [self setupSpeaker];
+    [self setupQuizButton];
+
+}
+
+- (void) setupQuizButton{
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"Quizzes" forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:15.0];
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    button.frame = CGRectMake(0, 0, 67, 30);
+    [button addTarget:self action:@selector(showQuzzies) forControlEvents:UIControlEventTouchDown];
+    
+    self.navButton = [[ENMBadgedBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = self.navButton;
+}
+
+- (void) setupSpeaker {
+
+   NSLog(@"_training.speakerImage %@", _training.speakerImage);
+
+    [self.speakerImage sd_setImageWithURL:[NSURL URLWithString:_training.speakerImage] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"person"]];
+    self.speakerImage.layer.cornerRadius = self.speakerImage.frame.size.height/2;
+    self.speakerImage.layer.masksToBounds = YES;
+    self.speakerImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
     
     [_trainingTableViewCell setupContentWithTraining:_training];
     [_aboutTrainingTableViewCell setupContentWithAboutTraining:_training];
@@ -28,9 +67,78 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"segueFromTrainingToSpeaker"]) {
         SpeakerDeatails *sd = [segue destinationViewController];
+
         sd.details = _speaker[0];
         sd.training = _training;
     }
 }
+        sd.details = _trainings[self.tableView.indexPathForSelectedRow.row];
+    }
+}
 
+-(void)showQuzzies {
+    [self performSegueWithIdentifier:@"segueToQuizzes" sender:nil];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+/*
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    return cell;
+}
+*/
+
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 @end

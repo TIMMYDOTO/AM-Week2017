@@ -12,6 +12,7 @@
 #import "SpeakerDeatails.h"
 #import "TrainingDetailsCell.h"
 #import "FirebaseService.h"
+#import <FirebaseDatabase/FirebaseDatabase.h>
 
 @interface TrainingTableViewController : UITableViewController
 
@@ -20,6 +21,5 @@
 @property (strong, nonatomic) IBOutlet TrainingDetailsCell *aboutTrainingTableViewCell;
 @property (strong, nonatomic) IBOutlet TrainingDetailsCell *speakerTableViewCell;
 @property (strong, nonatomic) Training *training;
-@property (strong, nonatomic) NSMutableArray *speaker;
 
 @end

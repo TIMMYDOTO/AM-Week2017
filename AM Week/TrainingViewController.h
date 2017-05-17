@@ -14,8 +14,7 @@
 #import "QRCodeReaderViewController.h"
 #import "QRComponentsDetailsViewController.h"
 
-@interface TrainingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TrainingCellDelegate, QRCodeReaderDelegate>
-@property (weak, nonatomic) IBOutlet CSAnimationView *animationView;
+@interface TrainingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TrainingCellDelegate>
 
 @property (nonatomic,retain) NSDate* date;
 @property (nonatomic, weak) IBOutlet UITableView *trainingTable;

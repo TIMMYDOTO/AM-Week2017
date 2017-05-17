@@ -49,7 +49,6 @@
         _quizzes = result;
         [spinner stopAnimating];
         [quizTable reloadData];
-
     }];
 }
 

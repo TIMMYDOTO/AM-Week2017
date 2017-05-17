@@ -12,6 +12,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FirebaseService.h"
 #import "Training.h"
+#import <FirebaseDatabase/FirebaseDatabase.h>
 
 @interface SpeakerDeatails : UITableViewController{
     @public NSString *speakerImageURL;

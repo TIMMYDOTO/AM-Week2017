@@ -10,8 +10,10 @@
 #import "FirebaseService.h"
 #import "TrainingCell.h"
 #import "Training.h"
-
+#import "ENMBadgedBarButtonItem.h"
+#import "QuizViewController.h"
 #import "TrainingTableViewController.h"
+
 @interface TrainingViewController (){
     
     Training* currentTrainig;
@@ -22,6 +24,9 @@
 }
 @property (strong, nonatomic) NSMutableArray *trainings;
 @property (strong, nonatomic) NSMutableArray *speaker;
+@property (strong, nonatomic) UIButton *userButton;
+@property (strong, nonatomic) NSMutableArray *trainings;
+@property (nonatomic, strong) ENMBadgedBarButtonItem *navButton;
 @end
 
 @implementation TrainingViewController
@@ -36,6 +41,13 @@
     spinner.frame = frame;
     [self.view addSubview:spinner];
     [spinner startAnimating];
+   
+    self.ref = [[FIRDatabase database] reference];
+    refHandle = [[_ref child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        dict = snapshot.value;
+        self.navButton.badgeValue = [NSString stringWithFormat:@"%lu", (unsigned long)dict.count];
+    }];
+
     self.date = [self dateForSelectedTab];
     self.navigationItem.title = [self dateTitleFromDate:self.date];
     
@@ -52,6 +64,20 @@
     [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         [_animationView startCanvasAnimation];
     }];
+    [self setupQuizButton];
+}
+
+- (void) setupQuizButton{
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"Quizzes" forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:15.0];
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    button.frame = CGRectMake(0, 0, 67, 30);
+    [button addTarget:self action:@selector(showQuzzies) forControlEvents:UIControlEventTouchDown];
+    
+    self.navButton = [[ENMBadgedBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = self.navButton;
 }
 
 - (NSDate*) dateForSelectedTab {
@@ -72,6 +98,7 @@
     
     return weekDayText;
 }
+
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"showQRComponents"]) {
@@ -105,6 +132,10 @@
 - (void) showSpeakerProfileForTraining:(Training *)training {
     currentTrainig = training;
     [self performSegueWithIdentifier:@"segueToSpeaker" sender:nil];
+}
+
+-(void)showQuzzies {
+    [self performSegueWithIdentifier:@"segueToQuizzes" sender:nil];
 }
 
 - (IBAction)OpenQR:(id)sender {
