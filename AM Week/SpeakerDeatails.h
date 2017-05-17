@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Training.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <FirebaseDatabase/FirebaseDatabase.h>
+
 @interface SpeakerDeatails : UITableViewController{
 @public NSString *speakerImageURL;
 }

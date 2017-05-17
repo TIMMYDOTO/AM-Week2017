@@ -10,7 +10,8 @@
 #import "Training.h"
 #import <SDWebImage/UIButton+WebCache.h>
 #import "SpeakerDeatails.h"
-//#import "TrainingViewController.m"
+#import <FirebaseDatabase/FirebaseDatabase.h>
+
 @interface TrainingTableViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet UILabel *date;
 @property (strong, nonatomic) IBOutlet UILabel *location;
@@ -25,7 +26,5 @@
 
 @property (strong, nonatomic) NSString *str1;
 @property (strong, nonatomic) Training *training;
-
-
 
 @end

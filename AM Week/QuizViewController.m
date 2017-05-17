@@ -40,7 +40,6 @@
     [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _quizzes = result;
         [quizTable reloadData];
-
     }];
 }
 

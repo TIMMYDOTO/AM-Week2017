@@ -10,18 +10,21 @@
 #import "FirebaseService.h"
 #import "TrainingCell.h"
 #import "Training.h"
-
+#import "ENMBadgedBarButtonItem.h"
+#import "QuizViewController.h"
 #import "TrainingTableViewController.h"
+
 @interface TrainingViewController (){
     
     Training* currentTrainig;
     NSMutableArray *arr;
     FIRDatabaseHandle refHandle;
     NSDictionary *dict;
-  
 }
 
+@property (strong, nonatomic) UIButton *userButton;
 @property (strong, nonatomic) NSMutableArray *trainings;
+@property (nonatomic, strong) ENMBadgedBarButtonItem *navButton;
 @end
 
 @implementation TrainingViewController
@@ -33,40 +36,33 @@
     self.ref = [[FIRDatabase database] reference];
     refHandle = [[_ref child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         dict = snapshot.value;
-        _nrOfQuizzes.text = [NSString stringWithFormat:@"%lu", (unsigned long)dict.count];
-//        _question.text = [[dict objectForKey:@"androiodone"] objectForKey: @"question"];
-//        _labelForCode.text = [[dict objectForKey:@"androiodone"] objectForKey:@"codeSnippet"];
-    
+        self.navButton.badgeValue = [NSString stringWithFormat:@"%lu", (unsigned long)dict.count];
     }];
-
-    _nrOfQuizzes.backgroundColor = [UIColor greenColor];
-    _nrOfQuizzes.layer.cornerRadius = _nrOfQuizzes.frame.size.height/2;
-    _nrOfQuizzes.layer.masksToBounds = YES;
-    _nrOfQuizzes.layer.borderWidth = 2;
-    _nrOfQuizzes.layer.borderColor =[[UIColor blueColor] CGColor];
-    
     
     self.date = [self dateForSelectedTab];
     self.navigationItem.title = [self dateTitleFromDate:self.date];
     
     _trainings = [[NSMutableArray alloc] init];
     
-
-    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil  andCompletionBlock:^(NSMutableArray* result, NSError* error) {
-        [_animationView startCanvasAnimation];
-    }];
-
-    
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _trainings = result;
         [trainingTable reloadData];
     }];
     
+    [self setupQuizButton];
+}
+
+- (void) setupQuizButton{
     
-    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil  andCompletionBlock:^(NSMutableArray *result, NSError *error) {
-        
-        [_animationView startCanvasAnimation];
-    }];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"Quizzes" forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:15.0];
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    button.frame = CGRectMake(0, 0, 67, 30);
+    [button addTarget:self action:@selector(showQuzzies) forControlEvents:UIControlEventTouchDown];
+    
+    self.navButton = [[ENMBadgedBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = self.navButton;
 }
 
 - (NSDate*) dateForSelectedTab {
@@ -88,19 +84,9 @@
     return weekDayText;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
-
-    // Dispose of any resources that can be recreated.
-}
-
-
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"segueToSpeaker"]) {
         SpeakerDeatails *sd = [segue destinationViewController];
-    
         sd.details = currentTrainig;
         currentTrainig = nil;
         
@@ -108,9 +94,7 @@
     if ([segue.identifier isEqualToString:@"segueToTraining"]) {
         TrainingTableViewController *td = [segue destinationViewController];
         td.training = _trainings[self.trainingTable.indexPathForSelectedRow.row];
-        
     }
-
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -130,7 +114,10 @@
 -(void)showSpeakerProfileForTraining:(Training *)training {
     currentTrainig = training;
     [self performSegueWithIdentifier:@"segueToSpeaker" sender:nil];
-    
+}
+
+-(void)showQuzzies {
+    [self performSegueWithIdentifier:@"segueToQuizzes" sender:nil];
 }
 
 - (IBAction)OpenQR:(id)sender {

@@ -8,11 +8,15 @@
 
 #import "TrainingTableViewController.h"
 #import "FirebaseService.h"
+#import "ENMBadgedBarButtonItem.h"
 
-@interface TrainingTableViewController ()
+@interface TrainingTableViewController (){
+    NSDictionary *dict;
+    FIRDatabaseHandle refHandle;
+}
 @property (strong, nonatomic) NSMutableArray *trainings;
+@property (nonatomic, strong) ENMBadgedBarButtonItem *navButton;
 @end
-
 
 @implementation TrainingTableViewController
 @synthesize description, tableView;
@@ -25,14 +29,30 @@
         
         [tableView reloadData];
     }];
+
+    refHandle = [[[[FIRDatabase database] reference] child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        dict = snapshot.value;
+        self.navButton.badgeValue = [NSString stringWithFormat:@"%lu", (unsigned long)dict.count];
+    }];
+    
     [self setupSpeaker];
+    [self setupQuizButton];
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) setupQuizButton{
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"Quizzes" forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:15.0];
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    button.frame = CGRectMake(0, 0, 67, 30);
+    [button addTarget:self action:@selector(showQuzzies) forControlEvents:UIControlEventTouchDown];
+    
+    self.navButton = [[ENMBadgedBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = self.navButton;
 }
+
 - (void) setupSpeaker {
 
    NSLog(@"_training.speakerImage %@", _training.speakerImage);
@@ -57,9 +77,12 @@
     if ([segue.identifier isEqualToString:@"segueFromTrainingToSpeaker"]) {
         NSLog(@"segueFromTrainingToSpeaker");
         SpeakerDeatails *sd = [segue destinationViewController];
-       sd.details = _trainings[self.tableView.indexPathForSelectedRow.row];
-        
+        sd.details = _trainings[self.tableView.indexPathForSelectedRow.row];
     }
+}
+
+-(void)showQuzzies {
+    [self performSegueWithIdentifier:@"segueToQuizzes" sender:nil];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

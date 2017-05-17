@@ -13,6 +13,7 @@
 		8E06D3AD1EB49A2A002F8C96 /* TrainingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E06D3AC1EB49A29002F8C96 /* TrainingCell.m */; };
 		8ED4DCDD1EBB64090060750A /* TrainingTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ED4DCDC1EBB64090060750A /* TrainingTableViewController.m */; };
 		8EEA4980214E59CD1EDE4146 /* libPods-AM WeekTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CC770DFE72F2A0D6A50490 /* libPods-AM WeekTests.a */; };
+		8EFFF46F1ECC3777000E4C34 /* ENMBadgedBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EFFF46E1ECC3777000E4C34 /* ENMBadgedBarButtonItem.m */; };
 		AA998C402002DEFC909EF150 /* libPods-AM Week.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB42A2910E9F06D32AEB07B /* libPods-AM Week.a */; };
 		D979888248E7BB0D3B1BF862 /* libPods-AM WeekUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C375E6BA30A5E790D1ACBAD /* libPods-AM WeekUITests.a */; };
 		E424F6541EBB7EB900078B2F /* SpeakerDeatails.m in Sources */ = {isa = PBXBuildFile; fileRef = E424F6531EBB7EB900078B2F /* SpeakerDeatails.m */; };
@@ -70,6 +71,8 @@
 		8ED4DCDB1EBB64090060750A /* TrainingTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingTableViewController.h; sourceTree = "<group>"; };
 		8ED4DCDC1EBB64090060750A /* TrainingTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingTableViewController.m; sourceTree = "<group>"; };
 		8ED4DD231EC488BB0060750A /* AM Week.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AM Week.entitlements"; sourceTree = "<group>"; };
+		8EFFF46D1ECC3777000E4C34 /* ENMBadgedBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENMBadgedBarButtonItem.h; sourceTree = "<group>"; };
+		8EFFF46E1ECC3777000E4C34 /* ENMBadgedBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENMBadgedBarButtonItem.m; sourceTree = "<group>"; };
 		9FC676E9943090D4A2E23C44 /* Pods-AM WeekUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM WeekUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AM WeekUITests/Pods-AM WeekUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B7A9488C9ABDE0854785595D /* Pods-AM Week.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM Week.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AM Week/Pods-AM Week.debug.xcconfig"; sourceTree = "<group>"; };
 		CFBA7DC793214FE1BF43C0AF /* Pods-AM Week.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AM Week.release.xcconfig"; path = "Pods/Target Support Files/Pods-AM Week/Pods-AM Week.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +176,15 @@
 			name = "Training Details";
 			sourceTree = "<group>";
 		};
+		8EFFF4691ECC325F000E4C34 /* ButtonBadge */ = {
+			isa = PBXGroup;
+			children = (
+				8EFFF46D1ECC3777000E4C34 /* ENMBadgedBarButtonItem.h */,
+				8EFFF46E1ECC3777000E4C34 /* ENMBadgedBarButtonItem.m */,
+			);
+			name = ButtonBadge;
+			sourceTree = "<group>";
+		};
 		E443289E1EB86D6D0084DD88 /* User Information */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +232,7 @@
 		E48089061EA6062A00A543C3 /* AM Week */ = {
 			isa = PBXGroup;
 			children = (
+				8EFFF4691ECC325F000E4C34 /* ButtonBadge */,
 				8ED4DCD71EBB633C0060750A /* Training Details */,
 				8E06D3631EB1E9FC002F8C96 /* Firebase */,
 				FFF3FE4F1EA7750A0033AAFE /* Training */,
@@ -620,6 +633,7 @@
 				E4F628291EB9DA0B005A1FDE /* Reachability.m in Sources */,
 				E424F6541EBB7EB900078B2F /* SpeakerDeatails.m in Sources */,
 				8E06D3AD1EB49A2A002F8C96 /* TrainingCell.m in Sources */,
+				8EFFF46F1ECC3777000E4C34 /* ENMBadgedBarButtonItem.m in Sources */,
 				8ED4DCDD1EBB64090060750A /* TrainingTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

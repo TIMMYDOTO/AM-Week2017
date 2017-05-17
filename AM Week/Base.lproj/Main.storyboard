@@ -292,38 +292,6 @@
                                     <outlet property="delegate" destination="alq-9F-DV3" id="pWF-tN-jPK"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ye-d6-Wcb" customClass="CSAnimationView">
-                                <rect key="frame" x="280" y="530" width="80" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cln-zD-0Jk">
-                                        <rect key="frame" x="18" y="14" width="44" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="Quiz Icon"/>
-                                        <connections>
-                                            <segue destination="NHz-U2-fyB" kind="show" id="7aj-qx-Q0S"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTy-AR-Nrs">
-                                        <rect key="frame" x="16" y="13" width="19" height="19"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" cyan="0.0" magenta="0.0" yellow="0.0" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="pop"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                                        <integer key="value" value="0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="pauseAnimationOnAwake" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -349,11 +317,10 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="animationView" destination="2Ye-d6-Wcb" id="Z1o-Ex-Ufi"/>
-                        <outlet property="nrOfQuizzes" destination="OTy-AR-Nrs" id="Ql2-vU-SbJ"/>
                         <outlet property="trainingTable" destination="MP9-Fm-Ts3" id="gx8-6g-Lep"/>
                         <segue destination="zjx-pe-YT4" kind="show" identifier="toGoogle" id="CMc-eh-bRa"/>
                         <segue destination="e8V-Eq-fLq" kind="show" identifier="segueToSpeaker" id="8XM-t2-jD5"/>
+                        <segue destination="NHz-U2-fyB" kind="show" identifier="segueToQuizzes" id="vPg-i3-Lks"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWK-DW-4fd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -612,6 +579,7 @@
                         <outlet property="tableView" destination="aJI-2U-bgX" id="37X-LK-Kag"/>
                         <outlet property="time" destination="2FK-o3-sfY" id="Vb5-wr-2vR"/>
                         <outlet property="type" destination="gZ0-4F-VBm" id="4RS-Q1-pTT"/>
+                        <segue destination="NHz-U2-fyB" kind="show" identifier="segueToQuizzes" id="5wy-1Z-eyU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWr-KW-1tu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -803,6 +771,7 @@
                         <outlet property="trainingStream" destination="2Z7-cd-J2z" id="8dI-1f-nsR"/>
                         <outlet property="trainingTime" destination="CX2-WB-O2y" id="bJb-jw-0AC"/>
                         <outlet property="trainingTitle" destination="0zX-0x-2Bv" id="chr-cN-Zmh"/>
+                        <segue destination="NHz-U2-fyB" kind="show" identifier="segueToQuizzes" id="ExF-MO-9ZE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bof-Oc-cJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1144,7 +1113,6 @@
         <image name="Location Icon" width="20" height="20"/>
         <image name="Microphone Icon" width="20" height="20"/>
         <image name="Monday" width="31" height="34"/>
-        <image name="Quiz Icon" width="64" height="64"/>
         <image name="Stream Icon" width="20" height="17"/>
         <image name="Thursday" width="31" height="34"/>
         <image name="Tuesday" width="31" height="34"/>
@@ -1152,8 +1120,9 @@
         <image name="Wednesday" width="31" height="34"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8XM-t2-jD5"/>
+        <segue reference="vPg-i3-Lks"/>
         <segue reference="w4M-hI-9s9"/>
+        <segue reference="8XM-t2-jD5"/>
         <segue reference="CMc-eh-bRa"/>
     </inferredMetricsTieBreakers>
 </document>
