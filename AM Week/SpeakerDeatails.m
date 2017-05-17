@@ -9,7 +9,6 @@
 #import "SpeakerDeatails.h"
 #import "ENMBadgedBarButtonItem.h"
 
-@interface SpeakerDeatails ()
 @interface SpeakerDeatails (){
     NSDictionary *dict;
     FIRDatabaseHandle refHandle;
@@ -22,12 +21,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"SpeakerDeatails");
+    
+    [[FirebaseService sharedManager] getFirebase:(AMWSpeaker) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: _training.speakerId andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+        _details = result[0];
+        [_speakerTableViewCell setupContentWithSpeaker: _details];
+        [_aboutSpeakerTableViewCell setupContentWithAboutSpeaker: _details];
+    }];
+    
+    [_speakerTrainingsTableViewCell setupContentWithSpeakerTrainings: _training];
     
     refHandle = [[[[FIRDatabase database] reference] child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         dict = snapshot.value;
         self.navButton.badgeValue = [NSString stringWithFormat:@"%lu", (unsigned long)dict.count];
     }];
+    
     [self setupQuizButton];
 }
 

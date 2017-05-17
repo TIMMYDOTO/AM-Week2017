@@ -13,8 +13,9 @@
 #import "QRCodeReader.h"
 #import "QRCodeReaderViewController.h"
 #import "QRComponentsDetailsViewController.h"
+#import <FirebaseDatabase/FirebaseDatabase.h>
 
-@interface TrainingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TrainingCellDelegate>
+@interface TrainingViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TrainingCellDelegate, QRCodeReaderDelegate>
 
 @property (nonatomic,retain) NSDate* date;
 @property (nonatomic, weak) IBOutlet UITableView *trainingTable;

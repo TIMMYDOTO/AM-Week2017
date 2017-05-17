@@ -33,8 +33,9 @@
         self.navButton.badgeValue = [NSString stringWithFormat:@"%lu", (unsigned long)dict.count];
     }];
     
-    [self setupSpeaker];
     [self setupQuizButton];
+    [_trainingTableViewCell setupContentWithTraining:_training];
+    [_aboutTrainingTableViewCell setupContentWithAboutTraining:_training];
 
 }
 
@@ -51,19 +52,6 @@
     self.navigationItem.rightBarButtonItem = self.navButton;
 }
 
-- (void) setupSpeaker {
-
-   NSLog(@"_training.speakerImage %@", _training.speakerImage);
-
-    [self.speakerImage sd_setImageWithURL:[NSURL URLWithString:_training.speakerImage] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"person"]];
-    self.speakerImage.layer.cornerRadius = self.speakerImage.frame.size.height/2;
-    self.speakerImage.layer.masksToBounds = YES;
-    self.speakerImage.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    
-    [_trainingTableViewCell setupContentWithTraining:_training];
-    [_aboutTrainingTableViewCell setupContentWithAboutTraining:_training];
-}
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"segueFromTrainingToSpeaker"]) {
         SpeakerDeatails *sd = [segue destinationViewController];
@@ -72,21 +60,11 @@
         sd.training = _training;
     }
 }
-        sd.details = _trainings[self.tableView.indexPathForSelectedRow.row];
-    }
-}
 
 -(void)showQuzzies {
     [self performSegueWithIdentifier:@"segueToQuizzes" sender:nil];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
-}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

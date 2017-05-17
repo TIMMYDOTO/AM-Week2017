@@ -21,11 +21,11 @@
     NSDictionary *dict;
     QRCodeReaderViewController *vc;
     NSString *resultString;
+    FIRDatabaseHandle refHandle;
 }
 @property (strong, nonatomic) NSMutableArray *trainings;
 @property (strong, nonatomic) NSMutableArray *speaker;
 @property (strong, nonatomic) UIButton *userButton;
-@property (strong, nonatomic) NSMutableArray *trainings;
 @property (nonatomic, strong) ENMBadgedBarButtonItem *navButton;
 @end
 
@@ -34,6 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     CGRect frame = spinner.frame;
     frame.origin.x = (self.view.frame.size.width / 2 - frame.size.width / 2);
@@ -42,8 +43,7 @@
     [self.view addSubview:spinner];
     [spinner startAnimating];
    
-    self.ref = [[FIRDatabase database] reference];
-    refHandle = [[_ref child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+    refHandle = [[[[FIRDatabase database] reference] child:@"quizzes"]  observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         dict = snapshot.value;
         self.navButton.badgeValue = [NSString stringWithFormat:@"%lu", (unsigned long)dict.count];
     }];
@@ -54,16 +54,12 @@
     _trainings = [[NSMutableArray alloc] init];
     _speaker = [[NSMutableArray alloc] init];
 
-
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _trainings = result;
         [spinner stopAnimating];
         [trainingTable reloadData];
     }];
     
-    [[FirebaseService sharedManager] getFirebase:(AMWQuizzes) day:nil speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
-        [_animationView startCanvasAnimation];
-    }];
     [self setupQuizButton];
 }
 
@@ -98,7 +94,6 @@
     
     return weekDayText;
 }
-
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"showQRComponents"]) {

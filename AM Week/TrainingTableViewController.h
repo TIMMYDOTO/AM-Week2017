@@ -21,5 +21,6 @@
 @property (strong, nonatomic) IBOutlet TrainingDetailsCell *aboutTrainingTableViewCell;
 @property (strong, nonatomic) IBOutlet TrainingDetailsCell *speakerTableViewCell;
 @property (strong, nonatomic) Training *training;
+@property (strong, nonatomic) NSMutableArray *speaker;
 
 @end
