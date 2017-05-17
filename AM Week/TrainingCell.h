@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <SDWebImage/UIButton+WebCache.h>
+
 @class Training;
 
 @protocol TrainingCellDelegate <NSObject>

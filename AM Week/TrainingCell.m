@@ -57,12 +57,26 @@
                                          NSCalendarUnitMonth + NSCalendarUnitDay +
                                          NSCalendarUnitHour + NSCalendarUnitMinute +
                                          NSCalendarUnitSecond fromDate:date];
-        if(triggerDate.minute - 15 < 0){
-            [triggerDate setHour:triggerDate.hour - 1];
-            [triggerDate setMinute:triggerDate.minute + 45];
-        } else {
-            [triggerDate setMinute:triggerDate.minute - 15];
+        
+        NSDate *triggerDateComponents = [[NSCalendar currentCalendar] dateFromComponents:triggerDate];
+        NSDate *currentDateComponents = [[NSCalendar currentCalendar] dateFromComponents:[self currentDate]];
+        
+        if ([triggerDateComponents timeIntervalSinceDate: currentDateComponents] >= 900.0f){
+            if(triggerDate.minute - 15 < 0){
+                [triggerDate setHour:triggerDate.hour - 1];
+                [triggerDate setMinute:triggerDate.minute + 45];
+            } else {
+                [triggerDate setMinute:triggerDate.minute - 15];
+            }
+        } else if([triggerDateComponents timeIntervalSinceDate: currentDateComponents] >= 0){
+            [triggerDate setMinute:[self currentDate].minute];
+            [triggerDate setSecond:[self currentDate].second + 2];
+        } else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Training already took place or has started." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert show];
         }
+        
+
 
         UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:triggerDate repeats:NO];
         UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
@@ -75,7 +89,14 @@
     }
     _starButton.selected = !_starButton.selected;
     [self changeTrainingState];
+}
+
+-(NSDateComponents*) currentDate{
     
+    NSCalendar *gregorian = [NSCalendar currentCalendar];
+    NSDateComponents *components = [gregorian components: NSCalendarUnitSecond | NSCalendarUnitMinute | NSCalendarUnitHour | NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    
+    return components;
 }
 
 - (void) changeTrainingState {
