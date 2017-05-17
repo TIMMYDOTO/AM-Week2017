@@ -30,12 +30,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]
-                                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    spinner.transform = CGAffineTransformMakeScale(1.3, 1.3);
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
     CGRect frame = spinner.frame;
-    
-    
     frame.origin.x = (self.view.frame.size.width / 2 - frame.size.width / 2);
     frame.origin.y = (self.view.frame.size.height / 2 - frame.size.height / 2);
     spinner.frame = frame;

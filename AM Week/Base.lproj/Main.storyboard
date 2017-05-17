@@ -323,7 +323,6 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="animationView" destination="2Ye-d6-Wcb" id="Z1o-Ex-Ufi"/>
-                        <outlet property="mainView" destination="Ra8-PQ-ZqP" id="E94-vM-k8c"/>
                         <outlet property="trainingTable" destination="MP9-Fm-Ts3" id="gx8-6g-Lep"/>
                         <segue destination="zjx-pe-YT4" kind="show" identifier="toGoogle" id="CMc-eh-bRa"/>
                         <segue destination="e8V-Eq-fLq" kind="show" identifier="segueToSpeaker" id="8XM-t2-jD5"/>
@@ -1145,7 +1144,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="w4M-hI-9s9"/>
-        <segue reference="CMc-eh-bRa"/>
         <segue reference="8XM-t2-jD5"/>
+        <segue reference="CMc-eh-bRa"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -29,7 +29,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    CGRect frame = spinner.frame;
+    frame.origin.x = (self.view.frame.size.width / 2 - frame.size.width / 2);
+    frame.origin.y = (self.view.frame.size.height / 2 - frame.size.height / 2);
+    spinner.frame = frame;
+    [self.view addSubview:spinner];
+    [spinner startAnimating];
     self.date = [self dateForSelectedTab];
     self.navigationItem.title = [self dateTitleFromDate:self.date];
     
@@ -39,6 +45,7 @@
 
     [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _trainings = result;
+        [spinner stopAnimating];
         [trainingTable reloadData];
     }];
     
