@@ -34,6 +34,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+  
+    [self setTabBarForCurrentDay];
+   
     
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     CGRect frame = spinner.frame;
@@ -62,6 +66,23 @@
     
     [self setupQuizButton];
 }
+-(void)setTabBarForCurrentDay{
+    if ([[self todayDayWeekDay] isEqualToString:@"Monday"]) {
+        self.tabBarController.selectedIndex = 0;
+    }
+    else if ([[self todayDayWeekDay] isEqualToString:@"Tuesday"]){
+        self.tabBarController.selectedIndex = 1;
+    }
+    else if ([[self todayDayWeekDay] isEqualToString:@"Wednesday"]){
+        self.tabBarController.selectedIndex = 2;
+    }
+    else if ([[self todayDayWeekDay] isEqualToString:@"Thursday"]){
+        self.tabBarController.selectedIndex = 3;
+    }
+    else if ([[self todayDayWeekDay] isEqualToString:@"Friday"]){
+        self.tabBarController.selectedIndex = 4;
+    }
+}
 
 - (void) setupQuizButton{
     
@@ -84,6 +105,14 @@
     [comps setYear:2017];
     
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
+}
+- (NSString*) todayDayWeekDay{
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"EEEE"];
+    NSString *todayDay = [formatter stringFromDate:date];
+    
+    return todayDay;
 }
 
 - (NSString*) dateTitleFromDate:(NSDate*) date {
