@@ -67,19 +67,19 @@
     [self setupQuizButton];
 }
 -(void)setTabBarForCurrentDay{
-    if ([[self todayDayWeekDay] isEqualToString:@"Monday"]) {
+    if ([[self todayDayWeekDay] isEqualToString:@"Monday" ] || [[self todayDayWeekDay] isEqualToString:@"понедельник"]) {
         self.tabBarController.selectedIndex = 0;
     }
-    else if ([[self todayDayWeekDay] isEqualToString:@"Tuesday"]){
+    else if ([[self todayDayWeekDay] isEqualToString:@"Tuesday"] || [[self todayDayWeekDay] isEqualToString:@"вторник"]){
         self.tabBarController.selectedIndex = 1;
     }
-    else if ([[self todayDayWeekDay] isEqualToString:@"Wednesday"]){
+    else if ([[self todayDayWeekDay] isEqualToString:@"Wednesday"] || [[self todayDayWeekDay] isEqualToString:@"среда"]){
         self.tabBarController.selectedIndex = 2;
     }
-    else if ([[self todayDayWeekDay] isEqualToString:@"Thursday"]){
+    else if ([[self todayDayWeekDay] isEqualToString:@"Thursday"]  || [[self todayDayWeekDay] isEqualToString:@"четверг"]){
         self.tabBarController.selectedIndex = 3;
     }
-    else if ([[self todayDayWeekDay] isEqualToString:@"Friday"]){
+    else if ([[self todayDayWeekDay] isEqualToString:@"Friday"] || [[self todayDayWeekDay] isEqualToString:@"пятница"]){
         self.tabBarController.selectedIndex = 4;
     }
 }
