@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[FirebaseService sharedManager] getFirebase:(AMWSpeaker) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: _training.speakerId andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+    [[FirebaseService sharedManager] getFirebase:(AMWSpeaker) day: [NSString stringWithFormat:@"%u",self.tabBarController.selectedIndex+1] speakerID: _training.speakerId andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _speaker = result;
         [_speakerTableViewCell setupContentWithSpeaker:_speaker[0]];
     }];

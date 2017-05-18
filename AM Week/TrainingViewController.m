@@ -34,10 +34,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-  
-    [self setTabBarForCurrentDay];
-   
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+ [self setTabBarForCurrentDay];
+     });
     
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     CGRect frame = spinner.frame;
@@ -58,7 +58,7 @@
     _trainings = [[NSMutableArray alloc] init];
     _speaker = [[NSMutableArray alloc] init];
 
-    [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+    [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%u",self.tabBarController.selectedIndex+1] speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _trainings = result;
         [spinner stopAnimating];
         [trainingTable reloadData];
@@ -111,7 +111,7 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"EEEE"];
     NSString *todayDay = [formatter stringFromDate:date];
-    
+    NSLog(@"todayDay %@",todayDay);
     return todayDay;
 }
 
