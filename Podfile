@@ -18,6 +18,8 @@ target 'AM Week' do
   pod 'Canvas'
   pod 'Firebase/Messaging'   
   pod 'QRCodeReaderViewController'
+  pod 'Fabric'
+  pod 'Crashlytics'
   target 'AM WeekTests' do
     inherit! :search_paths
     # Pods for testing

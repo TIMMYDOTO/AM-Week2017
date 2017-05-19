@@ -34,10 +34,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
- [self setTabBarForCurrentDay];
-     });
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [self setTabBarForCurrentDay];
+    });
     
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     CGRect frame = spinner.frame;
@@ -58,7 +59,7 @@
     _trainings = [[NSMutableArray alloc] init];
     _speaker = [[NSMutableArray alloc] init];
 
-    [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%u",self.tabBarController.selectedIndex+1] speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
+    [[FirebaseService sharedManager] getFirebase:(AMWTrainings) day: [NSString stringWithFormat:@"%lu",self.tabBarController.selectedIndex+1] speakerID: nil andCompletionBlock:^(NSMutableArray *result, NSError *error) {
         _trainings = result;
         [spinner stopAnimating];
         [trainingTable reloadData];
@@ -66,6 +67,7 @@
     
     [self setupQuizButton];
 }
+
 -(void)setTabBarForCurrentDay{
     if ([[self todayDayWeekDay] isEqualToString:@"Monday" ] || [[self todayDayWeekDay] isEqualToString:@"понедельник"]) {
         self.tabBarController.selectedIndex = 0;

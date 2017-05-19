@@ -348,6 +348,7 @@
 				E48089021EA6062A00A543C3 /* Resources */,
 				E7DC48AF85BC0AA15EA179CB /* [CP] Embed Pods Frameworks */,
 				8BADD59595354BA59D4B452A /* [CP] Copy Pods Resources */,
+				8E73784A1ECEE9BF00012CAA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -569,6 +570,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AM Week/Pods-AM Week-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8E73784A1ECEE9BF00012CAA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 8bdce89ba57ed19fcab5c11382657beeb995c1fd 0addbd4fbccee38614b90de7ed20536517dd242973543822df0a1d0d296ea597";
 		};
 		D4D2D8D73EED5AC1D4432CC5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -792,6 +806,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "AM Week/AM Week.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "AM Week/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
