@@ -22,6 +22,7 @@
     if (self) {
         _title = dict[@"title"];
         _time = dict[@"time"];
+        _fullTime = dict[@"fullTime"];
         _speaker = dict[@"speaker"];
         _speakerId = dict[@"speakerID"];
         _stream = dict[@"stream"];

@@ -20,7 +20,7 @@
     _date.text = _training.date;
     _location.text = _training.location;
     _language.text = _training.language;
-    _time.text = _training.time;
+    _time.text = _training.fullTime;
     _type.text = _training.type;
     _stream.text = _training.stream;
 }

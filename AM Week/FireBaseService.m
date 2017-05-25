@@ -50,7 +50,8 @@
         if([[trainingObj[@"day"] stringValue] isEqualToString:day]){
             
             newTraining[@"title"] = trainingObj[@"title"];
-            newTraining[@"time"] = [NSString stringWithFormat:@"%@ - %@", trainingObj[@"timeStart"], trainingObj[@"timeEnd"]];
+            newTraining[@"time"] = trainingObj[@"timeStart"];
+            newTraining[@"fullTime"] = [NSString stringWithFormat:@"%@ - %@", trainingObj[@"timeStart"], trainingObj[@"timeEnd"]];
             newTraining[@"date"] = trainingObj[@"date"];
             newTraining[@"day"] = trainingObj[@"day"];
             newTraining[@"location"] = trainingObj[@"location"];
@@ -97,17 +98,7 @@
     
     [quizzes enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull quizObj, BOOL * _Nonnull stop) {
         
-        NSMutableDictionary* newQuiz = [[NSMutableDictionary alloc] init];
-
-        newQuiz[@"title"] = quizObj[@"title"];
-        newQuiz[@"question"] = quizObj[@"question"];
-        newQuiz[@"stream"] = quizObj[@"stream"];
-        newQuiz[@"answers"] = quizObj[@"answers"];
-        newQuiz[@"time"] = quizObj[@"time"];
-        newQuiz[@"date"] = quizObj[@"date"];
-//        newQuiz[@"questionId"] = quizObj[@"questionId"];
-        
-        [allInfo addObject:[[Quiz alloc] initQuizzesWithDict:newQuiz]];
+        [allInfo addObject:[[Quiz alloc] initQuizzesWithDict: quizObj]];
     }];
     
     if (completionBlock)

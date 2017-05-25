@@ -236,8 +236,8 @@
 			isa = PBXGroup;
 			children = (
 				8EFFF4691ECC325F000E4C34 /* ButtonBadge */,
-				8ED4DCD71EBB633C0060750A /* Training Details */,
 				8E06D3631EB1E9FC002F8C96 /* Firebase */,
+				8ED4DCD71EBB633C0060750A /* Training Details */,
 				FFF3FE4F1EA7750A0033AAFE /* Training */,
 				E443289E1EB86D6D0084DD88 /* User Information */,
 				FFF3FE4A1EA76FC90033AAFE /* Speaker */,

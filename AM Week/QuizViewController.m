@@ -10,13 +10,13 @@
 #import "FirebaseService.h"
 #import "QuizCell.h"
 #import "Quiz.h"
+#import "QuizQuestion.h"
 
 @import FirebaseDatabase;
 @import GoogleSignIn;
 @import Firebase;
 
 @interface QuizViewController ()
-
 @property (strong, nonatomic) UIButton *userButton;
 @property (strong, nonatomic) UIImage *buttonImage;
 @property (strong, nonatomic) UIImageView *image;
@@ -108,6 +108,13 @@
     [cell setupContentWithQuiz:_quizzes[indexPath.row]];
     
     return cell;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ShowQuizDetails"]) {
+        QuizQuestion* dest = [segue destinationViewController];
+        dest.quiz =  _quizzes[self.quizTable.indexPathForSelectedRow.row];
+    }
 }
 
 @end

@@ -35,11 +35,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [self setTabBarForCurrentDay];
-    });
-    
     UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     CGRect frame = spinner.frame;
     frame.origin.x = (self.view.frame.size.width / 2 - frame.size.width / 2);
@@ -66,24 +61,6 @@
     }];
     
     [self setupQuizButton];
-}
-
--(void)setTabBarForCurrentDay{
-    if ([[self todayDayWeekDay] isEqualToString:@"Monday" ] || [[self todayDayWeekDay] isEqualToString:@"понедельник"]) {
-        self.tabBarController.selectedIndex = 0;
-    }
-    else if ([[self todayDayWeekDay] isEqualToString:@"Tuesday"] || [[self todayDayWeekDay] isEqualToString:@"вторник"]){
-        self.tabBarController.selectedIndex = 1;
-    }
-    else if ([[self todayDayWeekDay] isEqualToString:@"Wednesday"] || [[self todayDayWeekDay] isEqualToString:@"среда"]){
-        self.tabBarController.selectedIndex = 2;
-    }
-    else if ([[self todayDayWeekDay] isEqualToString:@"Thursday"]  || [[self todayDayWeekDay] isEqualToString:@"четверг"]){
-        self.tabBarController.selectedIndex = 3;
-    }
-    else if ([[self todayDayWeekDay] isEqualToString:@"Friday"] || [[self todayDayWeekDay] isEqualToString:@"пятница"]){
-        self.tabBarController.selectedIndex = 4;
-    }
 }
 
 - (void) setupQuizButton{

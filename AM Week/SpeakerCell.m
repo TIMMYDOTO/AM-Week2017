@@ -14,7 +14,6 @@
     _speaker = speaker;
     
     _name.text = _speaker.name;
-    _details.text = _speaker.shortInfo;
     
     _imageURL = [NSURL URLWithString:_speaker.imageURL];
     UIImage *image = [UIImage imageNamed:@"Image Placeholder"];

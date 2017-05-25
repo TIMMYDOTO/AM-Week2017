@@ -22,6 +22,10 @@
     [FIRApp configure];
     [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
     [GIDSignIn sharedInstance].delegate = self;
+    
+    NSInteger weekday = [[NSCalendar currentCalendar] component:NSCalendarUnitWeekday fromDate:[NSDate date]];
+    UITabBarController *tabBar = (UITabBarController *)self.window.rootViewController;
+    [tabBar setSelectedIndex:weekday-2];
  
     return YES;
 }
@@ -99,16 +103,16 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
 
     if (error == nil) {
         GIDAuthentication *authentication = user.authentication;
-     //   FIRAuthCredential *credential = [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
-       //                                  accessToken:authentication.accessToken];
-       BOOL hasImage = user.profile.hasImage;
-        NSString *name = user.profile.name;
-        NSString *familyName = user.profile.familyName;
-        NSURL *imageURL = [user.profile imageURLWithDimension:120];
-   
-      
-        NSLog(@"YOU ARE SIGNED IN");
-        // ...
+//     //   FIRAuthCredential *credential = [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
+//       //                                  accessToken:authentication.accessToken];
+//       BOOL hasImage = user.profile.hasImage;
+//        NSString *name = user.profile.name;
+//        NSString *familyName = user.profile.familyName;
+//        NSURL *imageURL = [user.profile imageURLWithDimension:120];
+//   
+//      
+//        NSLog(@"YOU ARE SIGNED IN");
+//        // ...
     } else {
         // ...
     }

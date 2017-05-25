@@ -51,6 +51,7 @@
         UNMutableNotificationContent *content = [[UNMutableNotificationContent alloc] init];
         [content setBody: [NSString stringWithFormat:@"Training '%@' is about to start at %@", _training.title, dateStr]];
         [content setTitle:@"Reminder"];
+        [content setSound:[UNNotificationSound defaultSound]];
         
         NSDateComponents *triggerDate = [[NSCalendar currentCalendar]
                                          components:NSCalendarUnitYear +
@@ -75,8 +76,6 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"Training already took place or has started." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert show];
         }
-        
-
 
         UNCalendarNotificationTrigger *trigger = [UNCalendarNotificationTrigger triggerWithDateMatchingComponents:triggerDate repeats:NO];
         UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];

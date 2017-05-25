@@ -21,8 +21,12 @@
     self = [super init];
     if (self) {
         _title = dict[@"title"];
+        _question = dict[@"conditions"];
         _time = dict[@"time"];
         _date = dict[@"date"];
+        _codeSnippet = dict[@"codeSnippet"];
+        _questionId = dict[@"questionId"];
+        _winner = dict[@"winner"];
     }
     return self;
 }
