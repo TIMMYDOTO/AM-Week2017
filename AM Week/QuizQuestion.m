@@ -12,7 +12,6 @@
 @interface QuizQuestion () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (weak, nonatomic) IBOutlet UITextField *answer;
-
 @end
 
 @implementation QuizQuestion
