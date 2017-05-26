@@ -18,6 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+    
     self.navigationItem.title = _quiz.title;
     self.ref = [[FIRDatabase database] reference];
     NSLog(@"**** Title: %@ \n Question: %@",_quiz.title,_quiz.question);
@@ -26,6 +30,22 @@
         [_quiz.question stringByAppendingFormat:@"\n\n\n\n%@",_quiz.codeSnippet];
     }
     [_textView setText:[_quiz.question stringByReplacingOccurrencesOfString: @"\\n" withString: @"\n"]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+}
+
+-(void)dismissKeyboard {
+    [_answer resignFirstResponder];
+}
+
+- (void)keyboardDidHide:(NSNotification*)notification {
+    NSLog(@"keyboardDidHide");
+    [_answer setFrame:CGRectMake(16, 483, _answer.frame.size.width, _answer.frame.size.height)];
+}
+- (void)keyboardDidShow:(NSNotification*)notification {
+    NSLog(@"keyboardDidShow");
+    [_answer setFrame:CGRectMake(16, 87, _answer.frame.size.width, _answer.frame.size.height)];
 }
 
 - (IBAction)submit:(UIButton *)sender {

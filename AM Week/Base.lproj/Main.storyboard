@@ -181,9 +181,12 @@
                                                         <action selector="showSpeakerProfile:" destination="tms-a1-MUe" eventType="touchUpInside" id="rDQ-5S-u4z"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWn-4w-r9r">
+                                                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DWn-4w-r9r">
                                                     <rect key="frame" x="312" y="5" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="Nfa-Bb-xRj"/>
+                                                        <constraint firstAttribute="height" constant="40" id="dYq-sp-Zbq"/>
+                                                    </constraints>
                                                     <state key="normal" image="Starboy-empty"/>
                                                     <state key="selected" image="Starboy-full"/>
                                                     <connections>
@@ -242,6 +245,7 @@
                                                 <constraint firstItem="aCr-2g-4rd" firstAttribute="top" secondItem="mli-Fn-z3p" secondAttribute="bottom" id="4q6-JV-WBN"/>
                                                 <constraint firstItem="c3C-7g-rtY" firstAttribute="leading" secondItem="gPp-rf-00d" secondAttribute="trailing" constant="3" id="78J-d3-oaO"/>
                                                 <constraint firstItem="mli-Fn-z3p" firstAttribute="top" secondItem="eEA-TB-8m8" secondAttribute="top" constant="5" id="B4G-tv-2yj"/>
+                                                <constraint firstAttribute="trailing" secondItem="DWn-4w-r9r" secondAttribute="trailing" constant="-10" id="EoX-cQ-eYE"/>
                                                 <constraint firstItem="mli-Fn-z3p" firstAttribute="leading" secondItem="aCr-2g-4rd" secondAttribute="leading" id="MCC-td-Ccm"/>
                                                 <constraint firstItem="qJ1-Ks-vvz" firstAttribute="top" secondItem="aCr-2g-4rd" secondAttribute="bottom" id="O4Y-am-DC0"/>
                                                 <constraint firstItem="yrh-cy-Cmw" firstAttribute="leading" secondItem="aCr-2g-4rd" secondAttribute="leading" id="OfD-Xu-lCs"/>
@@ -254,6 +258,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="fZ1-du-0UQ" secondAttribute="bottom" constant="23.5" id="il4-vy-l8q"/>
                                                 <constraint firstItem="aCr-2g-4rd" firstAttribute="leading" secondItem="fZ1-du-0UQ" secondAttribute="trailing" constant="8" id="oWa-CV-xyc"/>
                                                 <constraint firstItem="gPp-rf-00d" firstAttribute="top" secondItem="aCr-2g-4rd" secondAttribute="bottom" id="qyp-ib-7gm"/>
+                                                <constraint firstItem="DWn-4w-r9r" firstAttribute="top" secondItem="eEA-TB-8m8" secondAttribute="top" constant="5" id="uis-YW-D18"/>
                                                 <constraint firstAttribute="trailing" secondItem="aCr-2g-4rd" secondAttribute="trailing" constant="8" id="yQn-wU-hSQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1109,9 +1114,9 @@
         <image name="qr" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="8XM-t2-jD5"/>
         <segue reference="w4M-hI-9s9"/>
-        <segue reference="jmq-9H-ihr"/>
-        <segue reference="5wy-1Z-eyU"/>
-        <segue reference="nfV-Ca-2t6"/>
+        <segue reference="CMc-eh-bRa"/>
+        <segue reference="vPg-i3-Lks"/>
     </inferredMetricsTieBreakers>
 </document>
