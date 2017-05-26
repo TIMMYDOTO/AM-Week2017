@@ -33,6 +33,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    [_answer addTarget:self action:@selector(submit:) forControlEvents:UIControlEventEditingDidEndOnExit];
 }
 
 -(void)dismissKeyboard {
